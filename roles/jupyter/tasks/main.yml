@@ -1,0 +1,46 @@
+---
+- name: Install prerequistes
+  apt:
+    name: "{{ p }}"
+  vars:
+    p:
+      - npm
+      - nodejs
+
+- name: Web Proxy
+  npm:
+    name: configurable-http-proxy
+    global: yes
+    state: present
+
+- name: Install JupyterHub
+  pip:
+    name:
+      - notebook
+      - jupyterhub
+      - oauthenticator
+    executable: "/usr/bin/pip3"
+    state: present
+
+- name: /etc/JupyterHub
+  file:
+    path: "/etc/jupyterhub"
+    state: directory
+
+- name: jupyterhub_config.py
+  copy:
+    src: "files/jupyterhub_config.py"
+    dest: "/etc/jupyterhub/jupyterhub_config.py"
+    force: no
+
+- name: jupyterhub.service
+  copy:
+    src: "files/jupyterhub.service"
+    dest: "/etc/systemd/system/jupyterhub.service"
+    force: no
+
+- name: Start SystemD service
+  systemd:
+    enabled: yes
+    name: jupyterhub
+    daemon_reload: yes

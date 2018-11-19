@@ -9,8 +9,8 @@
     - common
 
 - name: JupyterHub servers
-  hosts:
-    - raspberrypi
+  hosts: jupyter_servers
+  become: yes
 
   roles:
     - jupyter

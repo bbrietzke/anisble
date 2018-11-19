@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=/usr/local/bin/jupyterhub --JupyterHub.spawner_class=sudospawner.SudoSpawner
+ExecStart=/usr/local/bin/jupyterhub
 WorkingDirectory=/etc/jupyterhub
 
 [Install]

@@ -1,5 +1,5 @@
 ---
-- name: Update all packages
-  apt:
-    name: "*"
-    state: latest
+# - name: Update all packages
+#   apt:
+#     name: "*"
+#     state: latest

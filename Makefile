@@ -2,4 +2,4 @@
 EXE := /usr/local/bin/ansible
 
 work:
-	echo $(EXE)
+	$(EXE) -i inventories/work/hosts.yml site.yml
