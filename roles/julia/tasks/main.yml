@@ -1,0 +1,12 @@
+---
+- name: Does Julia already live here?
+  stat:
+    path: "{{ julia_local }}"
+  register: julia_stat
+
+- name: Download and Extract julia
+  when: julia_stat.stat.exists == false
+  unarchive:
+    src: "{{ julia_url }}{{ julia_tar }}"
+    dest: "{{ julia_local }}"
+    remote_src: yes

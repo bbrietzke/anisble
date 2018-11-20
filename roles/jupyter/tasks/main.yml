@@ -44,3 +44,14 @@
     enabled: yes
     name: jupyterhub
     daemon_reload: yes
+
+
+
+- name: Does Julia already live here?
+  stat:
+    path: "{{ julia_local }}"
+  register: julia_stat
+
+- name: Update Julia IKernal
+  when: julia_stat.stat.exists == true
+  shell: "{{ julia_local }}/julia-1.0.0/bin/julia -e 'using Pkg; Pkg.add(\"IJulia\")'"
