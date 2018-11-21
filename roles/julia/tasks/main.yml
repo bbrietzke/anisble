@@ -10,3 +10,8 @@
     src: "{{ julia_url }}{{ julia_tar }}"
     dest: "{{ julia_local }}"
     remote_src: yes
+
+- name: Add Julia user for distributed workloads
+  user:
+    name: julia
+    shell: /usr/sbin/nologin
