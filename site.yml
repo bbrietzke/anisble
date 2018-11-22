@@ -7,7 +7,6 @@
 
   roles:
     - common
-    - julia
 
 - name: JupyterHub servers
   hosts: jupyter_servers
