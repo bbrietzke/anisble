@@ -1,4 +1,10 @@
 ---
+- name: ssh without passwords
+  authorized_key:
+    user: pi
+    state: present
+    key: https://github.com/bbrietzke.keys
+
 - name: Update all packages
   apt:
     name: "*"
