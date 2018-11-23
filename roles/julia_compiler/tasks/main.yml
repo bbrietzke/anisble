@@ -1,0 +1,17 @@
+---
+- name: Install Tools
+  apt:
+    name: "{{ p }}"
+  vars:
+    p:
+      - ccache
+      - build-essential 
+      - libatomic1 
+      - python 
+      - gfortran
+      - perl 
+      - wget 
+      - m4 
+      - cmake 
+      - pkg-config
+

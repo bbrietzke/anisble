@@ -14,3 +14,10 @@
 
   roles:
     - jupyter
+
+- name: Julia Builders
+  hosts: julia_compilers
+  become: yes
+
+  roles:
+    - julia_compiler
