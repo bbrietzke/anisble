@@ -5,13 +5,13 @@
   vars:
     p:
       - ccache
-      - build-essential 
-      - libatomic1 
-      - python 
+      - build-essential
+      - libatomic1
+      - python
       - gfortran
-      - perl 
-      - wget 
-      - m4 
-      - cmake 
+      - perl
+      - wget
+      - m4
+      - cmake
       - pkg-config
-
+      - libopenblas-dev
