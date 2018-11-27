@@ -45,8 +45,6 @@
     name: jupyterhub
     daemon_reload: yes
 
-
-
 - name: Does Julia already live here?
   stat:
     path: "{{ julia_local }}"
