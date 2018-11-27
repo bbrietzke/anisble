@@ -1,0 +1,9 @@
+---
+hosts:
+  - name: raspberrypi
+    groups:
+      - common
+    vars:
+      - name: root_passwd
+        value: password
+        set: true
