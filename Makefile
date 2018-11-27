@@ -1,3 +1,4 @@
+.PHONY docs
 
 EXE := /usr/local/bin/ansible-playbook
 DOC := /usr/local/bin/mkdocs
@@ -16,3 +17,4 @@ home: $(EXE)
 
 docs: $(DOC)
 	mkdocs gh-deploy
+	

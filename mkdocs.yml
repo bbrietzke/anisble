@@ -1,7 +1,6 @@
 site_name: Raspberry Pi Ansible Setup
 nav:
     - Home: index.md
-    - About: about.md
 
 theme:
     name: readthedocs
