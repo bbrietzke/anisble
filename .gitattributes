@@ -1,2 +1,4 @@
-inventories/home/host_vars/raspberrypi.yml filter=git-crypt diff=git-crypt
-inventories/work/host_vars/work-pi.yml filter=git-crypt diff=git-crypt
+.gitattributes !filter !diff
+
+raspberrypi.yml filter=git-crypt diff=git-crypt
+work-pi.yml filter=git-crypt diff=git-crypt
