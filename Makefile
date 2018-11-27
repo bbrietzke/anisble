@@ -16,5 +16,4 @@ home: $(EXE)
 	$(EXE) -i inventories/home/hosts.yml site.yml
 
 docs: $(DOC)
-	mkdocs gh-deploy
-	
+	mkdocs build
