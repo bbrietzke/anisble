@@ -1,0 +1,5 @@
+---
+- name: SwapChange
+  systemd:
+    state: restarted
+    name: dphys-swapfile

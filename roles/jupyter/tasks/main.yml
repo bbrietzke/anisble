@@ -39,12 +39,6 @@
     dest: "/etc/systemd/system/jupyterhub.service"
     force: no
 
-- name: Start SystemD service
-  systemd:
-    enabled: yes
-    name: jupyterhub
-    daemon_reload: yes
-
 - name: Does Julia already live here?
   stat:
     path: "{{ julia_local }}"
@@ -53,3 +47,6 @@
 - name: Update Julia IKernal
   when: julia_stat.stat.exists == true
   shell: "{{ julia_local }}/julia-1.0.0/bin/julia -e 'using Pkg; Pkg.add(\"IJulia\")'"
+
+- name: restart stuff
+  notify: start_hub

@@ -1,0 +1,6 @@
+---
+- name: start_hub
+  systemd:
+    enabled: yes
+    name: jupyterhub
+    daemon_reload: yes

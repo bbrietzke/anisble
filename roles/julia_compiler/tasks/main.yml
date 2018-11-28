@@ -16,3 +16,12 @@
       - pkg-config
       - libopenblas-dev
       - git
+
+- name: /etc/dphys-swapfile
+  copy:
+    src: "files/dphys-swapfile"
+    dest: "/etc/dphys-swapfile"
+    force: no
+    
+- name: restart stuff
+  notify: SwapChange
