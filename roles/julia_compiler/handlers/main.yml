@@ -1,5 +1,5 @@
 ---
-- name: SwapChange
+- name: change_swap
   systemd:
     state: restarted
     name: dphys-swapfile

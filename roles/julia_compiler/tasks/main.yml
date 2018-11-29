@@ -2,12 +2,12 @@
 - name: install tools
   apt:
     name: "{{ p }}"
+    state: present
   vars:
     p:
       - ccache
       - build-essential
       - libatomic1
-      - python
       - gfortran
       - perl
       - wget
@@ -22,4 +22,4 @@
     src: "files/dphys-swapfile"
     dest: "/etc/dphys-swapfile"
     force: no
-    
+  notify: change_swap
