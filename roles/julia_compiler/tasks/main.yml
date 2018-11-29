@@ -1,5 +1,5 @@
 ---
-- name: Install Tools
+- name: install tools
   apt:
     name: "{{ p }}"
   vars:
@@ -23,5 +23,3 @@
     dest: "/etc/dphys-swapfile"
     force: no
     
-- name: restart stuff
-  notify: SwapChange

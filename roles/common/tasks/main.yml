@@ -5,12 +5,12 @@
     state: present
     key: https://github.com/bbrietzke.keys
 
-- name: Update all packages
+- name: update all packages
   apt:
     name: "*"
     state: latest
 
-- name: Install Tools
+- name: install tools
   apt:
     name: "{{ p }}"
   vars:

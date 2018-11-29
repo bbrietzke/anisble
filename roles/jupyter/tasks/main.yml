@@ -1,5 +1,5 @@
 ---
-- name: Install prerequistes
+- name: install prerequistes
   apt:
     name: "{{ p }}"
   vars:
@@ -7,13 +7,13 @@
       - npm
       - nodejs
 
-- name: Web Proxy
+- name: web proxy
   npm:
     name: configurable-http-proxy
     global: yes
     state: present
 
-- name: Install JupyterHub
+- name: install JupyterHub
   pip:
     name:
       - notebook
@@ -39,14 +39,13 @@
     dest: "/etc/systemd/system/jupyterhub.service"
     force: no
 
-- name: Does Julia already live here?
+- name: does Julia already live here?
   stat:
     path: "{{ julia_local }}"
   register: julia_stat
 
-- name: Update Julia IKernal
+- name: update Julia ikernal
   when: julia_stat.stat.exists == true
   shell: "{{ julia_local }}/julia-1.0.0/bin/julia -e 'using Pkg; Pkg.add(\"IJulia\")'"
 
-- name: restart stuff
-  notify: start_hub
+
