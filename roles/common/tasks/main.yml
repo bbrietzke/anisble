@@ -1,9 +1,23 @@
 ---
+- name: set TZ to US/Central
+  timezone:
+    name: "US/Central"
+
+- name: Change pi password
+  user: name=pi password="{{ pi_password }}"
+
+- name: Disallow password authentication
+  lineinfile: dest=/etc/ssh/sshd_config
+              regexp="^PasswordAuthentication"
+              line="PasswordAuthentication no"
+              state=present
+  notify: restart_ssh
+
 - name: ssh without passwords
   authorized_key:
     user: pi
     state: present
-    key: https://github.com/bbrietzke.keys
+    key: {{ github_keys_url }}
 
 - name: update all packages
   apt:
