@@ -132,11 +132,11 @@ inventories/
         group_vars/
             all.yml     # various variables to be saved.
 roles/
-    common/             # applies to all hosts
-    documentor/         # installs mkdocs
-    julia/              # downloads and installs [Juila](https://julialang.org/)
-    julia_compiler/     # installs the prerequisites to compile/build [Juila](https://julialang.org/)
-    jupyter/            # installs a [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) instance
+    common/             
+    documentor/         
+    julia/              
+    julia_compiler/     
+    jupyter/
 </code></pre>
 <h2 id="role-details">Role Details</h2>
 <h3 id="common">Common</h3>
@@ -153,17 +153,17 @@ roles/
 </ul>
 <h3 id="julia">Julia</h3>
 <ul>
-<li>Downloads the Julia tar file and installs it to /opt</li>
+<li>Downloads the <a href="https://julialang.org/">Juila</a> tar file and installs it to /opt</li>
 <li>creates a julia user for distributed work over ssh</li>
 </ul>
 <h3 id="julia-compiler">Julia Compiler</h3>
 <ul>
-<li>Installs required packages in order to compile julia</li>
+<li>Installs required packages in order to compile <a href="https://julialang.org/">Juila</a></li>
 <li>Sets the swap file to max out at 8G install 100M</li>
 </ul>
 <h3 id="jupyter">Jupyter</h3>
 <ul>
-<li>Install Jupyter Hub</li>
+<li>Install <a href="https://jupyterhub.readthedocs.io/en/stable/">Jupyter Hub</a></li>
 <li>Sets it up to run as a service </li>
 </ul>
               
@@ -205,5 +205,5 @@ roles/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-11-30 14:27:21
+Build Date UTC : 2018-11-30 14:52:36
 -->
