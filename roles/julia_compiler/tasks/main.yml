@@ -21,5 +21,5 @@
   copy:
     src: "files/dphys-swapfile"
     dest: "/etc/dphys-swapfile"
-    force: no
+    force: yes
   notify: change_swap

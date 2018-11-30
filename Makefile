@@ -1,7 +1,7 @@
-.PHONY docs
+.PHONY: work home
 
 EXE := /usr/local/bin/ansible-playbook
-DOC := /usr/local/bin/mkdocs
+DOC := 
 
 $(DOC):
 	pip install mkdocs
@@ -15,5 +15,5 @@ work: $(EXE)
 home: $(EXE)
 	$(EXE) -i inventories/home/hosts.yml site.yml
 
-docs: $(DOC)
-	mkdocs build
+doc: $(DOC)
+	

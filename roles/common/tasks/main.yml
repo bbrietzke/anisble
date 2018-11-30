@@ -17,7 +17,7 @@
   authorized_key:
     user: pi
     state: present
-    key: {{ github_keys_url }}
+    key: "{{ github_keys_url }}"
 
 - name: update all packages
   apt:
@@ -31,4 +31,3 @@
     p:
       - screen
       - python3
-      - python3-pip3
