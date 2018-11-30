@@ -38,3 +38,26 @@ Everything should be driven through the _Makefile_.
         julia/              # downloads and installs [Juila](https://julialang.org/)
         julia_compiler/     # installs the prerequisites to compile/build [Juila](https://julialang.org/)
         jupyter/            # installs a [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) instance
+
+## Role Details
+### Common
+* Sets the timezone to be US/Central
+* Fixes the Pi user password
+* Changes ssh to prevent logging in via passwords and registers ssh keys for the pi user
+* Updates all packages
+* Install screen and python3
+
+### Documentor
+* Install mkdocs
+
+### Julia
+* Downloads the Julia tar file and installs it to /opt
+* creates a julia user for distributed work over ssh
+
+### Julia Compiler
+* Installs required packages in order to compile julia
+* Sets the swap file to max out at 8G install 100M
+
+### Jupyter 
+* Install Jupyter Hub
+* Sets it up to run as a service 

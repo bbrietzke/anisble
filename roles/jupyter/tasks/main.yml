@@ -39,13 +39,4 @@
     dest: "/etc/systemd/system/jupyterhub.service"
     force: no
 
-- name: does Julia already live here?
-  stat:
-    path: "{{ julia_local }}"
-  register: julia_stat
-
-- name: update Julia ikernal
-  when: julia_stat.stat.exists == true
-  shell: "{{ julia_local }}/julia-1.0.0/bin/julia -e 'using Pkg; Pkg.add(\"IJulia\")'"
-
 
