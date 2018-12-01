@@ -27,7 +27,9 @@
 - name: install tools
   apt:
     name: "{{ p }}"
+    state: present
   vars:
     p:
       - screen
       - python3
+      - python3-pip
