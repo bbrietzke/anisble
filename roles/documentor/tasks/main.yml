@@ -1,7 +1,0 @@
----
-- name: Install MkDocs
-  pip:
-    name:
-      - mkdocs
-    executable: "/usr/bin/pip3"
-    state: present

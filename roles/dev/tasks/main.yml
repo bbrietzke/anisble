@@ -1,0 +1,17 @@
+---
+- name: install tools
+  apt:
+    name: "{{ p }}"
+    state: present
+  vars:
+    p:
+      - ccache
+      - build-essential
+      - perl
+      - wget
+      - m4
+      - cmake
+      - pkg-config
+      - git
+      - autotools-dev
+      - automake

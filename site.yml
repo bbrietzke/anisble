@@ -9,16 +9,15 @@
   roles:
     - common
 
+- name: Developer Workstations
+  hosts: developer_workstations
+  become: yes
+  roles:
+    - dev
+
 - name: JupyterHub servers
   hosts: jupyter_servers
   become: yes
 
   roles:
     - jupyter
-
-- name: Julia Builders
-  hosts: julia_compilers
-  become: yes
-
-  roles:
-    - julia_compiler
