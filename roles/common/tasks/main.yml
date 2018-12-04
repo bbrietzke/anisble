@@ -3,6 +3,12 @@
   timezone:
     name: "US/Central"
 
+- name: set locale to US/UTF8
+  locale_gen:
+    name: en_US.UTF-8
+    state: present
+  notify: update locales
+
 - name: Change pi password
   user: 
     name: pi 
