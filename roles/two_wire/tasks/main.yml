@@ -1,0 +1,14 @@
+---
+- name: install i2c-tools
+  apt:
+    name: "{{ p }}"
+    state: present
+  vars:
+    p:
+      - i2c-tools
+- name: activate i2c in the hardware
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^#dtparam=i2c_arm=on'
+    line: 'dtparam=i2c_arm=on'
+  notify: restart_machine
