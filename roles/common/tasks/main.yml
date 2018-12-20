@@ -9,13 +9,11 @@
     state: present
   notify: update locales
 
-
-
-- name: /etc/dphys-swapfile
+- name: /boot/config.txt
   notify: restart_machine
   copy:
-    src: "files/dphys-swapfile"
-    dest: "/etc/dphys-swapfile"
+    src: "files/config.txt"
+    dest: "/boot/config.txt"
     force: yes
 
 - name: Change pi password
