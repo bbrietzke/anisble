@@ -2,12 +2,12 @@
 
 A set of helpful commands and tools to make setting up a Raspberry Pi a little easier.
 
-This is the way _I_ prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code 
+This is the way _I_ prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code
 and doing your own thing.
 
 ## Setup
-Following [Ansible best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html), the project is structured 
-with an inventories folder that contains the list of hosts that you will want to talk to.  There is a _work_ and a _home_ option that contains the 
+Following [Ansible best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html), the project is structured
+with an inventories folder that contains the list of hosts that you will want to talk to.  There is a _work_ and a _home_ option that contains the
 names/ips and usernames of the host machines.  Also included are the various _children_ which relates to the stacks that contain the roles that you will implement the software and configuration that will be installed.
 
 ### Personalization
@@ -42,13 +42,15 @@ Everything should be driven through the _Makefile_.
 ## Role Details
 ### Common
 * Sets the timezone to be US/Central
+* Updates the locale
 * Fixes the Pi user password
 * Changes ssh to prevent logging in via passwords and registers ssh keys for the pi user
 * Updates all packages
 * Install screen and python3
+* Install a consistent /boot/config.txt
 
-### Documentor
-* Install mkdocs
+### Dev
+* Installs developer tools
 
 ### Julia
 * Downloads the [Juila](https://julialang.org/) tar file and installs it to /opt
@@ -58,6 +60,6 @@ Everything should be driven through the _Makefile_.
 * Installs required packages in order to compile [Juila](https://julialang.org/)
 * Sets the swap file to max out at 8G install 100M
 
-### Jupyter 
+### Jupyter
 * Install [Jupyter Hub](https://jupyterhub.readthedocs.io/en/stable/)
-* Sets it up to run as a service 
+* Sets it up to run as a service
