@@ -105,11 +105,11 @@
               
                 <h1 id="setting-up-raspberry-pi-with-ansible">Setting up Raspberry Pi with Ansible</h1>
 <p>A set of helpful commands and tools to make setting up a Raspberry Pi a little easier.</p>
-<p>This is the way <em>I</em> prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code 
+<p>This is the way <em>I</em> prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code
 and doing your own thing.</p>
 <h2 id="setup">Setup</h2>
-<p>Following <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Ansible best practices</a>, the project is structured 
-with an inventories folder that contains the list of hosts that you will want to talk to.  There is a <em>work</em> and a <em>home</em> option that contains the 
+<p>Following <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Ansible best practices</a>, the project is structured
+with an inventories folder that contains the list of hosts that you will want to talk to.  There is a <em>work</em> and a <em>home</em> option that contains the
 names/ips and usernames of the host machines.  Also included are the various <em>children</em> which relates to the stacks that contain the roles that you will implement the software and configuration that will be installed.</p>
 <h3 id="personalization">Personalization</h3>
 <p>Additional directories can be added to inventories and setup similiar to home or work depending on how you want things to work or look.</p>
@@ -142,14 +142,16 @@ roles/
 <h3 id="common">Common</h3>
 <ul>
 <li>Sets the timezone to be US/Central</li>
+<li>Updates the locale</li>
 <li>Fixes the Pi user password</li>
 <li>Changes ssh to prevent logging in via passwords and registers ssh keys for the pi user</li>
 <li>Updates all packages</li>
 <li>Install screen and python3</li>
+<li>Install a consistent /boot/config.txt</li>
 </ul>
-<h3 id="documentor">Documentor</h3>
+<h3 id="dev">Dev</h3>
 <ul>
-<li>Install mkdocs</li>
+<li>Installs developer tools</li>
 </ul>
 <h3 id="julia">Julia</h3>
 <ul>
@@ -164,7 +166,7 @@ roles/
 <h3 id="jupyter">Jupyter</h3>
 <ul>
 <li>Install <a href="https://jupyterhub.readthedocs.io/en/stable/">Jupyter Hub</a></li>
-<li>Sets it up to run as a service </li>
+<li>Sets it up to run as a service</li>
 </ul>
               
             </div>
@@ -205,5 +207,5 @@ roles/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-11-30 14:52:36
+Build Date UTC : 2018-12-20 13:51:44
 -->
