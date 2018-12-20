@@ -13,7 +13,6 @@
   become: yes
   roles:
     - dev
-    - two_wire
 
 - name: JupyterHub servers
   hosts: jupyter_servers

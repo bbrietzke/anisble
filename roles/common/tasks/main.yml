@@ -9,9 +9,18 @@
     state: present
   notify: update locales
 
+
+
+- name: /etc/dphys-swapfile
+  notify: restart_machine
+  copy:
+    src: "files/dphys-swapfile"
+    dest: "/etc/dphys-swapfile"
+    force: yes
+
 - name: Change pi password
-  user: 
-    name: pi 
+  user:
+    name: pi
     password: "{{ pi_password }}"
 
 - name: Disallow password authentication
@@ -41,16 +50,3 @@
       - screen
       - python3
       - python3-pip
-
-- name: create normal user account
-  user:
-    name: "{{ normal_user }}"
-    password: "{{ pi_password }}"
-    generate_ssh_key: "yes"
-    update_password: "on_create"
-
-- name: ssh without passwords
-  authorized_key:
-    user: "{{ normal_user }}"
-    state: present
-    key: "{{ github_keys_url }}"
