@@ -5,6 +5,12 @@ A set of helpful commands and tools to make setting up a Raspberry Pi a little e
 This is the way _I_ prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code
 and doing your own thing.
 
+## Building the SD Card
+
+```
+diskutil unmountDisk /dev/disk2 && sudo dd bs=1m if=2018-11-13-raspbian-stretch-lite.img of=/dev/rdisk2 && sleep 3 && touch /Volumes/boot/ssh && diskutil unmountDisk /dev/disk2
+```
+
 ## Setup
 Following [Ansible best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html), the project is structured
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a _work_ and a _home_ option that contains the
