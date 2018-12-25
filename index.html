@@ -57,6 +57,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#building-the-sd-card">Building the SD Card</a></li>
+        
             <li><a class="toctree-l3" href="#setup">Setup</a></li>
         
             <li><a class="toctree-l3" href="#commands">Commands</a></li>
@@ -107,6 +109,10 @@
 <p>A set of helpful commands and tools to make setting up a Raspberry Pi a little easier.</p>
 <p>This is the way <em>I</em> prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code
 and doing your own thing.</p>
+<h2 id="building-the-sd-card">Building the SD Card</h2>
+<pre><code>diskutil unmountDisk /dev/disk2 &amp;&amp; sudo dd bs=1m if=2018-11-13-raspbian-stretch-lite.img of=/dev/rdisk2 &amp;&amp; sleep 3 &amp;&amp; touch /Volumes/boot/ssh &amp;&amp; diskutil unmountDisk /dev/disk2
+</code></pre>
+
 <h2 id="setup">Setup</h2>
 <p>Following <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Ansible best practices</a>, the project is structured
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a <em>work</em> and a <em>home</em> option that contains the
@@ -207,5 +213,5 @@ roles/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-12-20 13:51:44
+Build Date UTC : 2018-12-25 12:46:42
 -->
