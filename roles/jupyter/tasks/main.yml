@@ -18,6 +18,7 @@
     name:
       - notebook
       - jupyterhub
+      - jupyterlab
       - oauthenticator
     executable: "/usr/bin/pip3"
     state: present
@@ -38,5 +39,3 @@
     src: "files/jupyterhub.service"
     dest: "/etc/systemd/system/jupyterhub.service"
     force: no
-
-

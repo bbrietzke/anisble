@@ -1,40 +1,5 @@
 ---
-- name: /boot/config.txt
-  notify: restart_machine
-  copy:
-    src: "files/config.txt"
-    dest: "/boot/config.txt"
-    force: yes
-
-- name: Change pi password
-  user:
-    name: pi
-    password: "{{ pi_password }}"
-
-- name: Disallow password authentication
-  lineinfile: dest=/etc/ssh/sshd_config
-              regexp="^PasswordAuthentication"
-              line="PasswordAuthentication no"
-              state=present
-  notify: restart_ssh
-
-- name: ssh without passwords
-  authorized_key:
-    user: pi
-    state: present
-    key: "{{ github_keys_url }}"
-
-- name: update all packages
-  apt:
-    name: "*"
-    state: latest
-
-- name: install tools
-  apt:
-    name: "{{ p }}"
-    state: present
-  vars:
-    p:
-      - screen
-      - python3
-      - python3-pip
+- include_tasks: boot_config.yml
+- include_tasks: ssh.yml
+- include_tasks: update_password.yml
+- include_tasks: packages.yml

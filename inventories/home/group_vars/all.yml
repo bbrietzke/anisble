@@ -8,3 +8,6 @@ pi_password: $6$mgqgJWrIRgrXodXK$YLXgsW3XkZADQPGMiF8bjxP43mw5Q4GxaTXl5pmrX7ANcAp
 
 normal_user: bbrietzke
 normal_user_password: $6$mgqgJWrIRgrXodXK$YLXgsW3XkZADQPGMiF8bjxP43mw5Q4GxaTXl5pmrX7ANcAphKAiV47F0TWorIl5X8t4a3eFpKa8AgAz5cE6O5/
+
+common_tools:
+  - screen
