@@ -33,16 +33,15 @@ Everything should be driven through the _Makefile_.
             group_vars/
                 all.yml     # various variables to be saved.
     roles/
-        common/             
-        documentor/         
+        common/  
+        dev/            
         julia/              
         julia_compiler/     
-        jupyter/            
+        jupyter/         
+        two_wire/   
 
 ## Role Details
 ### Common
-* Sets the timezone to be US/Central
-* Updates the locale
 * Fixes the Pi user password
 * Changes ssh to prevent logging in via passwords and registers ssh keys for the pi user
 * Updates all packages
@@ -63,3 +62,6 @@ Everything should be driven through the _Makefile_.
 ### Jupyter
 * Install [Jupyter Hub](https://jupyterhub.readthedocs.io/en/stable/)
 * Sets it up to run as a service
+
+### Two Wire
+* updates config.txt to enable two wire communications

@@ -13,6 +13,7 @@
   become: yes
   roles:
     - dev
+    - julia_compiler
 
 - name: JupyterHub servers
   hosts: jupyter_servers
