@@ -14,14 +14,16 @@
     state: present
 
 - name: install JupyterHub
+  become: yes
   pip:
     name:
       - notebook
       - jupyterhub
       - jupyterlab
       - oauthenticator
-    executable: "/usr/bin/pip3"
-    extra_args: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
+    executable: "/usr/local/bin/pip3"
+    umask: "0022"
+    extra_args: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host piwheels.org
     state: latest
 
 - name: /etc/JupyterHub
@@ -45,19 +47,20 @@
   lineinfile:
     path: /etc/avahi/hosts
     state: present
-    line: "{{ ansible_default_ipv4.address }} jupyterhub.local"
+    line: "{{ ansible_default_ipv4.address }} hub.local"
   notify: restart_avahi
 
 - name: add jupyterhub.local as an available site
   template:
     src: files/jupyter.conf.j2
-    dest: /etc/nginx/sites-available/jupyter.conf
+    dest: /etc/nginx/sites-available/jupyter
     owner: root
     group: root
     mode: 0644
 
 - name: symlink to enable jupyterhub.local
   file:
-    src: /etc/nginx/sites-available/jupyter.conf
-    dest: /etc/nginx/sites-enabled/jupyter.conf
+    src: /etc/nginx/sites-available/jupyter
+    dest: /etc/nginx/sites-enabled/jupyter
     state: link
+  notify: restart_nginx
