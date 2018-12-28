@@ -138,17 +138,16 @@ inventories/
         group_vars/
             all.yml     # various variables to be saved.
 roles/
-    common/             
-    documentor/         
+    common/  
+    dev/            
     julia/              
     julia_compiler/     
-    jupyter/
+    jupyter/         
+    two_wire/
 </code></pre>
 <h2 id="role-details">Role Details</h2>
 <h3 id="common">Common</h3>
 <ul>
-<li>Sets the timezone to be US/Central</li>
-<li>Updates the locale</li>
 <li>Fixes the Pi user password</li>
 <li>Changes ssh to prevent logging in via passwords and registers ssh keys for the pi user</li>
 <li>Updates all packages</li>
@@ -173,6 +172,10 @@ roles/
 <ul>
 <li>Install <a href="https://jupyterhub.readthedocs.io/en/stable/">Jupyter Hub</a></li>
 <li>Sets it up to run as a service</li>
+</ul>
+<h3 id="two-wire">Two Wire</h3>
+<ul>
+<li>updates config.txt to enable two wire communications</li>
 </ul>
               
             </div>
@@ -213,5 +216,5 @@ roles/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-12-25 12:47:53
+Build Date UTC : 2018-12-28 19:20:30
 -->
