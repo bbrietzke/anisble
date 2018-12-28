@@ -13,17 +13,12 @@
   become: yes
   roles:
     - dev
-    - julia
+    - python
 
 - name: JupyterHub servers
   hosts: jupyter_servers
   become: yes
 
   roles:
-    - jupyter
-
-- name: Web Server
-  hosts: web_servers
-  become: yes
-  roles:
     - nginx
+    - jupyter
