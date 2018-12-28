@@ -110,7 +110,11 @@
 <p>This is the way <em>I</em> prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code
 and doing your own thing.</p>
 <h2 id="building-the-sd-card">Building the SD Card</h2>
-<pre><code>diskutil unmountDisk /dev/disk2 &amp;&amp; sudo dd bs=1m if=2018-11-13-raspbian-stretch-lite.img of=/dev/rdisk2 &amp;&amp; sleep 3 &amp;&amp; touch /Volumes/boot/ssh &amp;&amp; diskutil unmountDisk /dev/disk2
+<pre><code>diskutil unmountDisk /dev/disk2 &amp;&amp; \
+sudo dd bs=1m if=~/Downloads/2018-11-13-raspbian-stretch-lite.img of=/dev/rdisk2 &amp;&amp; \
+sleep 3 &amp;&amp; \
+touch /Volumes/boot/ssh &amp;&amp; \
+diskutil unmountDisk /dev/disk2
 </code></pre>
 
 <h2 id="setup">Setup</h2>
@@ -216,5 +220,5 @@ roles/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-12-28 19:20:30
+Build Date UTC : 2018-12-28 22:08:11
 -->
