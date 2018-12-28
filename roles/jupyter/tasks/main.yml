@@ -43,24 +43,11 @@
     dest: "/etc/systemd/system/jupyterhub.service"
     force: no
 
-- name: add {{ ansible_default_ipv4.address }} as jupyterhub.local to mDNS
-  lineinfile:
-    path: /etc/avahi/hosts
-    state: present
-    line: "{{ ansible_default_ipv4.address }} hub.local"
-  notify: restart_avahi
-
 - name: add jupyterhub.local as an available site
   template:
-    src: files/jupyter.conf.j2
-    dest: /etc/nginx/sites-available/jupyter
+    src: files/default.j2
+    dest: /etc/nginx/sites-available/default
     owner: root
     group: root
     mode: 0644
-
-- name: symlink to enable jupyterhub.local
-  file:
-    src: /etc/nginx/sites-available/jupyter
-    dest: /etc/nginx/sites-enabled/jupyter
-    state: link
   notify: restart_nginx

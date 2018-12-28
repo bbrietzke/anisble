@@ -5,11 +5,6 @@
     name: jupyterhub
     daemon_reload: yes
 
-- name: restart_avahi
-  systemd:
-    state: restarted
-    name: avahi-daemon
-
 - name: restart_nginx
   systemd:
     name: nginx
