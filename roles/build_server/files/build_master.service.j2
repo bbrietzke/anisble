@@ -1,0 +1,11 @@
+[Unit]
+Description=BuildBot Master
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/buildbot start {{ buildbot_master_path }}
+WorkingDirectory={{ buildbot_master_path }}
+
+[Install]
+WantedBy=multi-user.target

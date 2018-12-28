@@ -12,3 +12,6 @@ normal_user_password: $6$mgqgJWrIRgrXodXK$YLXgsW3XkZADQPGMiF8bjxP43mw5Q4GxaTXl5p
 
 common_tools:
   - screen
+
+buildbot_master_path: "/opt/buildbot/master"
+buildbot_worker_path: "/opt/buildbot/worker"
