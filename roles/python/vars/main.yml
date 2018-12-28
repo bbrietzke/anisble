@@ -1,3 +1,0 @@
----
-pip_executable: /usr/bin/pip3
-pip_extras: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org

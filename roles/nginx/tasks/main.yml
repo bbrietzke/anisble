@@ -7,7 +7,7 @@
 
 - name: update default site to {{ ansible_host }}
   template:
-    src: files/default.j2
+    src: templates/default.j2
     dest: /etc/nginx/sites-available/default
     owner: root
     group: root

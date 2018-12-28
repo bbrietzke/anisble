@@ -5,5 +5,3 @@
     state: latest
     name:
       - buildbot
-    # executable: "/usr/local/bin/pip3"
-    # extra_args: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host piwheels.org

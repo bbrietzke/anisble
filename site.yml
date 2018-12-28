@@ -7,13 +7,13 @@
 
   roles:
     - common
+    - python
 
 - name: Developer Workstations
   hosts: developer_workstations
   become: yes
   roles:
     - dev
-    - python
 
 - name: JupyterHub servers
   hosts: jupyter_servers
@@ -22,3 +22,10 @@
   roles:
     - nginx
     - jupyter
+
+- name: BuildBot servers
+  hosts: buildbot_servers
+  become: yes
+
+  roles:
+    - nginx

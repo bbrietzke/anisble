@@ -20,8 +20,8 @@
       - jupyterhub
       - jupyterlab
       - oauthenticator
-    executable: {{ pip_executable }}
-    extra_args:  {{ pip_extras }}
+    executable: "{{ pip_executable }}"
+    extra_args:  "{{ pip_extras }}"
     umask: "0022"
     state: latest
 
@@ -32,7 +32,7 @@
 
 - name: jupyterhub_config.py
   copy:
-    src: "files/jupyterhub_config.py"
+    src: "templates/jupyterhub_config.py"
     dest: "/etc/jupyterhub/jupyterhub_config.py"
     force: no
 

@@ -10,16 +10,15 @@
 
 - name: install new pip
   pip:
-    executable: {{ pip_executable }}
-    extra_args: {{ pip_extras }}
+    executable: "{{ pip_executable }}"
+    extra_args: "{{ pip_extras }}"
     state: latest
     name:
       - pip
 
 - name: install RPi.GPIO
   pip:
-    executable: {{ pip_executable }}
-    extra_args:  {{ pip_extras }}
+    executable: "{{ pip_executable }}"
+    extra_args:  "{{ pip_extras }}"
     state: latest
-    name:
-      - RPi.GPIO
+    name: "{{ additional_pip_packages }}"

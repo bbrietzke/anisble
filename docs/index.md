@@ -8,7 +8,11 @@ and doing your own thing.
 ## Building the SD Card
 
 ```
-diskutil unmountDisk /dev/disk2 && sudo dd bs=1m if=2018-11-13-raspbian-stretch-lite.img of=/dev/rdisk2 && sleep 3 && touch /Volumes/boot/ssh && diskutil unmountDisk /dev/disk2
+diskutil unmountDisk /dev/disk2 && \
+sudo dd bs=1m if=~/Downloads/2018-11-13-raspbian-stretch-lite.img of=/dev/rdisk2 && \
+sleep 3 && \
+touch /Volumes/boot/ssh && \
+diskutil unmountDisk /dev/disk2
 ```
 
 ## Setup
