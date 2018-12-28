@@ -3,9 +3,6 @@
 - name: restart_ssh
   service: name=ssh state=restarted
 
-- name: update locales
-  command: dpkg-reconfigure --frontend noninteractive locales
-
 - name: restart_machine
   reboot:
       reboot_timeout: 3600

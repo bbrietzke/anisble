@@ -1,6 +1,7 @@
 ---
 julia_tar: julia-1.0.3-linux-armv7l.tar.gz
 julia_url: https://julialang-s3.julialang.org/bin/linux/armv7l/1.0/
+julia_tar_path: /julia-1.0.3
 julia_local: /opt
 github_keys_url: https://github.com/bbrietzke.keys
 

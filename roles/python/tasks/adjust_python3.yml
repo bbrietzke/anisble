@@ -1,0 +1,15 @@
+---
+- name: install pip for python3
+  apt:
+    update_cache: yes
+    state: present
+    name: "{{ p }}"
+  vars:
+    p:
+      - python3-pip
+
+- name: install RPi.GPIO
+  pip:
+    executable: /usr/bin/pip3
+    name:
+      - RPi.GPIO

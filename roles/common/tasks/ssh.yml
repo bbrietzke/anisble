@@ -1,10 +1,10 @@
 ---
-
 - name: Disallow password authentication
-  lineinfile: dest=/etc/ssh/sshd_config
-            regexp="^PasswordAuthentication"
-            line="PasswordAuthentication no"
-            state=present
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^PasswordAuthentication"
+    line: "PasswordAuthentication no"
+    state: present
   notify: restart_ssh
 
 - name: ssh without passwords

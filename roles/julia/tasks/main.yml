@@ -1,7 +1,7 @@
 ---
 - name: does Julia already live here?
   stat:
-    path: "{{ julia_local }}"
+    path: "{{ julia_local }}/{{ julia_tar_path }}"
   register: julia_stat
 
 - name: download and extract julia
@@ -10,6 +10,7 @@
     src: "{{ julia_url }}{{ julia_tar }}"
     dest: "{{ julia_local }}"
     remote_src: yes
+    validate_certs: False
 
 - name: add Julia user for distributed workloads
   user:

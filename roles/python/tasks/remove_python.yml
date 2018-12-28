@@ -1,0 +1,18 @@
+---
+- name: remove python 2.7
+  apt:
+    update_cache: yes
+    state: absent
+    name: "{{ p }}"
+  vars:
+    p:
+      - libpython2.7-minimal
+      - python
+      - python2.7-minimal
+      - python-apt
+      - python-rpi.gpio
+      - libpython-stdlib
+      - libpython2.7-stdlib
+      - python-minimal
+      - python2.7
+      - python2.7-minimal
