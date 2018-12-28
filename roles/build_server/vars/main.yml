@@ -1,0 +1,3 @@
+---
+buildbot_master_path: "/opt/buildbot/master"
+buildbot_worker_path: "/opt/buildbot/worker"

@@ -1,4 +1,9 @@
 ---
+ansible_python_interpreter: /usr/bin/python3
+pip_executable: /usr/bin/pip3
+pip_extras:
+
+ansible_python_interpreter: /usr/bin/python3
 julia_tar: julia-1.0.3-linux-armv7l.tar.gz
 julia_url: https://julialang-s3.julialang.org/bin/linux/armv7l/1.0/
 julia_tar_path: /julia-1.0.3

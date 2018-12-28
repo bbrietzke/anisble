@@ -10,16 +10,16 @@
 
 - name: install new pip
   pip:
-    executable: /usr/local/bin/pip3
-    extra_args: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
+    executable: {{ pip_executable }}
+    extra_args: {{ pip_extras }}
     state: latest
     name:
       - pip
 
 - name: install RPi.GPIO
   pip:
-    executable: /usr/local/bin/pip3
-    extra_args: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
+    executable: {{ pip_executable }}
+    extra_args:  {{ pip_extras }}
     state: latest
     name:
       - RPi.GPIO
