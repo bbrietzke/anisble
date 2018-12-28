@@ -8,8 +8,18 @@
     p:
       - python3-pip
 
+- name: install new pip
+  pip:
+    executable: /usr/bin/pip3
+    extra_args: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
+    state: latest
+    name:
+      - pip
+
 - name: install RPi.GPIO
   pip:
     executable: /usr/bin/pip3
+    extra_args: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
+    state: latest
     name:
       - RPi.GPIO

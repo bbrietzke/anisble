@@ -21,7 +21,8 @@
       - jupyterlab
       - oauthenticator
     executable: "/usr/bin/pip3"
-    state: present
+    extra_args: --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
+    state: latest
 
 - name: /etc/JupyterHub
   file:
@@ -39,3 +40,24 @@
     src: "files/jupyterhub.service"
     dest: "/etc/systemd/system/jupyterhub.service"
     force: no
+
+- name: add {{ ansible_default_ipv4.address }} as jupyterhub.local to mDNS
+  lineinfile:
+    path: /etc/avahi/hosts
+    state: present
+    line: "{{ ansible_default_ipv4.address }} jupyterhub.local"
+  notify: restart_avahi
+
+- name: add jupyterhub.local as an available site
+  template:
+    src: files/jupyter.conf.j2
+    dest: /etc/nginx/sites-available/jupyter.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: symlink to enable jupyterhub.local
+  file:
+    src: /etc/nginx/sites-available/jupyter.conf
+    dest: /etc/nginx/sites-enabled/jupyter.conf
+    state: link
