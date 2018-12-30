@@ -1,7 +1,47 @@
 ---
+- name: create BuildBot user
+  user:
+    name: "buildbot"
+    home: "{{ buildbot_home_path }}"
+    shell: "/bin/bash"
+    createhome: yes
+
 - name: install BuildBot
   pip:
-    virtualenv: "{{ buildbot_master_path }}"
+    executable: "{{ pip_executable }}"
+    extra_args: "{{ pip_extras }}"
     state: latest
     name:
       - buildbot
+      - buildbot-www
+      - buildbot-console-view
+      - buildbot-waterfall-view
+      - buildbot-grid-view
+
+- name: create BuildBot root
+  shell: "/usr/local/bin/buildbot create-master {{ buildbot_master_path }}"
+  args:
+    chdir: "{{ buildbot_home_path }}"
+
+- name: copy over master.cfg
+  template:
+    src: "templates/master.cfg.j2"
+    dest: "{{ buildbot_master_path }}/master.cfg"
+    owner: buildbot
+    group: buildbot
+    mode: 0644
+
+- name: adjust directory permissions
+  file:
+    path: "{{ buildbot_master_path }}"
+    owner: "buildbot"
+    group: "buildbot"
+
+- name: updating default web configuration
+  template:
+    src: templates/default.j2
+    dest: /etc/nginx/sites-available/default
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_nginx

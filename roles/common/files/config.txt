@@ -58,3 +58,4 @@ dtparam=audio=on
 # customize on board LEDs
 dtparam=act_led_trigger=cpu
 dtparam=pwr_led_trigger=heartbeat
+gpio=4,5=op,pd

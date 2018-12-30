@@ -4,3 +4,4 @@ pip_extras:
 
 additional_pip_packages:
   - RPi.GPIO
+  - virtualenv

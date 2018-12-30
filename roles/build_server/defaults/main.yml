@@ -2,4 +2,8 @@
 pip_executable: /usr/local/bin/pip3
 pip_extras:
 
+buildbot_home_path: "/opt/buildbot/"
 buildbot_master_path: "/opt/buildbot/master"
+
+buildbot_title: "My BuildBot"
+buildbot_url: "{{ ansible_host }}"

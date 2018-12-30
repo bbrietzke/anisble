@@ -8,11 +8,25 @@ server {
 	listen [::]:80;
 
 	server_name {{ ansible_host }};
+	access_log            /var/log/nginx/buildbot.access.log;
+	error_log            /var/log/nginx/buildbot.error.log;
 
 	location / {
-		proxy_pass http://127.0.0.1:8010;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header Host $http_host;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://localhost:8010;
+    include proxy_params;
+	}
+	# Server sent event (sse) settings
+	location /sse {
+					proxy_buffering off;
+					proxy_pass http://localhost:8010;
+	}
+
+	# Websocket settings
+	location /ws {
+				proxy_http_version 1.1;
+				proxy_set_header Upgrade $http_upgrade;
+				proxy_set_header Connection "upgrade";
+				proxy_pass http://localhost:8010;
+				proxy_read_timeout 6000s;
 	}
 }
