@@ -1,0 +1,6 @@
+---
+- name: jupyterhub_config.py
+  copy:
+    src: "files/pip.conf"
+    dest: "/etc/pip.conf"
+    force: yes
