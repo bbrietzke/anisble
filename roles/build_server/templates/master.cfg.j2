@@ -15,6 +15,8 @@ default_password = "password"
 # a shorter alias to save typing.
 c = BuildmasterConfig = {}
 
+c['buildbotNetUsageData'] = None
+
 ####### WORKERS
 c['protocols'] = {'pb': {'port': 9989}}
 
@@ -29,14 +31,12 @@ c['workers'] = [
 
 
 ####### CHANGESOURCES
-
 c['change_source'] = [
     S.github_io(),
     S.ansible()
 ]
 
 ####### SCHEDULERS
-
 # Configure the Schedulers, which decide how to react to incoming changes.  In this
 # case, just kick off a 'runtests' build
 
@@ -47,8 +47,6 @@ c['schedulers'] = [
 ]
 
 ####### BUILDERS
-
-
 # The 'builders' list defines the Builders, which tell Buildbot how to perform a build:
 # what steps, and which workers can execute them.  Note that any particular build will
 # only take place on one worker.
@@ -59,7 +57,6 @@ c['builders'] = [
 ]
 
 ####### BUILDBOT SERVICES
-
 # 'services' is a list of BuildbotService items like reporter targets. The
 # status of each build will be pushed to these targets. buildbot/reporters/*.py
 # has a variety to choose from, like IRC bots.
