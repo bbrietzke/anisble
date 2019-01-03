@@ -10,8 +10,7 @@
 
 - name: install new pip
   pip:
-    executable: "{{ pip_executable }}"
-    extra_args: "{{ pip_extras }}"
+    extra_args: "-U"
     state: latest
     name:
       - pip
