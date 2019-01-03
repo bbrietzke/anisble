@@ -8,12 +8,12 @@ $(DOC):
 	pip install mkdocs
 
 $(EXE):
-	ifeq ($(UNAME_S),Linux)
+	#ifeq ($(UNAME_S),Linux)
 		pip3 install -U ansible
-	endif
-	ifeq ($(UNAME_S),Darwin)
+	#endif
+	#ifeq ($(UNAME_S),Darwin)
 		brew install ansible
-	endif
+	#endif
 
 work: $(EXE)
 	$(EXE) -i inventories/work/hosts.yml site.yml
