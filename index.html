@@ -142,14 +142,21 @@ inventories/
         group_vars/
             all.yml     # various variables to be saved.
 roles/
+buildserver/
     common/  
     dev/            
     julia/              
     julia_compiler/     
     jupyter/         
+    nginx/
+    python/
     two_wire/
 </code></pre>
 <h2 id="role-details">Role Details</h2>
+<h3 id="build-server">Build Server</h3>
+<ul>
+<li>Installs a <a href="https://buildbot.net/">BuildBot</a> master server</li>
+</ul>
 <h3 id="common">Common</h3>
 <ul>
 <li>Fixes the Pi user password</li>
@@ -176,6 +183,17 @@ roles/
 <ul>
 <li>Install <a href="https://jupyterhub.readthedocs.io/en/stable/">Jupyter Hub</a></li>
 <li>Sets it up to run as a service</li>
+</ul>
+<h3 id="nginx">NGinx</h3>
+<ul>
+<li>Vanillia NGinx install</li>
+</ul>
+<h3 id="python">Python</h3>
+<ul>
+<li>Removing python2</li>
+<li>Builds pip.conf</li>
+<li>Installs python3</li>
+<li>Installs latest version of pip and a few packages</li>
 </ul>
 <h3 id="two-wire">Two Wire</h3>
 <ul>
@@ -220,5 +238,5 @@ roles/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-12-28 22:08:11
+Build Date UTC : 2019-01-03 20:08:45
 -->
