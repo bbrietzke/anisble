@@ -2,6 +2,7 @@
 - name: remove python 2.7
   apt:
     update_cache: yes
+    autoremove: yes
     state: absent
     name: "{{ p }}"
   vars:

@@ -4,6 +4,8 @@
     name: "buildbot"
     home: "{{ buildbot_home_path }}"
     shell: "/bin/bash"
+    groups:
+      - gpio
     createhome: yes
 
 - name: install BuildBot
