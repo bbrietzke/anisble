@@ -43,14 +43,20 @@ Everything should be driven through the _Makefile_.
             group_vars/
                 all.yml     # various variables to be saved.
     roles/
+    buildserver/
         common/  
         dev/            
         julia/              
         julia_compiler/     
         jupyter/         
+        nginx/
+        python/
         two_wire/   
 
 ## Role Details
+### Build Server
+* Installs a [BuildBot](https://buildbot.net/) master server
+
 ### Common
 * Fixes the Pi user password
 * Changes ssh to prevent logging in via passwords and registers ssh keys for the pi user
@@ -72,6 +78,15 @@ Everything should be driven through the _Makefile_.
 ### Jupyter
 * Install [Jupyter Hub](https://jupyterhub.readthedocs.io/en/stable/)
 * Sets it up to run as a service
+
+### NGinx
+* Vanillia NGinx install
+
+### Python
+* Removing python2
+* Builds pip.conf
+* Installs python3
+* Installs latest version of pip and a few packages
 
 ### Two Wire
 * updates config.txt to enable two wire communications
