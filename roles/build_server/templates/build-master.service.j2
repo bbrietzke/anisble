@@ -1,10 +1,14 @@
 [Unit]
 Description=BuildBot Master
 After=network-online.target
+Wants=network.target
 
 [Service]
-User=root
+User=buildbot
+Group=buildbot
 ExecStart=/usr/local/bin/buildbot start {{ buildbot_master_path }}
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
 WorkingDirectory={{ buildbot_master_path }}
 
 [Install]

@@ -30,12 +30,19 @@
     owner: buildbot
     group: buildbot
     mode: 0644
+  notify: sighup_buildbot_master
 
 - name: adjust directory permissions
   file:
     path: "{{ buildbot_master_path }}"
     owner: "buildbot"
     group: "buildbot"
+
+- name: systemd file
+  template:
+    src: templates/build-master.service.j2
+    dest: /etc/systemd/system/buildbot-master.service
+  notify: start_master
 
 - name: updating default web configuration
   template:

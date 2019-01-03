@@ -1,0 +1,16 @@
+---
+- name: start_master
+  systemd:
+    enabled: yes
+    name: buildbot-master
+    daemon_reload: yes
+
+- name: restart_nginx
+  systemd:
+    name: nginx
+    state: restarted
+
+- name: sighup_buildbot_master
+  shell: "/usr/local/bin/buildbot sighup {{ buildbot_master_path }}"
+  args:
+    chdir: "{{ buildbot_home_path }}"
