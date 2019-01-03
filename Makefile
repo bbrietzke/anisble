@@ -2,12 +2,18 @@
 
 EXE := /usr/local/bin/ansible-playbook
 DOC := /usr/local/bin/mkdocs
+UNAME_S := $(shell uname -s)
 
 $(DOC):
 	pip install mkdocs
 
 $(EXE):
-	brew install ansible
+	ifeq ($(UNAME_S),Linux)
+		pip3 install -U ansible
+	endif
+	ifeq ($(UNAME_S),Darwin)
+		brew install ansible
+	endif
 
 work: $(EXE)
 	$(EXE) -i inventories/work/hosts.yml site.yml
