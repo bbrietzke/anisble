@@ -32,7 +32,7 @@
 
 - name: jupyterhub_config.py
   copy:
-    src: "templates/jupyterhub_config.py"
+    src: "files/jupyterhub_config.py"
     dest: "/etc/jupyterhub/jupyterhub_config.py"
     force: no
 

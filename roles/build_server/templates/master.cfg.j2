@@ -2,9 +2,10 @@
 # ex: set filetype=python:
 
 from buildbot.plugins import *
-import builds.schedulers as SH
-import builds.sources as S
-import builds.builders as B
+from buildconfig import workers as W
+from buildconfig import sources as S
+from buildconfig import schedulers as R
+from buildconfig import builders as B
 
 default_password = "password"
 
@@ -23,37 +24,24 @@ c['protocols'] = {'pb': {'port': 9989}}
 # The 'workers' list defines the set of recognized workers. Each element is
 # a Worker object, specifying a unique worker name and password.  The same
 # worker name and password must be configured on the worker.
-c['workers'] = [
-    worker.LocalWorker("{{ ansible_hostname }}"),
-    worker.Worker("calypso_one", default_password)
-]
+c['workers'] = W.all(default_password, "{{ ansible_hostname }}")
 
 
 ####### CHANGESOURCES
-c['change_source'] = [
-    S.github_io(),
-    S.ansible()
-]
+c['change_source'] = S.all()
 
 ####### SCHEDULERS
 # Configure the Schedulers, which decide how to react to incoming changes.  In this
 # case, just kick off a 'runtests' build
-
 c['schedulers'] = [
-    SH.github_io_master(),
-    SH.ansible_master(),
-    SH.ansible_forced()
+    R.buildconfig_master()
 ]
 
 ####### BUILDERS
 # The 'builders' list defines the Builders, which tell Buildbot how to perform a build:
 # what steps, and which workers can execute them.  Note that any particular build will
 # only take place on one worker.
-
-c['builders'] = [
-    B.builder_github_io("{{ ansible_hostname }}"),
-    B.builder_ansible("{{ ansible_hostname }}")
-]
+c['builders'] = B.all("{{ ansible_hostname }}")
 
 ####### BUILDBOT SERVICES
 # 'services' is a list of BuildbotService items like reporter targets. The

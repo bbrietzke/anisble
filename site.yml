@@ -29,4 +29,5 @@
 
   roles:
     - nginx
+    - dev
     - build_server
