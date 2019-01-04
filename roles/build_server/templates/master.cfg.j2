@@ -7,7 +7,7 @@ from buildconfig import sources as S
 from buildconfig import schedulers as R
 from buildconfig import builders as B
 
-default_password = "password"
+default_password = "{{ buildbot_default_password }}"
 
 # This is a sample buildmaster config file. It must be installed as
 # 'master.cfg' in your buildmaster's base directory.
@@ -15,8 +15,6 @@ default_password = "password"
 # This is the dictionary that the buildmaster pays attention to. We also use
 # a shorter alias to save typing.
 c = BuildmasterConfig = {}
-
-c['buildbotNetUsageData'] = None
 
 ####### WORKERS
 c['protocols'] = {'pb': {'port': 9989}}
@@ -41,7 +39,9 @@ c['schedulers'] = [
 # The 'builders' list defines the Builders, which tell Buildbot how to perform a build:
 # what steps, and which workers can execute them.  Note that any particular build will
 # only take place on one worker.
-c['builders'] = B.all("{{ ansible_hostname }}")
+c['builders'] = [
+    B.test_builder(["{{ ansible_hostname }}"])
+]
 
 ####### BUILDBOT SERVICES
 # 'services' is a list of BuildbotService items like reporter targets. The
@@ -57,22 +57,14 @@ c['services'] = []
 
 c['title'] = "{{ buildbot_title }}"
 c['titleURL'] = "http://{{ buildbot_url }}/"
-
-# the 'buildbotURL' string should point to the location where the buildbot's
-# internal web server is visible. This typically uses the port number set in
-# the 'www' entry below, but with an externally-visible host name which the
-# buildbot cannot figure out without some help.
-
 c['buildbotURL'] = "http://{{ buildbot_url }}/"
 
+
 # minimalistic config to activate new web UI
-c['www'] = dict(port=8010,
-                plugins=dict(waterfall_view={}, console_view={}, grid_view={}))
+c['www'] = dict(port=8010, plugins=dict(console_view={}, grid_view={}))
 
 ####### DB URL
 
-c['db'] = {
-    # This specifies what database buildbot uses to store its state.  You can leave
-    # this at its default for all but the largest installations.
-    'db_url' : "sqlite:///state.sqlite",
-}
+c['db'] = { 'db_url' : "sqlite:///state.sqlite", }
+
+c['buildbotNetUsageData'] = None

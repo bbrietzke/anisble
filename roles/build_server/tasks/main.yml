@@ -15,8 +15,8 @@
       - buildbot
       - buildbot-www
       - buildbot-console-view
-      - buildbot-waterfall-view
       - buildbot-grid-view
+      #- buildbot-waterfall-view
 
 - name: install buildconfig
   pip:
