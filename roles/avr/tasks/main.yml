@@ -1,0 +1,10 @@
+---
+- name: install tools
+  apt:
+    name: "{{ p }}"
+    state: present
+  vars:
+    p:
+      - avrdude
+      - gcc-avr
+      - avr-libc
