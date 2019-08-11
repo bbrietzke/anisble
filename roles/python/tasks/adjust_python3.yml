@@ -15,7 +15,7 @@
     name:
       - pip
 
-- name: install RPi.GPIO
+- name: install additional PIP packags
   pip:
     executable: "{{ pip_executable }}"
     extra_args:  "{{ pip_extras }}"
