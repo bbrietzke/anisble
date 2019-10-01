@@ -9,7 +9,7 @@ and doing your own thing.
 
 ```
 diskutil unmountDisk /dev/disk2 && \
-sudo dd bs=1m if=~/Downloads/2019-07-10-raspbian-buster-lite.img of=/dev/rdisk2 && \
+sudo dd bs=1m if=~/Downloads/2019-09-26-raspbian-buster-lite.img of=/dev/rdisk2 && \
 sleep 3 && \
 touch /Volumes/boot/ssh && \
 diskutil unmountDisk /dev/disk2
