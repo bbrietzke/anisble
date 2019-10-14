@@ -7,3 +7,4 @@
     p:
       - mosquitto
       - mosquitto-clients
+  notify: restart_mqtt
