@@ -1,9 +1,25 @@
 ---
-- name: Disallow password authentication
+# - name: Disallow password authentication
+#   lineinfile:
+#     dest: /etc/ssh/sshd_config
+#     regexp: "^PasswordAuthentication"
+#     line: "PasswordAuthentication no"
+#     state: present
+#   notify: restart_ssh
+
+- name: Password Timeouts 1
   lineinfile:
     dest: /etc/ssh/sshd_config
-    regexp: "^PasswordAuthentication"
-    line: "PasswordAuthentication no"
+    regexp: "^ClientAliveInterval"
+    line: "ClientAliveInterval 120"
+    state: present
+  notify: restart_ssh
+
+- name: Password Timeouts 2
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^ClientAliveCountMax"
+    line: "ClientAliveCountMax 720"
     state: present
   notify: restart_ssh
 
