@@ -1,0 +1,9 @@
+---
+- name: install mosquitto/stable
+  apt:
+    name: "{{ p }}"
+    state: present
+  vars:
+    p:
+      - mosquitto
+      - mosquitto-clients

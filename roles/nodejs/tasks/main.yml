@@ -1,0 +1,10 @@
+---
+- name: install NodeJs
+  apt:
+    state: latest
+    name: nodejs
+
+- name: install *moleculer-cli*
+  npm:
+    name: moleculer-cli
+    global: yes

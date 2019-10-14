@@ -22,8 +22,8 @@
     state: latest
     name: "{{ additional_pip_packages }}"
 
-- name: update python3 to be default
-  alternatives:
-    name: python
-    path: /usr/bin/python3
-    priority: 1
+# - name: update python3 to be default
+#   alternatives:
+#     name: python
+#     path: /usr/bin/python3
+#     priority: 1
