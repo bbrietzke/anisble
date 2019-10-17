@@ -12,7 +12,7 @@
   template:
     src: "templates/memcached.conf.j2"
     dest: "/etc/memcached.conf"
-    owner: memcached
-    group: memcached
+    owner: root
+    group: root
     mode: 0644
   notify: restart_mqtt

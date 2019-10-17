@@ -19,8 +19,8 @@
   hosts: microservice_message_broker
   become: yes
   roles:
-    - nodejs
     - mqtt
+    - memcached
 
 - name: Developer Workstations
   hosts: developer_workstations

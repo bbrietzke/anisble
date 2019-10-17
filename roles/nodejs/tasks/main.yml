@@ -1,4 +1,17 @@
 ---
+- name: copy over nodesource.list
+  template:
+    src: "templates/nodesource.list.j2"
+    dest: "/etc/apt/sources.list.d/nodesource.list"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: add nodesource key
+  apt-key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    state: present
+
 - name: install NodeJs
   apt:
     state: latest
