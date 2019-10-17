@@ -1,0 +1,4 @@
+---
+memcached_memory_cap: 64
+memcached_network_port: 11211
+memcached_network_address: 0.0.0.0
