@@ -1,6 +1,6 @@
 ---
 common_tools:
-  - screen
+  - tmux
 
 pi_password: $6$87T/wLITDDlZJhZW$9WgIv2scat1lnio4L73HPQikP7rbWLP0osHhncT.94PTqS/TFID0L5.xVykw6LzXeTIHyDZov.MOI15qz7buJ0
 github_keys_url: ""
