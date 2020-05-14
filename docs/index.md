@@ -27,7 +27,7 @@ Additional directories can be added to inventories and setup similiar to home or
 Everything should be driven through the _Makefile_.
 
 * `make home` - Create a new project.
-* `make work` - Start the live-reloading docs server.
+* `make image` - create the rasbian image.
 * `make docs` - Build the docs and upload them to gh-pages.
 
 ## Project layout
