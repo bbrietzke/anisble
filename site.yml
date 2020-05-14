@@ -9,6 +9,12 @@
     - common
     - python
 
+- name: Julia host
+  hosts: julia_hosts
+  become: yes
+  roles:
+    - julia
+
 - name: Microservice Host
   hosts: microservice_hosts
   become: yes
