@@ -3,7 +3,7 @@
 EXE := /usr/local/bin/ansible-playbook
 DOC := /usr/local/bin/mkdocs
 UNAME_S := $(shell uname -s)
-IMAGE_NAME := 2020-02-13-raspbian-buster-lite
+IMAGE_NAME := 2020-02-13-raspbian-buster-lite.img
 
 $(DOC):
 	pip install mkdocs
@@ -28,7 +28,8 @@ docs: $(DOC)
 
 image:
 	@diskutil unmountDisk /dev/disk2 && \
-	sudo dd bs=1m if=$(HOME)/Downloads/$(IMAGE_NAME) of=/dev/rdisk2 && \
+	sudo dd bs=1m if=$(HOME)/Downloads/$(IMAGE_NAME) of=/dev/rdisk2 status=progress && \
 	sleep 9 && \
 	touch /Volumes/boot/ssh && \
+	cp boot/*.conf /Volumes/boot/  && \
 	diskutil unmountDisk /dev/disk2
