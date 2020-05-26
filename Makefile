@@ -11,6 +11,9 @@ $(DOC):
 $(EXE):
 	brew install ansible
 
+zero: $(EXE)
+	$(EXE) -i inventories/zero/hosts.yml site.yml
+
 work: $(EXE)
 	$(EXE) -i inventories/work/hosts.yml site.yml
 

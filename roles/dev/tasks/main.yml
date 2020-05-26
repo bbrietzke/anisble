@@ -1,18 +1,8 @@
 ---
-- name: install tools
+- name: install development tools
   apt:
-    name: "{{ p }}"
+    update_cache: yes
+    name: "{{ tools }}"
     state: present
   vars:
-    p:
-      - ccache
-      - build-essential
-      - perl
-      - wget
-      - m4
-      - cmake
-      - pkg-config
-      - git
-      - autotools-dev
-      - automake
-      - graphviz
+    tools: "{{ development_tools }}"
