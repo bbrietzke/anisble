@@ -25,6 +25,8 @@ test: $(EXE)
 	$(EXE) --syntax-check -i inventories/work/hosts.yml site.yml
 	$(EXE) --list-tasks -i inventories/home/hosts.yml site.yml
 	$(EXE) --syntax-check -i inventories/home/hosts.yml site.yml
+	$(EXE) --list-tasks -i inventories/zero/hosts.yml site.yml
+	$(EXE) --syntax-check -i inventories/zero/hosts.yml site.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy

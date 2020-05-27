@@ -4,3 +4,4 @@ development_tools:
   - cmake
   - ccache
   - graphviz
+  - mpich

@@ -12,7 +12,7 @@
     remote_src: yes
     validate_certs: False
 
-- name: install memcached/stable
+- name: install MPICH2
   when: julia_stat.stat.exists == false
   apt:
     name: "{{ p }}"
