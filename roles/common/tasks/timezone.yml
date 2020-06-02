@@ -1,0 +1,4 @@
+---
+- name: set Time Zone to US/Central
+  timezone:
+    name: US/Central
