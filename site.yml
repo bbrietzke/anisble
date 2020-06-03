@@ -34,6 +34,18 @@
   roles:
     - dev
 
+- name: Swarm Manager
+  hosts: docker_swarm_manager
+  become: yes
+  roles:
+    - docker_swarm_manager
+
+- name: Swarm Workers
+  hosts: docker_swarm_workers
+  become: yes
+  roles:
+    - docker_swarm_workers
+
 - name: JupyterHub servers
   hosts: jupyter_servers
   become: yes
