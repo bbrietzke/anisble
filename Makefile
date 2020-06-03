@@ -20,6 +20,9 @@ work: $(EXE)
 home: $(EXE)
 	$(EXE) -i inventories/home/hosts.yml site.yml
 
+swarm: $(EXE)
+	$(EXE) -i inventories/swarm/hosts.yml site.yml
+
 test: $(EXE)
 	$(EXE) --list-tasks -i inventories/work/hosts.yml site.yml
 	$(EXE) --syntax-check -i inventories/work/hosts.yml site.yml
