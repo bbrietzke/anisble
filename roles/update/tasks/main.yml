@@ -1,0 +1,4 @@
+---
+- include_tasks: update_debian.yml
+  when: ansible_facts['os_family'] == "Debian"
+  notify: restart_machine

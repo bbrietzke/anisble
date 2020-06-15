@@ -1,0 +1,6 @@
+--
+- name: cleaning
+  apt:
+    autoclean: yes
+    update_cache: yes
+    autoremove: yes
