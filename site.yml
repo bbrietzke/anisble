@@ -1,13 +1,15 @@
 ---
 # This playbook deploys the whole application stack in this site.
 
-- name: apply common configuration to all nodes
-  hosts: all
+- name: Setup a Raspberry Pi
+  hosts: setup_pi
+  serial: 1
   become: yes
 
   roles:
-    - common
+    - rasppi
     - python
+    - update
 
 - name: Julia host
   hosts: julia_hosts
@@ -35,6 +37,7 @@
     - dev
 
 - name: Swarm Manager
+  serial: 1
   hosts: docker_swarm_manager
   become: yes
   roles:
@@ -46,13 +49,14 @@
   roles:
     - docker_swarm_workers
 
-- name: JupyterHub servers
+- name: JupyterHub Servers
   hosts: jupyter_servers
   become: yes
 
   roles:
     - nginx
     - jupyter
+    - julia
 
 - name: BuildBot servers
   hosts: buildbot_servers

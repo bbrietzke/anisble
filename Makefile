@@ -11,6 +11,9 @@ $(DOC):
 $(EXE):
 	brew install ansible
 
+raspberry: $(EXE)
+	$(EXE) -i inventories/pi/hosts.yml site.yml
+
 zero: $(EXE)
 	$(EXE) -i inventories/zero/hosts.yml site.yml
 

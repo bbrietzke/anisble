@@ -1,6 +1,8 @@
---
+---
 - name: cleaning
   apt:
     autoclean: yes
     update_cache: yes
     autoremove: yes
+  notify:
+    - restart_machine
