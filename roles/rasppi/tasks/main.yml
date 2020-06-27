@@ -1,5 +1,6 @@
 ---
 - include_tasks: boot_config.yml
+- include_tasks: config.yml
 - include_tasks: ssh.yml
 - include_tasks: update_password.yml
 - include_tasks: packages.yml

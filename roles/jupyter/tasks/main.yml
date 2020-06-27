@@ -24,6 +24,8 @@
     extra_args:  "{{ pip_extras }}"
     umask: "0022"
     state: latest
+  tags:
+    - jupyter
 
 - name: /etc/JupyterHub
   file:
@@ -35,12 +37,27 @@
     src: "files/jupyterhub_config.py"
     dest: "/etc/jupyterhub/jupyterhub_config.py"
     force: no
+  tags:
+    - jupyter
+    - config
 
 - name: jupyterhub.service
   copy:
     src: "files/jupyterhub.service"
     dest: "/etc/systemd/system/jupyterhub.service"
     force: no
+  tags:
+    - jupyter
+    - service
+
+- name: Enable JupyterHub service
+  systemd:
+    name: jupyterhub
+    state: started
+    enabled: yes
+  tags:
+    - jupyter
+    - service
 
 - name: add jupyterhub.local as an available site
   template:
@@ -50,3 +67,7 @@
     group: root
     mode: 0644
   notify: restart_nginx
+  tags:
+    - jupyter
+    - nginx
+    - default_site

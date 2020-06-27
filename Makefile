@@ -12,6 +12,7 @@ $(EXE):
 	brew install ansible
 
 raspberry: $(EXE)
+	ssh-copy-id pi@raspberrypi.local
 	$(EXE) -i inventories/pi/hosts.yml site.yml
 
 zero: $(EXE)

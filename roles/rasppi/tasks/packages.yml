@@ -6,3 +6,14 @@
     name: "{{ packages }}"
   vars:
     packages: "{{ common_tools }}"
+  tags:
+    - sw
+
+- name: remove extra packages
+  apt:
+    name="{{ packages }}"
+    state=absent
+  vars:
+    packages: "{{ extra_packages }}"
+  tags:
+    - sw
