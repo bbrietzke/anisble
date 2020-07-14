@@ -52,6 +52,7 @@ ubuntu:
 	@diskutil unmountDisk /dev/disk2 && \
 	sudo dd bs=1m if=$(IMAGE_DIR)/$(UBUNTU_IMAGE_NAME) of=/dev/rdisk2 && \
 	sleep 9 && \
-	touch /Volumes/boot/ssh && \
+	cp boot/user-data /Volumes/system-boot/  && \
 	cp boot/network-config /Volumes/system-boot/  && \
+	vi /Volumes/system-boot/user-data && \
 	diskutil unmountDisk /dev/disk2
