@@ -20,6 +20,8 @@ Following [Ansible best practices](https://docs.ansible.com/ansible/latest/user_
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a _work_ and a _home_ option that contains the
 names/ips and usernames of the host machines.  Also included are the various _children_ which relates to the stacks that contain the roles that you will implement the software and configuration that will be installed.
 
+The bootable images should be saved in the boot directory.  Make sure you updated the image names in the Makefile so the image creation commands work.
+
 ### Personalization
 Additional directories can be added to inventories and setup similiar to home or work depending on how you want things to work or look.
 
@@ -27,12 +29,15 @@ Additional directories can be added to inventories and setup similiar to home or
 Everything should be driven through the _Makefile_.
 
 * `make home` - Create a new project.
-* `make image` - create the rasbian image.
+* `make rasbian` - create the rasbian image.
+* `make ubuntu` - create the ubuntu image.
 * `make docs` - Build the docs and upload them to gh-pages.
 
 ## Project layout
 
     site.yml                # Main ansible playbook
+    boot/                   # saved files for copying to the boot images
+    images/                 # where to save the img files from the RPF and Ubuntu
     inventories/
         home/
             hosts.yml       # Inventory for home
