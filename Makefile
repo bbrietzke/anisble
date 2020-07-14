@@ -3,7 +3,9 @@
 EXE := /usr/local/bin/ansible-playbook
 DOC := /usr/local/bin/mkdocs
 UNAME_S := $(shell uname -s)
-IMAGE_NAME := 2020-05-27-raspios-buster-lite-armhf.img
+IMAGE_DIR := ./images
+RASBIAN_IMAGE_NAME := 2020-05-27-raspios-buster-lite-armhf.img
+UBUNTU_IMAGE_NAME := ubuntu-20.04-preinstalled-server-arm64+raspi.img
 
 $(DOC):
 	pip install mkdocs
@@ -38,10 +40,18 @@ test: $(EXE)
 docs: $(DOC)
 	$(DOC) gh-deploy
 
-image:
+rasbian:
 	@diskutil unmountDisk /dev/disk2 && \
-	sudo dd bs=1m if=$(HOME)/Downloads/$(IMAGE_NAME) of=/dev/rdisk2 && \
+	sudo dd bs=1m if=$(IMAGE_DIR)/$(RASBIAN_IMAGE_NAME) of=/dev/rdisk2 && \
 	sleep 9 && \
 	touch /Volumes/boot/ssh && \
-	cp boot/*.conf /Volumes/boot/  && \
+	cp boot/wpa_supplicant.conf /Volumes/boot/  && \
+	diskutil unmountDisk /dev/disk2
+
+ubuntu:
+	@diskutil unmountDisk /dev/disk2 && \
+	sudo dd bs=1m if=$(IMAGE_DIR)/$(UBUNTU_IMAGE_NAME) of=/dev/rdisk2 && \
+	sleep 9 && \
+	touch /Volumes/boot/ssh && \
+	cp boot/network-config /Volumes/system-boot/  && \
 	diskutil unmountDisk /dev/disk2
