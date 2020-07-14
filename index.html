@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="None">
   
+  
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Home - Raspberry Pi Ansible Setup</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <title>Raspberry Pi Ansible Setup</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="js/jquery-2.1.1.min.js" defer></script>
   <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="." class="icon icon-home"> Raspberry Pi Ansible Setup</a>
         <div role="search">
@@ -45,37 +47,48 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href=".">Home</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#setting-up-raspberry-pi-with-ansible">Setting up Raspberry Pi with Ansible</a></li>
-    
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#building-the-sd-card">Building the SD Card</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#building-the-sd-card">Building the SD Card</a></li>
-        
-            <li><a class="toctree-l3" href="#setup">Setup</a></li>
-        
-            <li><a class="toctree-l3" href="#commands">Commands</a></li>
-        
-            <li><a class="toctree-l3" href="#project-layout">Project layout</a></li>
-        
-            <li><a class="toctree-l3" href="#role-details">Role Details</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#personalization">Personalization</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#role-details">Role Details</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#build-server">Build Server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common">Common</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dev">Dev</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#julia">Julia</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#julia-compiler">Julia Compiler</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#jupyter">Jupyter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nginx">NGinx</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#two-wire">Two Wire</a>
+    </li>
+        </ul>
+    </li>
     </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -100,6 +113,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -121,17 +135,21 @@ diskutil unmountDisk /dev/disk2
 <p>Following <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Ansible best practices</a>, the project is structured
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a <em>work</em> and a <em>home</em> option that contains the
 names/ips and usernames of the host machines.  Also included are the various <em>children</em> which relates to the stacks that contain the roles that you will implement the software and configuration that will be installed.</p>
+<p>The bootable images should be saved in the boot directory.  Make sure you updated the image names in the Makefile so the image creation commands work.</p>
 <h3 id="personalization">Personalization</h3>
 <p>Additional directories can be added to inventories and setup similiar to home or work depending on how you want things to work or look.</p>
 <h2 id="commands">Commands</h2>
 <p>Everything should be driven through the <em>Makefile</em>.</p>
 <ul>
 <li><code>make home</code> - Create a new project.</li>
-<li><code>make image</code> - create the rasbian image.</li>
+<li><code>make rasbian</code> - create the rasbian image.</li>
+<li><code>make ubuntu</code> - create the ubuntu image.</li>
 <li><code>make docs</code> - Build the docs and upload them to gh-pages.</li>
 </ul>
 <h2 id="project-layout">Project layout</h2>
 <pre><code>site.yml                # Main ansible playbook
+boot/                   # saved files for copying to the boot images
+images/                 # where to save the img files from the RPF and Ubuntu
 inventories/
     home/
         hosts.yml       # Inventory for home
@@ -212,7 +230,7 @@ buildserver/
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -222,7 +240,7 @@ buildserver/
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -232,11 +250,16 @@ buildserver/
     <script>var base_url = '.';</script>
     <script src="js/theme.js" defer></script>
       <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-05-14 19:05:07
+MkDocs version : 1.1.2
+Build Date UTC : 2020-07-14 18:57:56.191190+00:00
 -->
