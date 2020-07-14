@@ -1,0 +1,62 @@
+---
+- name: does Hadoop already live here?
+  stat:
+    path: "{{ hadoop_local }}/{{ hadoop_path }}"
+  register: hadoop_stat
+  tags:
+    - sw
+    - java
+    - hadoop
+
+- name: download and extract Hadoop
+  when: hadoop_stat.stat.exists == false
+  unarchive:
+    src: "{{ hadoop_url }}{{ hadoop_tarball }}"
+    dest: "{{ hadoop_local }}"
+    remote_src: yes
+    validate_certs: False
+  tags:
+    - sw
+    - java
+    - hadoop
+
+- name: Add Hadoop group
+  group:
+    name: hadoop
+    state: present
+  when: hadoop_stat.stat.exists == false
+
+- name: Add Hadoop user
+  user:
+    name: hadoop
+    comment: hadoop user
+    state: present
+    group: hadoop
+    create_home: no
+  when: hadoop_stat.stat.exists == false
+
+- name: change hadoop directory ownership
+  file:
+    path: "{{ hadoop_local }}{{ hadoop_path }}"
+    owner: hadoop
+    group: hadoop
+    mode: '0644'
+    recurse: yes
+    state: directory
+  when: hadoop_stat.stat.exists == false
+
+- name: copy over core-site.xml
+  template:
+    src: "templates/core-site.xml.j2"
+    dest: "{{ hadoop_local }}{{ hadoop_path }}/etc/hadoop/core-site.xml"
+    owner: hadoop
+    group: hadoop
+    mode: 0644
+
+- name: copy over hdfs-site.xml
+  template:
+    src: "templates/hdfs-site.xml.j2"
+    dest: "{{ hadoop_local }}{{ hadoop_path }}/etc/hadoop/hdfs-site.xml"
+    owner: hadoop
+    group: hadoop
+    mode: 0644

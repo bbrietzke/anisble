@@ -3,12 +3,12 @@
 - name: restart_ssh
   service: name=ssh state=restarted
 
-- name: restart_machine
-  reboot:
-      reboot_timeout: 3600
-
 - name: rebuild locales database
   command: "{{ item }}"
   with_items:
     - dpkg-reconfigure locales -f noninteractive
     - /usr/sbin/locale-gen
+
+- name: restart_machine
+  reboot:
+      reboot_timeout: 3600

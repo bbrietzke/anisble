@@ -1,13 +1,14 @@
 ---
 - name: install tools
   apt:
-    update_cache: yes
     state: present
     name: "{{ packages }}"
   vars:
     packages: "{{ common_tools }}"
   tags:
     - sw
+    - raspi
+    - apt
 
 - name: remove extra packages
   apt:
@@ -17,3 +18,5 @@
     packages: "{{ extra_packages }}"
   tags:
     - sw
+    - raspi
+    - apt

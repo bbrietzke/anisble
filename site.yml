@@ -58,6 +58,14 @@
     - jupyter
     - julia
 
+- name: Hadoop Cluster
+  hosts: hadoop_cluster
+  become: yes
+
+  roles:
+    - java
+    - hadoop
+
 - name: BuildBot servers
   hosts: buildbot_servers
   become: yes

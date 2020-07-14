@@ -3,14 +3,3 @@
   command: "raspi-config nonint do_expand_rootfs"
   tags:
     - raspi
-
-- name: get hostname
-  shell: "raspi-config nonint get_hostname"
-  register: pi_hostname
-  changed_when: False
-
-- name: change hostname with raspi-config
-  command: "raspi-config nonint do_hostname {{ new_hostname }}"
-  when: pi_hostname.stdout != new_hostname
-  tags:
-    - raspi
