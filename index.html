@@ -64,23 +64,13 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#role-details">Role Details</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#build-server">Build Server</a>
+    <li class="toctree-l3"><a class="reference internal" href="#julia">julia</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#common">Common</a>
+    <li class="toctree-l3"><a class="reference internal" href="#jupyterhub">jupyterhub</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#dev">Dev</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#julia">Julia</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#julia-compiler">Julia Compiler</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#jupyter">Jupyter</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#nginx">NGinx</a>
+    <li class="toctree-l3"><a class="reference internal" href="#nginx">nginx</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#two-wire">Two Wire</a>
     </li>
         </ul>
     </li>
@@ -134,7 +124,7 @@ diskutil unmountDisk /dev/disk2
 <h2 id="setup">Setup</h2>
 <p>Following <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Ansible best practices</a>, the project is structured
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a <em>work</em> and a <em>home</em> option that contains the
-names/ips and usernames of the host machines.  Also included are the various <em>children</em> which relates to the stacks that contain the roles that you will implement the software and configuration that will be installed.</p>
+names/ips and usernames of the host machines.  Also included are the various <em>children</em> which relates to the groups that contain the roles that you will implement the software and configuration that will be installed.</p>
 <p>The bootable images should be saved in the boot directory.  Make sure you updated the image names in the Makefile so the image creation commands work.</p>
 <h3 id="personalization">Personalization</h3>
 <p>Additional directories can be added to inventories and setup similiar to home or work depending on how you want things to work or look.</p>
@@ -147,75 +137,42 @@ names/ips and usernames of the host machines.  Also included are the various <em
 <li><code>make docs</code> - Build the docs and upload them to gh-pages.</li>
 </ul>
 <h2 id="project-layout">Project layout</h2>
-<pre><code>site.yml                # Main ansible playbook
-boot/                   # saved files for copying to the boot images
+<pre><code>boot/                   # saved files for copying to the boot images
 images/                 # where to save the img files from the RPF and Ubuntu
-inventories/
-    home/
-        hosts.yml       # Inventory for home
-        group_vars/
-            all.yml     # various variables to be saved.
-    work/
-        hosts.yml       # Inventory for work
-        group_vars/
-            all.yml     # various variables to be saved.
-roles/
-buildserver/
-    common/  
-    dev/            
-    julia/              
-    julia_compiler/     
-    jupyter/         
-    nginx/
-    python/
-    two_wire/
+home/
+  inventory/      
+    hosts               # all the machines in the network
+    group_vars/         # variables to override different roles based on groupings
+    host_vars/          # variables related to specific hosts
+  project/
+    default.yml         # default or site playbook
+    updates.yml         # just doing updates and not much else
+    roles/              # where the various roles live
+      common/
+      julia/
+      jupyterhub/
+      nginx/
+      python/
+      updates/
 </code></pre>
 <h2 id="role-details">Role Details</h2>
-<h3 id="build-server">Build Server</h3>
-<ul>
-<li>Installs a <a href="https://buildbot.net/">BuildBot</a> master server</li>
-</ul>
-<h3 id="common">Common</h3>
-<ul>
-<li>Fixes the Pi user password</li>
-<li>Changes ssh to prevent logging in via passwords and registers ssh keys for the pi user</li>
-<li>Updates all packages</li>
-<li>Install screen and python3</li>
-<li>Install a consistent /boot/config.txt</li>
-</ul>
-<h3 id="dev">Dev</h3>
-<ul>
-<li>Installs developer tools</li>
-</ul>
-<h3 id="julia">Julia</h3>
+<h3 id="julia">julia</h3>
 <ul>
 <li>Downloads the <a href="https://julialang.org/">Juila</a> tar file and installs it to /opt</li>
 <li>creates a julia user for distributed work over ssh</li>
 </ul>
-<h3 id="julia-compiler">Julia Compiler</h3>
-<ul>
-<li>Installs required packages in order to compile <a href="https://julialang.org/">Juila</a></li>
-<li>Sets the swap file to max out at 8G install 100M</li>
-</ul>
-<h3 id="jupyter">Jupyter</h3>
+<h3 id="jupyterhub">jupyterhub</h3>
 <ul>
 <li>Install <a href="https://jupyterhub.readthedocs.io/en/stable/">Jupyter Hub</a></li>
 <li>Sets it up to run as a service</li>
 </ul>
-<h3 id="nginx">NGinx</h3>
+<h3 id="nginx">nginx</h3>
 <ul>
 <li>Vanillia NGinx install</li>
 </ul>
 <h3 id="python">Python</h3>
 <ul>
-<li>Removing python2</li>
-<li>Builds pip.conf</li>
-<li>Installs python3</li>
-<li>Installs latest version of pip and a few packages</li>
-</ul>
-<h3 id="two-wire">Two Wire</h3>
-<ul>
-<li>updates config.txt to enable two wire communications</li>
+<li>bring Python3 up to snuff</li>
 </ul>
               
             </div>
@@ -261,5 +218,5 @@ buildserver/
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-07-14 18:57:56.191190+00:00
+Build Date UTC : 2020-07-16 21:57:38.165656+00:00
 -->
