@@ -12,10 +12,10 @@ ethernets:
   eth0:
     dhcp4: true
     optional: true
-wifis:
-  wlan0:
-    dhcp4: true
-    optional: true
-    access-points:
-      ATTQtnSZMS:
-        password: ewjtifu69jj8
+#wifis:
+#  wlan0:
+#    dhcp4: true
+#    optional: true
+#    access-points:
+#      ATTQtnSZMS:
+#        password: ewjtifu69jj8
