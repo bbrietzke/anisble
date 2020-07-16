@@ -1,0 +1,11 @@
+---
+- name: install extra packages
+  apt:
+    update_cache: yes
+    state: present
+    name: "{{ packages }}"
+  vars:
+    packages: "{{ additional_python_packages }}"
+  tags:
+    - apt
+    - python

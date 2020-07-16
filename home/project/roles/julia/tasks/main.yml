@@ -1,0 +1,34 @@
+---
+- name: does Julia already live here?
+  stat:
+    path: "{{ julia_local }}/{{ julia_tar_path }}"
+  register: julia_stat
+
+- name: download and extract julia
+  when: julia_stat.stat.exists == false
+  unarchive:
+    src: "{{ julia_url }}{{ julia_tar }}"
+    dest: "{{ julia_local }}"
+    remote_src: yes
+    validate_certs: False
+
+- name: install MPICH2
+  when: julia_stat.stat.exists == false
+  apt:
+    name: "{{ p }}"
+    state: present
+  vars:
+    p:
+      - mpich
+
+- name: add Julia user for distributed workloads
+  when: julia_stat.stat.exists == false
+  user:
+    name: julia
+    shell: /usr/sbin/nologin
+
+- name: create link
+  file:
+    src: "{{ julia_local }}/{{ julia_tar_path }}/bin/julia"
+    dest: "/usr/local/bin/julia"
+    state: link

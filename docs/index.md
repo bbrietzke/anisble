@@ -18,7 +18,7 @@ diskutil unmountDisk /dev/disk2
 ## Setup
 Following [Ansible best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html), the project is structured
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a _work_ and a _home_ option that contains the
-names/ips and usernames of the host machines.  Also included are the various _children_ which relates to the stacks that contain the roles that you will implement the software and configuration that will be installed.
+names/ips and usernames of the host machines.  Also included are the various _children_ which relates to the groups that contain the roles that you will implement the software and configuration that will be installed.
 
 The bootable images should be saved in the boot directory.  Make sure you updated the image names in the Makefile so the image creation commands work.
 
@@ -35,63 +35,35 @@ Everything should be driven through the _Makefile_.
 
 ## Project layout
 
-    site.yml                # Main ansible playbook
     boot/                   # saved files for copying to the boot images
     images/                 # where to save the img files from the RPF and Ubuntu
-    inventories/
-        home/
-            hosts.yml       # Inventory for home
-            group_vars/
-                all.yml     # various variables to be saved.
-        work/
-            hosts.yml       # Inventory for work
-            group_vars/
-                all.yml     # various variables to be saved.
-    roles/
-    buildserver/
-        common/  
-        dev/            
-        julia/              
-        julia_compiler/     
-        jupyter/         
-        nginx/
-        python/
-        two_wire/   
+    home/
+      inventory/      
+        hosts               # all the machines in the network
+        group_vars/         # variables to override different roles based on groupings
+        host_vars/          # variables related to specific hosts
+      project/
+        default.yml         # default or site playbook
+        updates.yml         # just doing updates and not much else
+        roles/              # where the various roles live
+          common/
+          julia/
+          jupyterhub/
+          nginx/
+          python/
+          updates/
 
 ## Role Details
-### Build Server
-* Installs a [BuildBot](https://buildbot.net/) master server
-
-### Common
-* Fixes the Pi user password
-* Changes ssh to prevent logging in via passwords and registers ssh keys for the pi user
-* Updates all packages
-* Install screen and python3
-* Install a consistent /boot/config.txt
-
-### Dev
-* Installs developer tools
-
-### Julia
+### julia
 * Downloads the [Juila](https://julialang.org/) tar file and installs it to /opt
 * creates a julia user for distributed work over ssh
 
-### Julia Compiler
-* Installs required packages in order to compile [Juila](https://julialang.org/)
-* Sets the swap file to max out at 8G install 100M
-
-### Jupyter
+### jupyterhub
 * Install [Jupyter Hub](https://jupyterhub.readthedocs.io/en/stable/)
 * Sets it up to run as a service
 
-### NGinx
+### nginx
 * Vanillia NGinx install
 
 ### Python
-* Removing python2
-* Builds pip.conf
-* Installs python3
-* Installs latest version of pip and a few packages
-
-### Two Wire
-* updates config.txt to enable two wire communications
+* bring Python3 up to snuff

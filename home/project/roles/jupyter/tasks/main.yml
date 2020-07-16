@@ -1,0 +1,73 @@
+---
+- name: install prerequistes
+  apt:
+    name: "{{ p }}"
+  vars:
+    p:
+      - npm
+      - nodejs
+
+- name: web proxy
+  npm:
+    name: configurable-http-proxy
+    global: yes
+    state: present
+
+- name: install JupyterHub
+  pip:
+    name:
+      - notebook
+      - jupyterhub
+      - jupyterlab
+      - oauthenticator
+    executable: "{{ pip_executable }}"
+    extra_args:  "{{ pip_extras }}"
+    umask: "0022"
+    state: latest
+  tags:
+    - jupyter
+
+- name: /etc/JupyterHub
+  file:
+    path: "/etc/jupyterhub"
+    state: directory
+
+- name: jupyterhub_config.py
+  copy:
+    src: "files/jupyterhub_config.py"
+    dest: "/etc/jupyterhub/jupyterhub_config.py"
+    force: no
+  tags:
+    - jupyter
+    - config
+
+- name: jupyterhub.service
+  copy:
+    src: "files/jupyterhub.service"
+    dest: "/etc/systemd/system/jupyterhub.service"
+    force: no
+  tags:
+    - jupyter
+    - service
+
+- name: Enable JupyterHub service
+  systemd:
+    name: jupyterhub
+    state: started
+    enabled: yes
+  tags:
+    - jupyter
+    - service
+
+- name: add jupyterhub.local as an available site
+  template:
+    src: templates/default.j2
+    dest: /etc/nginx/sites-available/default
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_nginx
+  tags:
+    - jupyter
+    - nginx
+    - default_site

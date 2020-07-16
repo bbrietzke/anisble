@@ -1,0 +1,6 @@
+---
+pip_executable: /usr/bin/pip3
+pip_extras:
+
+additional_python_packages:
+  - python3-pip

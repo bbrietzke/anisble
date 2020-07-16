@@ -1,4 +1,0 @@
-USE_BINARYBUILDER_LLVM=1
-BINARYBUILDER_TRIPLET=arm-linux-gnueabihf
-BUILDROOT=/home/pi/Development/julia_compiled
-USECCACHE=1

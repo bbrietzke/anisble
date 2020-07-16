@@ -1,4 +1,0 @@
----
-ansible_python_interpreter: /usr/bin/python3
-
-github_keys_url: https://github.com/bbrietzke.keys

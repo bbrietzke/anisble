@@ -1,0 +1,6 @@
+---
+- name: Debugging variables
+  debug:
+    msg: "{{ ansible_distribution }}.{{ ansible_distribution_major_version }}.{{ os_family }}.{{ inventory_hostname }}"
+  tags:
+    - debug

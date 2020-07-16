@@ -1,0 +1,10 @@
+all:
+  children:
+    raspberry_pis:
+      hosts:
+        tethys:
+        rhea:
+        orcus:
+        dione:
+        enceladus:
+        iapetus:

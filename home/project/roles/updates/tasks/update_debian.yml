@@ -1,0 +1,19 @@
+---
+- name: dist-upgrade
+  apt:
+    update_cache: yes
+  notify:
+    - restart_machine
+  tags:
+    - updates
+    - apt
+
+- name: cleaning
+  apt:
+    autoclean: yes
+    autoremove: yes
+  notify:
+    - restart_machine
+  tags:
+    - updates
+    - apt
