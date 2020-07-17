@@ -1,0 +1,31 @@
+---
+- name: install Java
+  apt:
+    state: latest
+    name: "{{ default_jdk_package }}"
+  tags:
+    - java
+    - apt
+
+- name: install additional java packages
+  apt:
+    state: latest
+    name: "{{ package }}"
+  vars:
+    package: "{{ additional_java_packages }}"
+  tags:
+    - java
+    - apt
+
+- name: Set java version as default
+  alternatives:
+    name: java
+    path: "{{ default_java_path }}"
+    priority: 0
+
+- name: add JAVA_HOME to /etc/environment
+  lineinfile:
+    state: present
+    path: /etc/environment
+    create: yes
+    line: "JAVA_HOME={{ default_java_path }}"

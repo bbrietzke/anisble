@@ -1,0 +1,7 @@
+---
+additional_java_packages:
+  - openjdk-14-jdk
+
+default_jdk_package: default-jdk
+
+default_java_path: /usr/lib/jvm/java-11-openjdk-arm64/bin/java

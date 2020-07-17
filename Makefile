@@ -8,34 +8,13 @@ RASBIAN_IMAGE_NAME := 2020-05-27-raspios-buster-lite-armhf.img
 UBUNTU_IMAGE_NAME := ubuntu-20.04-preinstalled-server-arm64+raspi.img
 
 $(DOC):
-	pip install mkdocs
+	pip3 install mkdocs
 
 $(EXE):
 	brew install ansible
 
-raspberry: $(EXE)
-	ssh-copy-id pi@raspberrypi.local
-	$(EXE) -i inventories/pi/hosts.yml site.yml
-
-zero: $(EXE)
-	$(EXE) -i inventories/zero/hosts.yml site.yml
-
-work: $(EXE)
-	$(EXE) -i inventories/work/hosts.yml site.yml
-
-home: $(EXE)
-	$(EXE) -i inventories/home/hosts.yml site.yml
-
-swarm: $(EXE)
-	$(EXE) -i inventories/swarm/hosts.yml site.yml
-
-test: $(EXE)
-	$(EXE) --list-tasks -i inventories/work/hosts.yml site.yml
-	$(EXE) --syntax-check -i inventories/work/hosts.yml site.yml
-	$(EXE) --list-tasks -i inventories/home/hosts.yml site.yml
-	$(EXE) --syntax-check -i inventories/home/hosts.yml site.yml
-	$(EXE) --list-tasks -i inventories/zero/hosts.yml site.yml
-	$(EXE) --syntax-check -i inventories/zero/hosts.yml site.yml
+default:
+	$(EXE) -i home/inventory/hosts home/project/default.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy
