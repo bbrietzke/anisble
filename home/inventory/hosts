@@ -8,6 +8,18 @@ all:
         dione:
         enceladus:
         iapetus:
-    java_testing:
+        phobos:
+    desktop:
+      hosts:
+        phobos:
+    rasp_three:
       hosts:
         enceladus:
+        iapetus:
+    rasp_four:
+      hosts:
+        tethys:
+        rhea:
+        orcus:
+        dione:
+        phobos:s
