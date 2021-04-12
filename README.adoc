@@ -10,6 +10,8 @@ endif::[]
 :Email:     bbrietzke+github.com
 :Revision:  2
 
+:toc:
+
 == My Ansible Pipeline
 This is the copy of the ansible pipeline that I use to maintain my home networking infrastructure. 
 
@@ -53,4 +55,4 @@ diskutil unmountDisk /dev/disk2
 and it will do the rest for you.
 
 == Directory Layout
-I try to follow the ansible best practices that can be found at https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#directory-layout[Playbook Best Practices], except i moved the playbooks into thier own folder.
+I try to follow the ansible best practicesfootnote:bestPrac[https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#directory-layout], except i moved the playbooks into thier own directory.
