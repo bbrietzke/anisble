@@ -5,7 +5,7 @@ DOC := /usr/local/bin/mkdocs
 UNAME_S := $(shell uname -s)
 IMAGE_DIR := ./images
 RASBIAN_IMAGE_NAME := 2021-03-04-raspios-buster-armhf-lite.img
-UBUNTU_IMAGE_NAME := ubuntu-20.10-preinstalled-desktop-arm64+raspi.img
+UBUNTU_IMAGE_NAME := ubuntu-20.10-preinstalled-server-arm64+raspi.img
 SLEEP_TIME := 10
 TARGET_DISK := /dev/rdisk2
 
@@ -36,6 +36,6 @@ ubuntu:
 	sleep $(SLEEP_TIME) && \
 	cp boot/user-data /Volumes/system-boot/  && \
 	cp boot/network-config /Volumes/system-boot/  && \
+	say "Please enter the host name"  && \
 	vi /Volumes/system-boot/user-data && \
-	diskutil unmountDisk /dev/disk2 && \
-	say "Disk has been formatted"
+	diskutil unmountDisk /dev/disk2
