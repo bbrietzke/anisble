@@ -20,7 +20,7 @@ Following [Ansible best practices](https://docs.ansible.com/ansible/latest/user_
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a _work_ and a _home_ option that contains the
 names/ips and usernames of the host machines.  Also included are the various _children_ which relates to the groups that contain the roles that you will implement the software and configuration that will be installed.
 
-The bootable images should be saved in the boot directory.  Make sure you updated the image names in the Makefile so the image creation commands work.
+The bootable images should be saved in the 'image' directory.  Make sure you updated the image names in the Makefile so the 'image' creation commands work.
 
 ### Personalization
 Additional directories can be added to inventories and setup similiar to home or work depending on how you want things to work or look.

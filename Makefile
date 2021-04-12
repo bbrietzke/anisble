@@ -16,7 +16,7 @@ $(EXE):
 	brew install ansible
 
 default:
-	$(EXE) -i home/inventory/hosts home/project/default.yml
+	$(EXE) -i inventories/home/hosts playbooks/default.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy
