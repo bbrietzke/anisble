@@ -12,7 +12,7 @@
 
 # On first boot, set the (default) ubuntu user's password to "ubuntu" and
 # expire user passwords
-hostname: ubuntu
+hostname: dione
 
 chpasswd:
   expire: true
@@ -25,6 +25,14 @@ ssh_pwauth: true
 package_update: true
 package_upgrade: true
 package_reboot_if_required: true
+
+## Install additional packages on first boot
+packages:
+- avahi-daemon 
+- avahi-discover 
+- avahi-utils 
+- libnss-mdns 
+- mdns-scan
 
 ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDePLbRmbOyDBZ1Jg6JuPvGq+7V3AnMq67j+5wGXGeox3iFJrYqeRMaG7qE7ymxRrXTmgiVYUk25bd1CvRNN/ndm4y3hyKzGaEPsOcvgcZngQSElX8fZE/iyREPMySYIx570/DxSUDVmbArtZu+ITmOwPCis84AjWf3ZBlyToA5JSophN0YUfM5pi7ny3BXdQJnv2qyiu42vG/pmdTpxlAFdJOSzJGLf3PzrOnHJcguF4lJsqdTGVr1jOfNnKoyjrvpyeRNq2ZdDGI99H+ByEPWVQ1jTLW43JKfIw67Kjnn6KDP/x3oknHaTR1gCdwAddSAAgOO0m1+FHcx8Jfx9BgIQoftH9AOL8kdvFAAV9wXBAIqjnKXde+j08tsT227cnIXCuH09DvDA/G3GryzcDtYfd6ECFW9zLGAX2jOv1kmldMzIPbDepPZm+3PAY0X7H+YixM3xvMvL5oYBADmNanrBZPVoUi45CN6S5a7KiZuWuUYvyz59JnXjTmM1fjCGdE= brian@pegasus.attlocal.net
@@ -60,14 +68,9 @@ power_state:
 #  passwd: $5$hkui88$nvZgIle31cNpryjRfO9uArF7DYiBcWEnjqq7L1AQNN3
 
 ## Update apt database and upgrade packages on first boot
-#package_update: true
-#package_upgrade: true
+# package_update: true
+# package_upgrade: true
 
-## Install additional packages on first boot
-#packages:
-#- pwgen
-#- pastebinit
-#- [libpython2.7, 2.7.3-0ubuntu3.1]
 
 ## Write arbitrary files to the file-system (including binaries!)
 #write_files:
