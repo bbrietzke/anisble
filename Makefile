@@ -1,7 +1,7 @@
 .PHONY: work home docs test image
 
-EXE := /usr/local/bin/ansible-playbook
-DOC := /usr/local/bin/mkdocs
+EXE := $(shell which ansible-playbook)
+DOC := $(shell which mkdocs)
 UNAME_S := $(shell uname -s)
 IMAGE_DIR := ./images
 RASBIAN_IMAGE_NAME := 2021-03-04-raspios-buster-armhf-lite.img
@@ -10,7 +10,7 @@ SLEEP_TIME := 10
 TARGET_DISK := /dev/rdisk2
 
 $(DOC):
-	pip3 install mkdocs
+	python3 -m pip install mkdocs
 
 $(EXE):
 	brew install ansible

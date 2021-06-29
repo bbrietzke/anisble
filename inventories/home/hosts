@@ -1,5 +1,11 @@
 all:
   children:
+    desktop:
+      hosts:
+        phobos:
+    mini:
+      hosts:
+        zeus:
     raspberry_pis:
       hosts:
         tethys:
@@ -9,9 +15,7 @@ all:
         enceladus:
         iapetus:
         phobos:
-    desktop:
-      hosts:
-        phobos:
+        octopi:
     rasp_three:
       hosts:
         enceladus:
@@ -23,3 +27,7 @@ all:
         orcus:
         dione:
         phobos:
+        octopi:
+    octoprint:
+      hosts:
+        octopi:

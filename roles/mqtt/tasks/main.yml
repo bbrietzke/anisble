@@ -1,10 +1,8 @@
 ---
 - name: install mosquitto/stable
   apt:
-    name: "{{ p }}"
+    name: "{{ packages }}"
     state: present
   vars:
-    p:
-      - mosquitto
-      - mosquitto-clients
+    packages: "{{ apt_packages }}"
   notify: restart_mqtt
