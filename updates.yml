@@ -1,0 +1,6 @@
+---
+- name: Update All
+  hosts: all
+  become: yes
+  roles:
+    - update

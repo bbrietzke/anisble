@@ -28,11 +28,11 @@ package_reboot_if_required: true
 
 ## Install additional packages on first boot
 packages:
-- avahi-daemon 
-- avahi-discover 
-- avahi-utils 
-- libnss-mdns 
-- mdns-scan
+  - avahi-daemon 
+  - avahi-discover 
+  - avahi-utils 
+  - libnss-mdns 
+  - mdns-scan
 
 ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjYSxSL0aEXLLAPDebvWyXG1LO0Fgo5SPREEKkTnAd1pgHY6ImnMyGU10nyw3fiQFu9xGzJnqgTJHXFk3sLThNd+aa6fGA3JA3bBUnBdne4vZSuJobOl7SLSECNwqR9eQpIfSoJUqsntC+MBekvVIwoNd4vg5lIZmM0zdn+Oodz5pVVf6cJlAdLFjvcBNIi9i6Epc+1x02P8rQkhtdPelGut8tzjQzoaJVgZHcoLciLtnQCgJdpBeM+LYKf+YYbpwRKvwQoQLqyeiUvWCg95V4Ot1ehrQLchz15O8EyKva7rNlwG+4hDlEhQsCW2ZIqhUiw/DvGyZXTsKTnDSJW7MB8rXY6H71Yp9HYwIbzJhaQ3JE1AuaiV1eZCm/Lw4krgC7XRrqO0BLObfep4MVrmxPmCKtTIEnCtb5zdDyHGHkZkYOnJkNTKW+VRS6h46vT6H4OT/BhIRBZRlfXUSMAiNznx/jR8qccEcfqfsd6FYlhOMwq9UYlk1GiWDxRokZ7vE= bbrietzke@Mac-mini.attlocal.net
@@ -47,9 +47,9 @@ power_state:
 
 ## On first boot, use ssh-import-id to give the specific users SSH access to
 ## the default user
-#ssh_import_id:
+ssh_import_id:
+  - gh:bbrietzke
 #- lp:my_launchpad_username
-#- gh:my_github_username
 
 ## Add users and groups to the system, and import keys with the ssh-import-id
 ## utility

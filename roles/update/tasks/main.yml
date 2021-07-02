@@ -1,3 +1,4 @@
 ---
-- include_tasks: update_debian.yml
+- name: Update Debian based distros
+  include_tasks: update_debian.yml
   when: ansible_facts['os_family'] == "Debian"

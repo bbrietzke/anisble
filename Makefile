@@ -16,7 +16,7 @@ $(EXE):
 	brew install ansible
 
 default:
-	$(EXE) -i inventories/home/hosts playbooks/default.yml
+	$(EXE) -i inventories/home/hosts updates.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy
@@ -39,3 +39,8 @@ ubuntu:
 	say "Please enter the host name"  && \
 	vi /Volumes/system-boot/user-data && \
 	diskutil unmountDisk /dev/disk2
+
+imager:
+	cp boot/user-data boot/user-data/user-data.old
+	cp boot/user-data /Volumes/system-boot/user-data
+	vi /Volumes/system-boot/user-data
