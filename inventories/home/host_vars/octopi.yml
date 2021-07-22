@@ -1,2 +1,4 @@
 ---
 ansible_user: pi
+ubuntu_version: hirsute
+
