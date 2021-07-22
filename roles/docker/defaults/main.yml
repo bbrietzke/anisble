@@ -1,5 +1,7 @@
 ---
 ubuntu_version: hirsute
+
+docker_state: present
   
 remove_packages:
   - docker 

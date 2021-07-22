@@ -2,3 +2,4 @@
 ansible_user: pi
 ubuntu_version: hirsute
 
+do_not_reboot: true

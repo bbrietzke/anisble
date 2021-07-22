@@ -1,9 +1,0 @@
----
-
-- hosts: all
-
-- name: Raspberry Pis
-  hosts: raspberry_pis
-  become: yes
-  roles:
-    - python

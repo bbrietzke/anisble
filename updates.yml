@@ -2,5 +2,6 @@
 - name: Update All
   hosts: all
   become: yes
+  serial: 2
   roles:
     - update

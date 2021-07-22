@@ -31,3 +31,6 @@ all:
     octoprint:
       hosts:
         octopi:
+    kubernetes:
+      hosts:
+        enceladus:

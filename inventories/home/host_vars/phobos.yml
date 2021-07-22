@@ -1,0 +1,3 @@
+---
+ansible_user: ubuntu
+ubuntu_version: hirsute

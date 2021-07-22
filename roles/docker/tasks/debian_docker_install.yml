@@ -1,0 +1,33 @@
+---
+- name: Remove invalid packages
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages: "{{ remove_packages }}"
+
+- name: Install Docker GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Install Docker Repository
+  apt_repository: 
+    repo: deb https://download.docker.com/linux/ubuntu hirsute stable
+    state: present
+  tags:
+    - sw
+    - apt
+
+- name: Install Docker specific packages
+  apt:
+    name: "{{ packages }}"
+    state: "{{ docker_state }}"
+  vars:
+    packages: "{{ add_packages }}"
+
+- name: Add {{ ansible_user }} to docker group
+  user:
+    name: '{{ ansible_user }}'
+    groups: docker
+    append: yes

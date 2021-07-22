@@ -1,4 +1,7 @@
 ---
 - name: Update Debian based distros
-  include_tasks: install_debian.yml
+  include_tasks: debian_docker_install.yml
   when: ansible_facts['os_family'] == "Debian"
+
+- name: Remove swap files
+  include_tasks: remove_swap.yml
