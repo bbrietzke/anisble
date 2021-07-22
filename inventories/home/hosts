@@ -34,3 +34,7 @@ all:
     kubernetes:
       hosts:
         enceladus:
+        tethys:
+        dione:
+        iapetus:
+        rhea:
