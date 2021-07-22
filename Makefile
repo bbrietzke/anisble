@@ -15,8 +15,11 @@ $(DOC):
 $(EXE):
 	brew install ansible
 
-default:
+update:
 	$(EXE) -i inventories/home/hosts updates.yml
+
+default:
+	$(EXE) -i inventories/home/hosts default.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy
