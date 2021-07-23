@@ -1,4 +1,3 @@
 ---
 ansible_user: ubuntu
 ubuntu_version: hirsute
-docker_state: absent

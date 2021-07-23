@@ -21,7 +21,7 @@ updates:
 default:
 	$(EXE) -i inventories/home/hosts default.yml
 
-kube:
+docker:
 	$(EXE) -i inventories/home/hosts install_docker.yml
 
 docs: $(DOC)

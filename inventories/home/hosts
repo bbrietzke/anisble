@@ -1,8 +1,5 @@
 all:
   children:
-    desktop:
-      hosts:
-        phobos:
     mini:
       hosts:
         zeus:
@@ -19,21 +16,21 @@ all:
     rasp_three:
       hosts:
         enceladus:
-        iapetus:
     rasp_four:
       hosts:
         tethys:
         rhea:
-        orcus:
         dione:
         phobos:
         octopi:
     octoprint:
       hosts:
         octopi:
-    kubernetes:
+    kubernetes_master:
       hosts:
         enceladus:
+    kubernetes:
+      hosts:
         tethys:
         dione:
         iapetus:

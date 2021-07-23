@@ -1,7 +1,7 @@
 ---
 
-- name: Docker Hosts
+- name: Kubernetes Hosts
   hosts: kubernetes
   become: yes
   roles:
-    - docker
+    - kubernetes

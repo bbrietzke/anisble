@@ -1,5 +1,5 @@
 ---
-ubuntu_version: hirsute
+ubuntu_version: focal
 
 docker_state: present
   
@@ -16,3 +16,8 @@ add_packages:
   - curl
   - gnupg
   - lsb-release
+
+docker_packages:
+  - docker-ce 
+  - docker-ce-cli 
+  - containerd.io
