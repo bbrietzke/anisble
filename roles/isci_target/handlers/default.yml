@@ -1,0 +1,6 @@
+---
+- name: restart ISCSI target
+  systemd:
+    enabled: yes
+    name: tgt
+    daemon_reload: yes

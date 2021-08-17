@@ -1,5 +1,5 @@
 ---
 ansible_user: pi
-ubuntu_version: hirsute
+ansible_host: 192.168.1.227
 
 do_not_reboot: true
