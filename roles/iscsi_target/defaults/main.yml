@@ -3,12 +3,12 @@
 iscsi_packages:
   - tgt
 
-workbook_destination: /opt/file1.txt
+tgt_path: /etc/tgt/conf.d
 
 disk_image_size: 5G
-disk_image_path: /opt/iscsi/shared.img
-lun_name: shared
+disk_image_path: /opt/iscsi
+lun_name: persistentVolumes
 
-initiator_name: kubernetes_iscsi
-incoming_username: a3bff5146e664d56b7e13b2319f3a11c
-incoming_pasword: 89fbadcddbfb450889b40f34d164358e
+initiator_name: iqn.1993-08.org.debian
+incoming_username: username
+incoming_pasword: password

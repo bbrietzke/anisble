@@ -3,7 +3,7 @@
 - name: Copy over LUN template
   template: 
     src: lun_workbook.j2
-    dest: "/opt/{{ ansible_default_ipv4['address'] }}.{{ lun_name }}.conf"
+    dest: "{{ tgt_path }}/{{ ansible_default_ipv4['address'] }}.{{ lun_name }}.conf"
     owner: root
     group: root
     mode: 0644

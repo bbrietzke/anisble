@@ -3,5 +3,8 @@
   include_tasks: debian_tgt.yml
   when: ansible_facts['os_family'] == "Debian"
 
+- name: Build disk image
+  include_tasks: iscsi_disk_image.yml
+
 - name: Build ISCI lun files
   include_tasks: iscsi_setup.yml
