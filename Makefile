@@ -1,6 +1,7 @@
 .PHONY: work home docs test image
 
 EXE := $(shell which ansible-playbook)
+EXE_OPTIONS :=  						# make EXE_OPTIONS=--ask-become-password updates
 DOC := $(shell which mkdocs)
 UNAME_S := $(shell uname -s)
 IMAGE_DIR := ./images
@@ -16,13 +17,16 @@ $(EXE):
 	brew install ansible
 
 updates:
-	$(EXE) -i inventories/home/hosts updates.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts updates.yml
 
 default:
-	$(EXE) -i inventories/home/hosts default.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts default.yml
 
 docker:
-	$(EXE) -i inventories/home/hosts install_docker.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_docker.yml
+
+kube:
+	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_kubernetes.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy

@@ -26,6 +26,9 @@ all:
     octoprint:
       hosts:
         octopi:
+    iscsi_targets:
+      hosts:
+        phobos:
     kubernetes_master:
       hosts:
         enceladus:

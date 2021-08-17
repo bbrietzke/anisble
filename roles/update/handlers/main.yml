@@ -2,4 +2,3 @@
 - name: restart_machine
   reboot:
       reboot_timeout: 3600
-      when: do_not_reboot == false

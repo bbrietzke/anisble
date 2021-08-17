@@ -1,7 +1,12 @@
 ---
-
-- name: Kubernetes Hosts
-  hosts: kubernetes
+- name: ISCSI Shared Volume Hosts
+  hosts: iscsi_targets
   become: yes
   roles:
-    - kubernetes
+    - iscsi_target
+
+# - name: Kubernetes Hosts
+#   hosts: kubernetes
+#   become: yes
+#   roles:
+#     - kubernetes

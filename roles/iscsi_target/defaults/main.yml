@@ -1,0 +1,14 @@
+---
+
+iscsi_packages:
+  - tgt
+
+workbook_destination: /opt/file1.txt
+
+disk_image_size: 5G
+disk_image_path: /opt/iscsi/shared.img
+lun_name: shared
+
+initiator_name: kubernetes_iscsi
+incoming_username: a3bff5146e664d56b7e13b2319f3a11c
+incoming_pasword: 89fbadcddbfb450889b40f34d164358e

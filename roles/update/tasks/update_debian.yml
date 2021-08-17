@@ -3,6 +3,8 @@
   apt:
     upgrade: dist
     update_cache: yes
+  notify:
+    - restart_machine
   tags:
     - sw
     - apt
