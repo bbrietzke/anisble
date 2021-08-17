@@ -1,5 +1,5 @@
 ---
-- name: restart ISCSI target
+- name: restart_targets
   systemd:
     enabled: yes
     name: tgt

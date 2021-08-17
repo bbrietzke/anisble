@@ -8,3 +8,15 @@
 
 - name: Build ISCI lun files
   include_tasks: iscsi_setup.yml
+
+- open_iscsi:
+    show_nodes: yes
+    discover:   yes
+    login: yes
+    portal: 127.0.0.1
+
+- ansible.posix.mount:
+    path: /mnt/PV
+    src: /dev/sda1
+    fstype: ext4
+    state: present
