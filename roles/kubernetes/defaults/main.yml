@@ -1,0 +1,16 @@
+---
+ubuntu_version: xenial
+
+kubernetes_state: present
+
+add_packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release
+
+kubernetes_packages:
+  - kubelet 
+  - kubeadm 
+  - kubectl

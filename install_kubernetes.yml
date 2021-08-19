@@ -1,12 +1,12 @@
 ---
-- name: ISCSI Shared Volume Hosts
+- name: Install Docker
   hosts: iscsi_targets
   become: yes
   roles:
-    - iscsi_target
+    - docker
 
-# - name: Kubernetes Hosts
-#   hosts: kubernetes
-#   become: yes
-#   roles:
-#     - kubernetes
+- name: Kubernetes Hosts
+  hosts: kubernetes
+  become: yes
+  roles:
+    - kubernetes

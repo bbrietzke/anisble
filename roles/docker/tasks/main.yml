@@ -5,3 +5,6 @@
 
 - name: Remove swap files
   include_tasks: remove_swap.yml
+
+- name: Daemon Mode
+  include_tasks: adjust_daemon_mode.yml

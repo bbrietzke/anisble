@@ -23,6 +23,9 @@ all:
         dione:
         phobos:
         octopi:
+    rasp_zeros:
+      hosts:
+        orcus:
     octoprint:
       hosts:
         octopi:
@@ -31,10 +34,11 @@ all:
         phobos:
     kubernetes_master:
       hosts:
-        enceladus:
+        phobos:
     kubernetes:
       hosts:
         tethys:
         dione:
         iapetus:
         rhea:
+        phobos:

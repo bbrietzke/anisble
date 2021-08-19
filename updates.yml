@@ -1,6 +1,12 @@
 ---
-- name: Update All
-  hosts: all
+- name: Update RPi3's
+  hosts: rasp_three
+  become: yes
+  roles:
+    - update
+
+- name: Update RPI4's
+  hosts: rasp_four
   become: yes
   serial: 2
   roles:

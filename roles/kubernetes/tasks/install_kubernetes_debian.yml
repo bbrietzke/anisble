@@ -1,0 +1,29 @@
+---
+- name: Install required Kubernetes packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages: "{{ add_packages }}"
+
+- name: Install Kubernetes GPG key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: "{{ kubernetes_state }}"
+
+- name: Install Kubernetes APT Repository
+  apt_repository: 
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial stable
+    state: "{{ kubernetes_state }}"
+  tags:
+    - sw
+    - apt
+
+- name: Install Kubernetes specific packages
+  apt:
+    name: "{{ packages }}"
+    state: "{{ kubernetes_state }}"
+  vars:
+    packages: "{{ kubernetes_packages }}"
+  notify:
+    - restart_machine

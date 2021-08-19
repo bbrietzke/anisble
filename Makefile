@@ -1,7 +1,7 @@
 .PHONY: work home docs test image
 
 EXE := $(shell which ansible-playbook)
-EXE_OPTIONS :=  						# make EXE_OPTIONS=--ask-become-password updates
+EXE_OPTIONS :=  						# make EXE_OPTIONS=--ask-become-pass updates
 DOC := $(shell which mkdocs)
 UNAME_S := $(shell uname -s)
 IMAGE_DIR := ./images
@@ -51,6 +51,5 @@ ubuntu:
 	diskutil unmountDisk /dev/disk2
 
 imager:
-	cp boot/user-data boot/user-data/user-data.old
 	cp boot/user-data /Volumes/system-boot/user-data
 	vi /Volumes/system-boot/user-data
