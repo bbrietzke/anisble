@@ -19,3 +19,9 @@ ethernets:
 #    access-points:
 #      ATTQtnSZMS:
 #        password: ----
+#  wlan1:
+#    dhcp4: true
+#    optional: true
+#    access-points:
+#      ATTQtnSZMS_EXT:
+#        password: ----
