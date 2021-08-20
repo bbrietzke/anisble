@@ -10,10 +10,13 @@
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: "{{ kubernetes_state }}"
+  tags:
+    - sw
+    - gpg
 
 - name: Install Kubernetes APT Repository
   apt_repository: 
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial stable
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
     state: "{{ kubernetes_state }}"
   tags:
     - sw
@@ -22,8 +25,10 @@
 - name: Install Kubernetes specific packages
   apt:
     name: "{{ packages }}"
+    update_cache: yes
     state: "{{ kubernetes_state }}"
   vars:
     packages: "{{ kubernetes_packages }}"
-  notify:
-    - restart_machine
+  tags:
+    - sw
+    - apt

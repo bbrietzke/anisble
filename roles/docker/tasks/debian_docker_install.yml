@@ -32,6 +32,7 @@
   apt:
     name: "{{ packages }}"
     state: "{{ docker_state }}"
+    update_cache: yes
   vars:
     packages: "{{ docker_packages }}"
 

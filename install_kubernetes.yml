@@ -1,12 +1,11 @@
 ---
-- name: Install Docker
-  hosts: iscsi_targets
-  become: yes
-  roles:
-    - docker
-
-- name: Kubernetes Hosts
+- name: Install Kubernetes
   hosts: kubernetes
   become: yes
   roles:
+    - docker
     - kubernetes
+
+
+
+# kubeadm join 192.168.1.164:6443 --token frtdzi.bg0ao0e9y3imqfgh --discovery-token-ca-cert-hash sha256:ca5f020e657c7792680b53144ffb088ad9d94f17244e2526ff46e4525b08c13c

@@ -23,6 +23,7 @@ all:
         dione:
         phobos:
         octopi:
+        europa:
     rasp_zeros:
       hosts:
         orcus:
@@ -37,6 +38,7 @@ all:
         phobos:
     kubernetes:
       hosts:
+        europa:
         tethys:
         dione:
         iapetus:
