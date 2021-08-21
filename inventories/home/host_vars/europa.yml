@@ -1,5 +1,5 @@
 ---
 ansible_user: ubuntu
 ubuntu_version: focal
-ansible_host: 192.168.1.166
+ansible_host: 192.168.1.171
 

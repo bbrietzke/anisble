@@ -25,8 +25,9 @@ default:
 docker:
 	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_docker.yml
 
-kube:
+kube:  # sudo sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt
 	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_kubernetes.yml
+	
 
 docs: $(DOC)
 	$(DOC) gh-deploy
