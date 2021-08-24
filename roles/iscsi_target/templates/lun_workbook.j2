@@ -1,5 +1,5 @@
-<target iqn.2020-03.{{ ansible_default_ipv4["address"] }}:{{ lun_name }}>
-    backing-store {{ disk_image_path }}/{{ lun_name }}.img
-    initiator-name: iqn.2020-03.{{ ansible_default_ipv4["address"] }}:{{ initiator_name }}
-    incominguser {{ incoming_username }} {{ incoming_pasword }}
+<target iqn.2020-03.{{ ansible_default_ipv4["address"] }}:{{ item.lun_name }}>
+    backing-store {{ disk_image_path }}/{{ item.lun_name }}.img
+    initiator-name: iqn.2020-03.{{ ansible_default_ipv4["address"] }}:{{ item.initiator_name }}
+    incominguser {{ item.incoming_username }} {{ item.incoming_password }}
 </target>

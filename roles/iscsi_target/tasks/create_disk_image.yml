@@ -1,0 +1,30 @@
+---
+- name: Show all the hosts in the inventory
+  ansible.builtin.debug:
+    msg: "{{ tgt_path }}/{{ item.lun_name }}.conf"
+
+- name: check image status
+  stat: 
+    path: "{{ disk_image_path }}/{{ item.lun_name }}.img"
+  register: image_status
+
+- name: check image status
+  stat: 
+    path: "{{ tgt_path }}/{{ item.lun_name }}.img"
+  register: lun_status
+
+- name: Copy over LUN template
+  when:  lun_status.stat.exists == false
+  template: 
+    src: lun_workbook.j2
+    dest: "{{ tgt_path }}/{{ item.lun_name }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    -  restart_targets
+
+- name: create disk image if not present
+  when:  image_status.stat.exists == false
+  shell:
+    cmd: dd if=/dev/zero of={{ disk_image_path }}/{{ item.lun_name }}.img count=0 bs=1 seek={{ item.disk_image_size }}

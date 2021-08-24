@@ -34,15 +34,14 @@ all:
         octopi:
     iscsi_targets:
       hosts:
-        phobos:
+        enceladus:
     kubernetes_master:
       hosts:
         phobos:
     kubernetes:
       hosts:
         europa:
-        tethys:
-        dione:
         iapetus:
         rhea:
+        tethys:
         phobos:

@@ -25,6 +25,9 @@ default:
 docker:
 	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_docker.yml
 
+iscsi:
+	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_iscsi.yml
+
 kube:  # sudo sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt
 	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_kubernetes.yml
 	

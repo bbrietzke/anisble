@@ -1,0 +1,7 @@
+---
+
+- name: ISCSI Setup
+  hosts: iscsi_targets
+  become: yes
+  roles:
+    - iscsi_target

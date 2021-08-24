@@ -1,6 +1,12 @@
 ---
+- name: ISCSI Setup
+  hosts: iscsi_targets
+  become: yes
+  roles:
+    - iscsi_target
+    
 - name: Install Kubernetes
-  hosts: kubernetes_master
+  hosts: kubernetes
   become: yes
   roles:
     - docker
@@ -9,15 +15,21 @@
 
 
 # https://opensource.com/article/20/6/kubernetes-raspberry-pi
+
+# sudo sed -i '$ s/$/ cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt && sudo reboot now
+
 # sudo kubeadm init --kubernetes-version=v1.22.1 --pod-network-cidr=10.244.0.0/16
 
 # kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
-
+# kubectl taint node phobos node-role.kubernetes.io/master:NoSchedule-
+# kubectl taint node phobos node-role.kubernetes.io/master:NoSchedule
 # kubectl apply -f https://gist.githubusercontent.com/bbrietzke/7c6e45b1de530e8b99b7583d1e219985/raw/3aa9b75d6925e63fc2baa6712f2acb950086678f/nginx-deployment.yaml
 
 
 
 
 
-# kubeadm join 192.168.1.169:6443 --token 7pspx6.fo8kp0h4auqixca7 --discovery-token-ca-cert-hash sha256:54c320767cd50b2056270d038a6f35612b373a5ccb98bbde23162f0143ae586f
+# sudo kubeadm join 192.168.1.169:6443 --token 7pspx6.fo8kp0h4auqixca7 --discovery-token-ca-cert-hash sha256:54c320767cd50b2056270d038a6f35612b373a5ccb98bbde23162f0143ae586f && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet
+
+
