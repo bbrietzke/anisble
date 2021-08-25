@@ -37,11 +37,12 @@ all:
         enceladus:
     kubernetes_master:
       hosts:
-        phobos:
+        dione:
     kubernetes:
       hosts:
+        dione:
         europa:
         iapetus:
+        phobos:
         rhea:
         tethys:
-        phobos:

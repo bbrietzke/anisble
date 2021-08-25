@@ -1,5 +1,5 @@
 ---
 ansible_user: pi
-ansible_host: 192.168.1.227
+ansible_host: octopi.attlocal.net
 
 do_not_reboot: true

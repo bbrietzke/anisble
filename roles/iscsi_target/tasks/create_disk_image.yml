@@ -13,7 +13,7 @@
     path: "{{ tgt_path }}/{{ item.lun_name }}.img"
   register: lun_status
 
-- name: Copy over LUN template
+- name: LUN configuration
   when:  lun_status.stat.exists == false
   template: 
     src: lun_workbook.j2

@@ -1,0 +1,9 @@
+---
+- name: Update RPi3's
+  hosts: raspberry_pis
+  become: yes
+  serial: 2
+  tasks:
+    - name: reboot host
+      reboot:
+
