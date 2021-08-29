@@ -24,12 +24,12 @@
 
 # kubectl taint node phobos node-role.kubernetes.io/master:NoSchedule-
 # kubectl taint node phobos node-role.kubernetes.io/master:NoSchedule
-# kubectl apply -f https://gist.githubusercontent.com/bbrietzke/7c6e45b1de530e8b99b7583d1e219985/raw/3aa9b75d6925e63fc2baa6712f2acb950086678f/nginx-deployment.yaml
+# kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/00e1683fbd7422fc297629128b08bded6ca3c90b/kubernetes-test.yaml
 
 
 
 
 
-# sudo kubeadm join 192.168.1.169:6443 --token 7pspx6.fo8kp0h4auqixca7 --discovery-token-ca-cert-hash sha256:54c320767cd50b2056270d038a6f35612b373a5ccb98bbde23162f0143ae586f && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet
+# sudo kubeadm join 192.168.1.179:6443 --token 2loxrr.wnbs4wcpg13dpked --discovery-token-ca-cert-hash sha256:c81af8e46c5cf2106e7484fec3751080e95e3b04393fa02ab618b87fab4eb30e && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet
 
 

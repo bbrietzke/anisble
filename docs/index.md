@@ -32,11 +32,17 @@ Everything should be driven through the _Makefile_.
 * `make rasbian` - create the rasbian image.
 * `make ubuntu` - create the ubuntu image.
 * `make docs` - Build the docs and upload them to gh-pages.
+* `make reboot` - reboot all the Raspberry Pi's
+* `make docker` - Install the docker role
+* `make kube` - Install Kubernetes
 
 ## Project layout
 
     boot/                   # saved files for copying to the boot images
+    docs/                   # well, duh
     images/                 # where to save the img files from the RPF and Ubuntu
+    inventories/
+      home/
     home/
       inventory/      
         hosts               # all the machines in the network

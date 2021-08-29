@@ -13,11 +13,11 @@ endif::[]
 == My Ansible Pipeline
 This is the copy of the ansible pipeline that I use to maintain my home networking infrastructure. 
 
-My personal infrastructure is pretty simple, it's generally a four node Raspberry Pi 4 cluster with a Raspberry Pi 3 as a resource server.
+My personal infrastructure is pretty simple, it's generally a seven node Raspberry Pi 4 cluster with a Raspberry Pi 3 as a resource server.
 
 I also have a Raspberry Pi 4 that i use as a desktop machine.
 
-All of the machines are loaded with Ubuntu 20.10.  I have used Rasbian in the past and it works well, i just wanted to try Ubuntu this time.
+All of the machines are loaded with Ubuntu 20.04.  I have used Rasbian in the past and it works well, i just wanted to try Ubuntu this time.
 
 [NOTE]
 ====

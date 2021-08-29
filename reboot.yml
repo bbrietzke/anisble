@@ -1,5 +1,5 @@
 ---
-- name: Update RPi3's
+- name: REBOOT!
   hosts: raspberry_pis
   become: yes
   serial: 2
