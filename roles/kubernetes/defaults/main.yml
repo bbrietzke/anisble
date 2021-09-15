@@ -9,6 +9,7 @@ add_packages:
   - curl
   - gnupg
   - lsb-release
+  - nfs-common
 
 kubernetes_packages:
   - kubelet 
