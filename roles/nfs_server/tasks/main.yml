@@ -1,0 +1,34 @@
+---
+- name: Update Debian based distros
+  include_tasks: debian.yml
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Build disk image
+  include_tasks: iscsi_disk_image.yml
+
+- name: check directory status
+  stat: 
+    path: "{{ disk_image_path }}"
+  register: directory_status
+
+- name: create directory
+  when:  directory_status.stat.exists == "false"
+  file:
+    path: "{{ disk_image_path }}"
+    state: directory
+    mode: 0755
+    group: root
+    owner: root
+
+- name: create disk image if not present
+  include_tasks: create_share.yml
+  loop: "{{ disk_images }}"
+
+- name: Copy exports file.
+  template:
+    src: exports.j2
+    dest: /etc/exports
+    owner: root
+    group: root
+    mode: 0644
+  notify: reload nfs
