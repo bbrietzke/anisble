@@ -2,7 +2,7 @@
 
 EXE := $(shell which ansible-playbook)
 EXE_OPTIONS :=  						# make EXE_OPTIONS=--ask-become-pass updates
-DOC := $(shell which mkdocs)
+DOC := $(shell which mkdocs)			# make EXE_OPTIONS="--ask-become-pass --limit octopi"
 UNAME_S := $(shell uname -s)
 IMAGE_DIR := ./images
 RASBIAN_IMAGE_NAME := 2021-03-04-raspios-buster-armhf-lite.img

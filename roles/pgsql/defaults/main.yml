@@ -1,0 +1,6 @@
+---
+
+packages:
+  - postgresql
+  - postgresql-contrib
+  - pgbouncer
