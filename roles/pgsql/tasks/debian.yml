@@ -1,5 +1,5 @@
 ---
-- name: Install required NFS packages
+- name: Install required PGSql packages
   apt:
     name: "{{ packages }}"
     state: present
