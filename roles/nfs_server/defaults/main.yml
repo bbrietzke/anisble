@@ -4,7 +4,6 @@ nfs_packages:
   - nfs-kernel-server
 
 nfs_shares:
-  - { share_name: lookingForPlayers }
   - { share_name: jenkinsData }
 
 disk_image_path: /opt/nfs4

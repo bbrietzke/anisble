@@ -1,0 +1,12 @@
+---
+
+- name: Volume Setup
+  hosts: volume_targets
+  become: yes
+  serial: 1
+  roles:
+    - iscsi_target
+    - nfs_server
+  vars:
+    nfs_shares:
+      - { share_name: jupyterHub }

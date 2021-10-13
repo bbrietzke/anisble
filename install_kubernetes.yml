@@ -1,6 +1,6 @@
 ---
-- name: ISCSI Setup
-  hosts: iscsi_targets
+- name: Volume Hosts
+  hosts: volume_targets
   become: yes
   roles:
     - iscsi_target

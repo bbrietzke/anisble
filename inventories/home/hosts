@@ -32,7 +32,7 @@ all:
     octoprint:
       hosts:
         octopi:
-    iscsi_targets:
+    volume_targets:
       hosts:
         enceladus:
     kubernetes_master:
