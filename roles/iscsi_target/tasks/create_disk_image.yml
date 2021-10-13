@@ -4,7 +4,7 @@
     path: "{{ disk_image_path }}/{{ item.lun_name }}.img"
   register: image_status
 
-- name: check image status
+- name: check LUN status
   stat: 
     path: "{{ tgt_path }}/{{ item.lun_name }}.img"
   register: lun_status

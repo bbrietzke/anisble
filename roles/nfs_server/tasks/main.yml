@@ -3,9 +3,6 @@
   include_tasks: debian.yml
   when: ansible_facts['os_family'] == "Debian"
 
-- name: Build disk image
-  include_tasks: iscsi_disk_image.yml
-
 - name: check directory status
   stat: 
     path: "{{ disk_image_path }}"
@@ -22,7 +19,7 @@
 
 - name: create disk image if not present
   include_tasks: create_share.yml
-  loop: "{{ disk_images }}"
+  loop: "{{ nfs_shares }}"
 
 - name: Copy exports file.
   template:

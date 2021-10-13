@@ -6,7 +6,7 @@
   register: directory_status
 
 - name: create directory
-  when:  directory_status.stat.exists == false
+  when:  not directory_status.stat.exists
   file:
     path: "{{ disk_image_path }}"
     state: directory

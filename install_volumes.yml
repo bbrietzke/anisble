@@ -10,3 +10,4 @@
   vars:
     nfs_shares:
       - { share_name: jupyterHub }
+      - { share_name: jenkinsData }

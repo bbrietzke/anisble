@@ -1,13 +1,12 @@
 ---
 - name: check directory status
   stat: 
-    path: "{{disk_image_path}}/{{ item.share_name }}"
+    path: "{{ disk_image_path }}/{{ item.share_name }}"
   register: directory_status
 
 - name: create directory
-  when:  directory_status.stat.exists == "false"
   file:
-    path: "{{disk_image_path}}/{{ item.share_name }}"
+    path: "{{ disk_image_path }}/{{ item.share_name }}"
     state: directory
     mode: 0755
     group: root
