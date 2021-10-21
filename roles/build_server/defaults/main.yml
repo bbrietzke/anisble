@@ -1,8 +1,0 @@
----
-buildbot_home_path: "/opt/buildbot/"
-buildbot_master_path: "/opt/buildbot/master"
-
-buildbot_title: "My BuildBot"
-buildbot_url: "{{ ansible_host }}"
-
-buildbot_default_password: "96d2e17342e84d0bbcfe864c6569424c"

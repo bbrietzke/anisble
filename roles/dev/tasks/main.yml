@@ -1,8 +1,0 @@
----
-- name: install development tools
-  apt:
-    update_cache: yes
-    name: "{{ tools }}"
-    state: present
-  vars:
-    tools: "{{ development_tools }}"

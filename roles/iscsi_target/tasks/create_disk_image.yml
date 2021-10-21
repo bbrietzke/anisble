@@ -10,7 +10,7 @@
   register: lun_status
 
 - name: LUN configuration
-  when:  lun_status.stat.exists == "false"
+  when:  not lun_status.stat.exists
   template: 
     src: lun_workbook.j2
     dest: "{{ tgt_path }}/{{ item.lun_name }}.conf"
@@ -21,6 +21,6 @@
     -  restart_targets
 
 - name: create disk image if not present
-  when:  image_status.stat.exists == "false"
+  when:  not image_status.stat.exists
   shell:
     cmd: dd if=/dev/zero of={{ disk_image_path }}/{{ item.lun_name }}.img count=0 bs=1 seek={{ item.disk_image_size }}

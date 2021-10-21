@@ -31,7 +31,7 @@
 
 
 
-# sudo kubeadm join 192.168.1.179:6443 --token 2loxrr.wnbs4wcpg13dpked --discovery-token-ca-cert-hash sha256:c81af8e46c5cf2106e7484fec3751080e95e3b04393fa02ab618b87fab4eb30e && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet
+# sudo kubeadm join 192.168.1.179:6443 --token vz3e9x.z5city0eueju90dj --discovery-token-ca-cert-hash sha256:c81af8e46c5cf2106e7484fec3751080e95e3b04393fa02ab618b87fab4eb30e && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet
 
 
 # wjWECvf2aeNSQoqoQa0LdZJqSXru7hOB7wznJ2FFcMmi1vkeFwtlXTTD8CLUe9RM
