@@ -1,0 +1,5 @@
+---
+- name: Is this a Raspberry Pi?
+  stat: 
+    path: "/boot/firmware/cmdline.txt"
+  register: cmdline_status    
