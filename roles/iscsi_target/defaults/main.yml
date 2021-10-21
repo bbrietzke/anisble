@@ -9,4 +9,4 @@ disk_images:
   - { lun_name: lookingForPlayers, disk_image_size: 250M, initiator_name: iqn.1993.08.org.debian, incoming_username: username, incoming_password: password }
   - { lun_name: jenkinsVolume, disk_image_size: 10G, initiator_name: iqn.1993.08.org.debian, incoming_username: username, incoming_password: password }
 
-disk_image_path: /opt/iscsi
+disk_image_path: /srv/iscsi

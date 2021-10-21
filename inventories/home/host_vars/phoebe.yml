@@ -1,4 +1,4 @@
 ---
 ansible_user: ubuntu
 ubuntu_version: focal
-ansible_host: phobos.attlocal.net
+ansible_host: phoebe.attlocal.net

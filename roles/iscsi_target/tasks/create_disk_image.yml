@@ -22,5 +22,5 @@
 
 - name: create disk image if not present
   when:  not image_status.stat.exists
-  shell:
+  command:
     cmd: dd if=/dev/zero of={{ disk_image_path }}/{{ item.lun_name }}.img count=0 bs=1 seek={{ item.disk_image_size }}

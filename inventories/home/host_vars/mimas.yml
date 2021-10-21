@@ -1,4 +1,4 @@
 ---
 ansible_user: ubuntu
 ubuntu_version: focal
-ansible_host: europa.attlocal.net
+ansible_host: mimas.attlocal.net
