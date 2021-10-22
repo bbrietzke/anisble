@@ -9,5 +9,5 @@
 # /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
 #
 {% for item in nfs_shares %}
-{{disk_image_path}}/{{ item.share_name }}   {{ subnet }}(rw,no_root_squash,sync,no_subtree_check)
+{{share_path}}/{{ item.share_name }}   {{ subnet }}(rw,no_root_squash,sync,no_subtree_check)
 {% endfor %}

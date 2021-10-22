@@ -2,6 +2,7 @@
 - name: Update RPi3's
   hosts: rasp_three
   become: yes
+  serial: 2
   roles:
     - update
 

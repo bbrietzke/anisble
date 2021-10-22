@@ -8,7 +8,8 @@
     - iscsi_target
     - nfs_server
   vars:
+    share_path: "/srv/m"
     nfs_shares:
       - { share_name: pgsqlData }
     disk_images:
-      - { lun_name: jenkinsData, disk_image_size: 10G, initiator_name: iqn.1993.08.org.debian, incoming_username: jenkins, incoming_password: jenkins }
+      - { lun_name: jenkinsData, disk_image_size: 10G, initiator_name: 2021-10.net.attlocal, incoming_username: jenkins, incoming_password: jenkins }

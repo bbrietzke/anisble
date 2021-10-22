@@ -11,7 +11,7 @@
 - name: create directory
   when:  directory_status.stat.exists == "false"
   file:
-    path: "{{ disk_image_path }}"
+    path: "{{ share_path }}"
     state: directory
     mode: 0755
     group: root

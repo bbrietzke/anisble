@@ -16,8 +16,8 @@ all:
         tethys:
     rasp_three:
       hosts:
-        europa:
         callisto:
+        europa:
     rasp_four:
       hosts:
         dione:
