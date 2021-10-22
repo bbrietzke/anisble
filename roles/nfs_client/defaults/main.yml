@@ -1,0 +1,7 @@
+---
+
+nfs_packages:
+  - nfs-common
+
+nfs_mounts:
+  - { share_name: /srv/m/jenkinsData, host: callisto, path: /var/jenkins/jobs }

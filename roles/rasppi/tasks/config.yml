@@ -1,5 +1,0 @@
----
-- name: expand file system
-  command: "raspi-config nonint do_expand_rootfs"
-  tags:
-    - raspi

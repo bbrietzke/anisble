@@ -13,4 +13,8 @@
   include_tasks: install_kubernetes_debian.yml
   when: ansible_facts['os_family'] == "Debian"
 
+- name: Make changes for Raspberry Pi's
+  include_tasks: update_cgroups.yml
+  when: ansible_facts['os_family'] == "Debian"
+
 

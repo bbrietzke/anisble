@@ -1,0 +1,21 @@
+---
+- name: check directory status
+  stat: 
+    path: "{{ item.path }}"
+  register: directory_status
+
+- name: create directory
+  when: not directory_status.stat.exists
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: 0755
+    group: root
+    owner: root
+
+- name: update /etc/fstab with current share
+  lineinfile:
+    path: /etc/fstab
+    line: "{{ item.host }}:{{ item.share_name }}  {{ item.path }}  nfs  defaults  0  0"
+    state: present
+    backup: yes

@@ -1,0 +1,8 @@
+---
+- name: Update Debian based distros
+  include_tasks: debian.yml
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: update /etc/fstab with mounts
+  include_tasks: update_fstab.yml
+  loop: "{{ nfs_mounts }}"

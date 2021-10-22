@@ -5,7 +5,7 @@
 
 - name: check directory status
   stat: 
-    path: "{{ disk_image_path }}"
+    path: "{{ share_path }}"
   register: directory_status
 
 - name: create directory

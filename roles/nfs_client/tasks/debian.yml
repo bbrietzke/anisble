@@ -1,0 +1,8 @@
+---
+- name: Install required NFS packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages: "{{ nfs_packages }}"
+

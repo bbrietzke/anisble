@@ -5,11 +5,9 @@
   become: yes
   serial: 1
   roles:
-    - iscsi_target
     - nfs_server
   vars:
     share_path: "/srv/m"
     nfs_shares:
       - { share_name: pgsqlData }
-    disk_images:
-      - { lun_name: jenkinsData, disk_image_size: 10G, initiator_name: 2021-10.net.attlocal, incoming_username: jenkins, incoming_password: jenkins }
+      - { share_name: jenkinsJobs }

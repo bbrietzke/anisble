@@ -5,6 +5,7 @@
   register: directory_status
 
 - name: create directory
+  when: not directory_status.stat.exists
   file:
     path: "{{ share_path }}/{{ item.share_name }}"
     state: directory

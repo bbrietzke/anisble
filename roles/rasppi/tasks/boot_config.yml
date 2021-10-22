@@ -1,7 +1,0 @@
----
-- name: /boot/config.txt
-  notify: restart_machine
-  copy:
-    src: "files/config.txt"
-    dest: "/boot/config.txt"
-    force: yes
