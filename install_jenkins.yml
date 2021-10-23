@@ -4,7 +4,7 @@
   hosts: build_servers
   become: yes
   roles:
-    - nfs_client
+    - jenkins
   vars:
     nfs_mounts:
-      - { share_name: /srv/m/jenkinsData, host: callisto, path: /var/jenkins/jobs }
+      - { share_name: /srv/m/jenkinsData, host: callisto, path: /var/lib/jenkins/jobs }

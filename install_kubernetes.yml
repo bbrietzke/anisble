@@ -3,11 +3,10 @@
   hosts: volume_targets
   become: yes
   roles:
-    - iscsi_target
     - nfs_server
     
 - name: Install Kubernetes
-  hosts: kubernetes
+  hosts: kubernetes_workers:kubernetes_master
   become: yes
   roles:
     - docker
@@ -19,19 +18,13 @@
 
 # sudo sed -i '$ s/$/ cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt && sudo reboot now
 
-# sudo kubeadm init --kubernetes-version=v1.22.1 --pod-network-cidr=10.244.0.0/16
+# sudo kubeadm init --kubernetes-version=v1.22.2 --pod-network-cidr=10.240.0.0/16
 
 # kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
-# kubectl taint node phobos node-role.kubernetes.io/master:NoSchedule-
-# kubectl taint node phobos node-role.kubernetes.io/master:NoSchedule
 # kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/00e1683fbd7422fc297629128b08bded6ca3c90b/kubernetes-test.yaml
 
 
 
 
-
-# sudo kubeadm join 192.168.1.179:6443 --token vz3e9x.z5city0eueju90dj --discovery-token-ca-cert-hash sha256:c81af8e46c5cf2106e7484fec3751080e95e3b04393fa02ab618b87fab4eb30e && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet
-
-
-# wjWECvf2aeNSQoqoQa0LdZJqSXru7hOB7wznJ2FFcMmi1vkeFwtlXTTD8CLUe9RM
+# sudo kubeadm join 192.168.1.198:6443 --token ghjbka.18t0f0ewdg794wky --discovery-token-ca-cert-hash sha256:48345299b57b377a55839c3f47af844626392c2070cf6a5b1586eb268feeec9a && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet

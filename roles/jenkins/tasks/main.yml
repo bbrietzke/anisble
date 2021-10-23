@@ -1,0 +1,4 @@
+---
+- name: Update Debian based distros
+  include_tasks: install_jenkins.yml
+  when: ansible_facts['os_family'] == "Debian"

@@ -6,10 +6,10 @@
 
 - name: Update CMDLINE.TXT for cgroups
   when: cmdline_status.stat.exists
+  notify: restart_machine
   lineinfile:
     path: "/boot/firmware/cmdline.txt"
     regexp: "net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc"
     line: "net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1"
     state: present
-    backup: yes
-    
+  

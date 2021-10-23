@@ -1,0 +1,8 @@
+---
+
+jenkins_state: present
+
+jenkins_packages:
+  - openjdk-11-jre
+  - openjdk-8-jdk
+  - jenkins

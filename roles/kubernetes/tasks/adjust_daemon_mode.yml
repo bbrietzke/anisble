@@ -1,0 +1,10 @@
+---
+- name: Copy new driver file for Docker
+  copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+          "exec-opts": [
+              "native.cgroupdriver=systemd"
+          ]
+      }

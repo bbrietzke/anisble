@@ -1,0 +1,10 @@
+---
+
+- name: restart_machine
+  reboot:
+      reboot_timeout: 3600
+
+- name: restart_jenkins
+  service: 
+    name: jenkins 
+    state: restarted

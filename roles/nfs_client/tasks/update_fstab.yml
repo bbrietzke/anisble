@@ -19,3 +19,7 @@
     line: "{{ item.host }}:{{ item.share_name }}  {{ item.path }}  nfs  defaults  0  0"
     state: present
     backup: yes
+
+- name: mount new volume
+  mount:
+    src: "{{ item.host }}:{{ item.share_name }}"
