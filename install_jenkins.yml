@@ -4,7 +4,14 @@
   hosts: build_servers
   become: yes
   roles:
+    - docker
+    - nfs_client
     - jenkins
   vars:
     nfs_mounts:
-      - { share_name: /srv/m/jenkinsData, host: callisto, path: /var/lib/jenkins/jobs }
+      - { share_name: /srv/m/jenkinsJobs, host: callisto, path: /var/lib/jenkins/jobs }
+
+
+
+
+# https://illya-chekrygin.com/2017/08/26/configuring-certificates-for-jenkins-kubernetes-plugin-0-12/

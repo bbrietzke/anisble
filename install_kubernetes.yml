@@ -27,4 +27,4 @@
 
 
 
-# sudo kubeadm join 192.168.1.198:6443 --token ghjbka.18t0f0ewdg794wky --discovery-token-ca-cert-hash sha256:48345299b57b377a55839c3f47af844626392c2070cf6a5b1586eb268feeec9a && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet
+# sudo kubeadm join 192.168.1.198:6443 --token ug03l0.774db199eheokci3 --discovery-token-ca-cert-hash sha256:48345299b57b377a55839c3f47af844626392c2070cf6a5b1586eb268feeec9a && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet

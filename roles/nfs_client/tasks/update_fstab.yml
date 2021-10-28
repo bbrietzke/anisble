@@ -23,3 +23,6 @@
 - name: mount new volume
   mount:
     src: "{{ item.host }}:{{ item.share_name }}"
+    path: "{{ path }}"
+    fstype: nfs
+    state: mounted

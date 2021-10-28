@@ -1,0 +1,29 @@
+---
+- name: Install Jenkins GPG key
+  apt_key:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+    state: "{{ jenkins_state }}"
+  tags:
+    - sw
+    - apt
+    - keys
+
+- name: Install Jenkins APT Repository
+  apt_repository: 
+    repo: deb http://pkg.jenkins.io/debian-stable binary/ 
+    state: "{{ jenkins_state }}"
+  tags:
+    - sw
+    - apt
+
+- name: Install Jenkins packages
+  notify: restart_jenkins
+  apt:
+    name: "{{ packages }}"
+    state: "{{ jenkins_state }}"
+    update_cache: yes
+  vars:
+    packages: "{{ jenkins_packages }}"
+  tags:
+    - service
+    - restart
