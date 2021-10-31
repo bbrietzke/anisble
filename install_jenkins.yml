@@ -9,7 +9,7 @@
     - jenkins
   vars:
     nfs_mounts:
-      - { share_name: /srv/m/jenkinsJobs, host: callisto, path: /var/lib/jenkins/jobs }
+      - { share_name: /srv/m/jenkinsJobs, host: callisto, path: /var/lib/jenkins/ }
 
 
 

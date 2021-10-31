@@ -2,9 +2,12 @@
 - name: Install required Kubernetes packages
   apt:
     name: "{{ packages }}"
-    state: present
+    state: "{{ kubernetes_state }}"
   vars:
     packages: "{{ add_packages }}"
+  tags:
+    - sw
+    - apt
 
 - name: Install Kubernetes GPG key
   apt_key:
