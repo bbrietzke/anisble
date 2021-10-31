@@ -16,7 +16,10 @@
     - docker
     - kubernetes
   vars:
-    kubernetes_state: present
+    kubernetes_packages:
+      - kubelet=1.22.0-00
+      - kubeadm=1.22.0-00
+      - kubectl=1.22.0-00
 
 
 
@@ -24,7 +27,7 @@
 
 # sudo sed -i '$ s/$/ cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt && sudo reboot now
 
-# sudo kubeadm init --kubernetes-version=v1.22.3 --pod-network-cidr=10.240.0.0/16 --service-cidr=192.169.0.0/16
+# sudo kubeadm init --kubernetes-version=v1.22.3 --pod-network-cidr=192.168.100.0/24 --service-cidr=192.168.101.0/24
 
 # kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 # kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel-rbac.yml
@@ -35,4 +38,3 @@
 
 
 # sudo kubeadm join 192.168.1.198:6443 --token ug03l0.774db199eheokci3 --discovery-token-ca-cert-hash sha256:48345299b57b377a55839c3f47af844626392c2070cf6a5b1586eb268feeec9a && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet
-# sudo kubeadm join 192.168.1.149:6443 --token 8938sr.rrwavwi3bnlulgux --discovery-token-ca-cert-hash sha256:951c588e0d3048c68971093563075ff7007f964228d6af4b76ea7d24325f1bfc && sleep 180 && sudo systemctl daemon-reload && sudo systemctl restart kubelet

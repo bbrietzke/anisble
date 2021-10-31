@@ -30,9 +30,6 @@ all:
     octoprint:
       hosts:
         octopi:
-    build_servers:
-      hosts:
-        europa:
     volume_targets:
       hosts:
         callisto:
