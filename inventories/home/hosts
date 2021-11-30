@@ -18,6 +18,7 @@ all:
       hosts:
         callisto:
         europa:
+        retropie:
     rasp_four:
       hosts:
         dione:

@@ -9,5 +9,5 @@
   vars:
     share_path: "/srv/m"
     nfs_shares:
-      - { share_name: pgsqlData }
-      - { share_name: jenkinsJobs }
+      - { share_name: jenkinsData }
+      - { share_name: octoprintData }

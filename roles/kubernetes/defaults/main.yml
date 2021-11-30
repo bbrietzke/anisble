@@ -12,6 +12,6 @@ add_packages:
   - nfs-common
 
 kubernetes_packages:
-  - kubelet=1.22.0-00
-  - kubeadm=1.22.0-00
-  - kubectl=1.22.0-00
+  - kubelet
+  - kubeadm
+  - kubectl

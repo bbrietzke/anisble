@@ -1,0 +1,21 @@
+---
+
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  ansible.builtin.unarchive:
+    src: "{{ consul_download_url }}"
+    dest: /usr/local/bin
+    remote_src: yes
+
+- name: check directory status
+  stat: 
+    path: "{{ consul_config_dir }}"
+  register: directory_status
+
+- name: create directory
+  when: not directory_status.stat.exists
+  file:
+    path: "{{ consul_config_dir }}"
+    state: directory
+    mode: 0755
+    group: root
+    owner: root
