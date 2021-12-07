@@ -49,8 +49,6 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#building-the-sd-card">Building the SD Card</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#personalization">Personalization</a>
@@ -111,15 +109,6 @@
               
                 <h1 id="setting-up-raspberry-pi-with-ansible">Setting up Raspberry Pi with Ansible</h1>
 <p>A set of helpful commands and tools to make setting up a Raspberry Pi a little easier.</p>
-<p>This is the way <em>I</em> prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code
-and doing your own thing.</p>
-<h2 id="building-the-sd-card">Building the SD Card</h2>
-<pre><code>diskutil unmountDisk /dev/disk2 &amp;&amp; \
-sudo dd bs=1m if=~/Downloads/2020-02-13-raspbian-buster-lite.img of=/dev/rdisk2 &amp;&amp; \
-sleep 3 &amp;&amp; \
-touch /Volumes/boot/ssh &amp;&amp; \
-diskutil unmountDisk /dev/disk2
-</code></pre>
 <h2 id="setup">Setup</h2>
 <p>Following <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Ansible best practices</a>, the project is structured
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a <em>work</em> and a <em>home</em> option that contains the
@@ -208,5 +197,5 @@ names/ips and usernames of the host machines.  Also included are the various <em
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2021-12-07 02:59:53.698408+00:00
+Build Date UTC : 2021-12-07 03:05:06.730526+00:00
 -->
