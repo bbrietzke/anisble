@@ -2,19 +2,6 @@
 
 A set of helpful commands and tools to make setting up a Raspberry Pi a little easier.
 
-This is the way _I_ prefer to setup an RPi, so your mileage may very.  That should not stop you from forking the code
-and doing your own thing.
-
-## Building the SD Card
-
-```
-diskutil unmountDisk /dev/disk2 && \
-sudo dd bs=1m if=~/Downloads/2020-02-13-raspbian-buster-lite.img of=/dev/rdisk2 && \
-sleep 3 && \
-touch /Volumes/boot/ssh && \
-diskutil unmountDisk /dev/disk2
-```
-
 ## Setup
 Following [Ansible best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html), the project is structured
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a _work_ and a _home_ option that contains the
@@ -35,41 +22,24 @@ Everything should be driven through the _Makefile_.
 * `make reboot` - reboot all the Raspberry Pi's
 * `make docker` - Install the docker role
 * `make kube` - Install Kubernetes
+* `make volumes` - Build NFS volumes
+* `make buildServers` - Install Jenkins CI/CD
+* `make docker` - Install docker
+* `make reboot` - REBOOT!
 
-## Project layout
+## Playbook Details
+### Kube
+* Installs kubernetes and docker on target machines; install an NFS server on a seperate machine for persistent volumes.
 
-    boot/                   # saved files for copying to the boot images
-    docs/                   # well, duh
-    images/                 # where to save the img files from the RPF and Ubuntu
-    inventories/
-      home/
-    home/
-      inventory/      
-        hosts               # all the machines in the network
-        group_vars/         # variables to override different roles based on groupings
-        host_vars/          # variables related to specific hosts
-      project/
-        default.yml         # default or site playbook
-        updates.yml         # just doing updates and not much else
-        roles/              # where the various roles live
-          common/
-          julia/
-          jupyterhub/
-          nginx/
-          python/
-          updates/
+### Docker
+* Installs Docker from the docker repositories.
 
-## Role Details
-### julia
-* Downloads the [Juila](https://julialang.org/) tar file and installs it to /opt
-* creates a julia user for distributed work over ssh
+### Jenkins
+* Installs jenkins, an NFS client and docker; mounts an NFS drive from the designated server
 
-### jupyterhub
-* Install [Jupyter Hub](https://jupyterhub.readthedocs.io/en/stable/)
-* Sets it up to run as a service
+### Updates
+* Updates the computers based on model type; only does two at a time
 
-### nginx
-* Vanillia NGinx install
+### Reboot
+* Well, it reboots the machines
 
-### Python
-* bring Python3 up to snuff

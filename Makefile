@@ -62,3 +62,8 @@ ubuntu:
 imager:
 	cp boot/user-data /Volumes/system-boot/user-data
 	vi /Volumes/system-boot/user-data
+
+retropie:
+	touch /Volumes/boot/ssh && \
+	cp boot/wpa_supplicant.conf /Volumes/boot/  && \
+	diskutil unmountDisk /dev/disk2
