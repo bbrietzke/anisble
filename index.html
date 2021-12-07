@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="js/jquery-2.1.1.min.js" defer></script>
   <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
         <a href="." class="icon icon-home"> Raspberry Pi Ansible Setup</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -60,17 +59,17 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#role-details">Role Details</a>
+    <li class="toctree-l2"><a class="reference internal" href="#playbook-details">Playbook Details</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#julia">julia</a>
+    <li class="toctree-l3"><a class="reference internal" href="#kube">Kube</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#jupyterhub">jupyterhub</a>
+    <li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#nginx">nginx</a>
+    <li class="toctree-l3"><a class="reference internal" href="#jenkins">Jenkins</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
+    <li class="toctree-l3"><a class="reference internal" href="#updates">Updates</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reboot">Reboot</a>
     </li>
         </ul>
     </li>
@@ -106,6 +105,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -120,12 +120,11 @@ sleep 3 &amp;&amp; \
 touch /Volumes/boot/ssh &amp;&amp; \
 diskutil unmountDisk /dev/disk2
 </code></pre>
-
 <h2 id="setup">Setup</h2>
 <p>Following <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Ansible best practices</a>, the project is structured
 with an inventories folder that contains the list of hosts that you will want to talk to.  There is a <em>work</em> and a <em>home</em> option that contains the
 names/ips and usernames of the host machines.  Also included are the various <em>children</em> which relates to the groups that contain the roles that you will implement the software and configuration that will be installed.</p>
-<p>The bootable images should be saved in the boot directory.  Make sure you updated the image names in the Makefile so the image creation commands work.</p>
+<p>The bootable images should be saved in the 'image' directory.  Make sure you updated the image names in the Makefile so the 'image' creation commands work.</p>
 <h3 id="personalization">Personalization</h3>
 <p>Additional directories can be added to inventories and setup similiar to home or work depending on how you want things to work or look.</p>
 <h2 id="commands">Commands</h2>
@@ -135,44 +134,34 @@ names/ips and usernames of the host machines.  Also included are the various <em
 <li><code>make rasbian</code> - create the rasbian image.</li>
 <li><code>make ubuntu</code> - create the ubuntu image.</li>
 <li><code>make docs</code> - Build the docs and upload them to gh-pages.</li>
+<li><code>make reboot</code> - reboot all the Raspberry Pi's</li>
+<li><code>make docker</code> - Install the docker role</li>
+<li><code>make kube</code> - Install Kubernetes</li>
+<li><code>make volumes</code> - Build NFS volumes</li>
+<li><code>make buildServers</code> - Install Jenkins CI/CD</li>
+<li><code>make docker</code> - Install docker</li>
+<li><code>make reboot</code> - REBOOT!</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>boot/                   # saved files for copying to the boot images
-images/                 # where to save the img files from the RPF and Ubuntu
-home/
-  inventory/      
-    hosts               # all the machines in the network
-    group_vars/         # variables to override different roles based on groupings
-    host_vars/          # variables related to specific hosts
-  project/
-    default.yml         # default or site playbook
-    updates.yml         # just doing updates and not much else
-    roles/              # where the various roles live
-      common/
-      julia/
-      jupyterhub/
-      nginx/
-      python/
-      updates/
-</code></pre>
-<h2 id="role-details">Role Details</h2>
-<h3 id="julia">julia</h3>
+<h2 id="playbook-details">Playbook Details</h2>
+<h3 id="kube">Kube</h3>
 <ul>
-<li>Downloads the <a href="https://julialang.org/">Juila</a> tar file and installs it to /opt</li>
-<li>creates a julia user for distributed work over ssh</li>
+<li>Installs kubernetes and docker on target machines; install an NFS server on a seperate machine for persistent volumes.</li>
 </ul>
-<h3 id="jupyterhub">jupyterhub</h3>
+<h3 id="docker">Docker</h3>
 <ul>
-<li>Install <a href="https://jupyterhub.readthedocs.io/en/stable/">Jupyter Hub</a></li>
-<li>Sets it up to run as a service</li>
+<li>Installs Docker from the docker repositories.</li>
 </ul>
-<h3 id="nginx">nginx</h3>
+<h3 id="jenkins">Jenkins</h3>
 <ul>
-<li>Vanillia NGinx install</li>
+<li>Installs jenkins, an NFS client and docker; mounts an NFS drive from the designated server</li>
 </ul>
-<h3 id="python">Python</h3>
+<h3 id="updates">Updates</h3>
 <ul>
-<li>bring Python3 up to snuff</li>
+<li>Updates the computers based on model type; only does two at a time</li>
+</ul>
+<h3 id="reboot">Reboot</h3>
+<ul>
+<li>Well, it reboots the machines</li>
 </ul>
               
             </div>
@@ -198,13 +187,14 @@ home/
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
 </div>
     <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
     <script src="js/theme.js" defer></script>
       <script src="search/main.js" defer></script>
     <script defer>
@@ -217,6 +207,6 @@ home/
 </html>
 
 <!--
-MkDocs version : 1.1.2
-Build Date UTC : 2020-07-16 21:57:38.165656+00:00
+MkDocs version : 1.2.3
+Build Date UTC : 2021-12-07 02:59:53.698408+00:00
 -->

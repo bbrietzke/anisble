@@ -1,0 +1,56 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:Author:    Brian Brietzke
+:Email:     bbrietzke+github.com
+:Revision:  2
+
+== My Ansible Pipeline
+This is the copy of the ansible pipeline that I use to maintain my home networking infrastructure. 
+
+My personal infrastructure is pretty simple, it's generally a seven node Raspberry Pi 4 cluster with a Raspberry Pi 3 as a resource server.
+
+I also have a Raspberry Pi 4 that i use as a desktop machine.
+
+All of the machines are loaded with Ubuntu 20.04.  I have used Rasbian in the past and it works well, i just wanted to try Ubuntu this time.
+
+[NOTE]
+====
+All of this works for me and may not work for you.  You can certainly take this and do your own thing with it if you want.
+
+Just don't blame me if it doesn't work the way you expect.
+====
+
+== SD Card Setup
+The Makefile in the root of the directory contains commands to format the SDCard for the Pi.  
+
+You will need to download the img file from either Ubuntu or Rasbian websites and copy them to the 'images' directory.  Take a copy of the name and update the Makefile to have the correct or new name and then you can execute:
+
+[source,bash]
+make rasbian
+
+or 
+
+[source,bash]
+make ubuntu
+
+to have it format and fix up the SDCard.  If you are on OSX, it will actually talk to you when you need to update something or upon creation.
+
+If you want to do things the hard way, then you can do something along the lines of:
+
+[source,bash]
+diskutil unmountDisk /dev/disk2 && \
+sudo dd bs=1m if=~/Downloads/2020-02-13-raspbian-buster-lite.img of=/dev/rdisk2 && \
+sleep 3 && \
+touch /Volumes/boot/ssh && \
+diskutil unmountDisk /dev/disk2
+
+and it will do the rest for you.
+
+== Directory Layout
+I try to follow the ansible best practices that can be found at https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#directory-layout[Playbook Best Practices], except i moved the playbooks into thier own folder.
