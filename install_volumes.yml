@@ -10,9 +10,13 @@
     share_path: "/srv/m"
     nfs_shares:
       - { share_name: jenkinsData }
+      - { share_name: octoprintData }
       - { share_name: share_one }
       - { share_name: share_two }
       - { share_name: share_three }
       - { share_name: share_four }
       - { share_name: share_five }
       - { share_name: share_six }
+      - { share_name: share_seven }
+      - { share_name: share_eight }
+      - { share_name: share_nine }

@@ -1,0 +1,4 @@
+---
+ansible_user: bbrietzke
+ubuntu_version: focal
+ansible_host: pegasus.attlocal.net
