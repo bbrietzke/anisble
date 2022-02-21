@@ -12,3 +12,10 @@
   serial: 2
   roles:
     - update
+
+- name: Update Laptop's
+  hosts: laptops
+  become: yes
+  serial: 2
+  roles:
+    - update
