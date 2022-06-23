@@ -1,15 +1,22 @@
 ---
 
-- name: Volume Setup
-  hosts: build_servers
+- name: FixingIps
+  hosts: kubernetes_workers:kubernetes_master
   become: yes
   roles:
-    - docker
-    - nfs_client
-    - jenkins
-  vars:
-    nfs_mounts:
-      - { share_name: /srv/m/jenkinsJobs, host: callisto, path: /var/lib/jenkins/ }
+    - fixed_ip
+
+
+# - name: Volume Setup
+#   hosts: build_servers
+#   become: yes
+#   roles:
+#     - docker
+#     - nfs_client
+#     - jenkins
+#   vars:
+#     nfs_mounts:
+#       - { share_name: /srv/m/jenkinsJobs, host: callisto, path: /var/lib/jenkins/ }
 
 
 

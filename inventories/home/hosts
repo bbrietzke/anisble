@@ -10,7 +10,6 @@ all:
       hosts:
         callisto:
         dione:
-        europa:
         iapetus:
         mimas:
         octopi:
@@ -20,7 +19,6 @@ all:
     rasp_three:
       hosts:
         callisto:
-        europa:
     rasp_four:
       hosts:
         dione:
@@ -38,12 +36,14 @@ all:
         callisto:
     kubernetes_master:
       hosts:
-        dione:
+        tethys:
     kubernetes_workers:
       hosts:
-        iapetus:
-        pegasus:
-        mimas:
-        phoebe:
-        rhea:
-        tethys:
+        # dione:
+        # iapetus:
+        # mimas:
+        # phoebe:
+        # rhea:
+    support_workers:
+      hosts:
+        callisto:

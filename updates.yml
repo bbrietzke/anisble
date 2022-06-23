@@ -1,20 +1,6 @@
 ---
-- name: Update RPi3's
-  hosts: rasp_three
-  become: yes
-  serial: 2
-  roles:
-    - update
-
-- name: Update RPI4's
-  hosts: rasp_four
-  become: yes
-  serial: 2
-  roles:
-    - update
-
-- name: Update Laptop's
-  hosts: laptops
+- name: Update Everybody
+  hosts: all
   become: yes
   serial: 2
   roles:

@@ -40,6 +40,11 @@ reboot:
 docs: $(DOC)
 	$(DOC) gh-deploy
 
+whatever:
+	cp boot/user-data /Volumes/system-boot/user-data  && \
+	cp boot/network-config /Volumes/system-boot/network-config && \
+	diskutil unmountDisk /dev/disk2
+
 rasbian:
 	@diskutil unmountDisk /dev/disk2 && \
 	sudo dd bs=1m if=$(IMAGE_DIR)/$(RASBIAN_IMAGE_NAME) of=$(TARGET_DISK) && \

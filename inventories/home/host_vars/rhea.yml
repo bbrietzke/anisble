@@ -1,5 +1,6 @@
 ---
 ansible_user: ubuntu
-ubuntu_version: focal
-ansible_host: rhea.attlocal.net
+ubuntu_version: jammy
+ansible_host: rhea.local
+backplane_fixed_ip: 192.168.1.107
 

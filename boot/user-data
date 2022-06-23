@@ -12,7 +12,7 @@
 
 # On first boot, set the (default) ubuntu user's password to "ubuntu" and
 # expire user passwords
-hostname: dione
+hostname: tethys 
 
 chpasswd:
   expire: true
@@ -44,6 +44,8 @@ power_state:
   timeout: 600
   mode: reboot
   condition: true
+
+timezone: America/Chicago
 
 ## On first boot, use ssh-import-id to give the specific users SSH access to
 ## the default user
