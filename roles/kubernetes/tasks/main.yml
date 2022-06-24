@@ -9,10 +9,10 @@
   notify:
     - restart_machine
 
-- name: Copy kubeadm-config file.
+- name: Copy containerd-config file.
   template:
-    src: kube-config.j2
-    dest: "/opt/kubeadm-config.yml"
+    src: containerd-config.j2
+    dest: "/etc/containerd/config.toml"
     owner: root
     group: root
     mode: 0644
