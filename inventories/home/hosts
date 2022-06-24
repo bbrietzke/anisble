@@ -1,11 +1,5 @@
 all:
   children:
-    mini:
-      hosts:
-        zeus:
-    laptops:
-      hosts:
-        pegasus:
     raspberry_pis:
       hosts:
         callisto:
@@ -36,14 +30,14 @@ all:
         callisto:
     kubernetes_master:
       hosts:
-        tethys:
+        dione:
     kubernetes_workers:
       hosts:
-        # dione:
-        # iapetus:
-        # mimas:
-        # phoebe:
-        # rhea:
+        tethys:
+        iapetus:
+        mimas:
+        phoebe:
+        rhea:
     support_workers:
       hosts:
         callisto:
