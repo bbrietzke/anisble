@@ -12,6 +12,7 @@ add_packages:
   - nfs-common
 
 kubernetes_packages:
+  - containerd
   - kubelet
   - kubeadm
   - kubectl

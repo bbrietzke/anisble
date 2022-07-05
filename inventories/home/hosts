@@ -2,26 +2,32 @@ all:
   children:
     raspberry_pis:
       hosts:
-        callisto:
+        callisto: #europa:
         dione:
         iapetus:
         mimas:
         octopi:
         phoebe:
+        pontoon:
         rhea:
         tethys:
     rasp_three:
       hosts:
-        callisto:
+        callisto: #europa:
+        retropie:
+        pontoon:
     rasp_four:
       hosts:
         dione:
         iapetus:
         mimas:
-        phoebe:
         octopi:
+        phoebe:
         rhea:
         tethys:
+    retro:
+      hosts:
+        retropie:
     octoprint:
       hosts:
         octopi:

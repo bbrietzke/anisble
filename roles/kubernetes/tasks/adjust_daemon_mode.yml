@@ -1,5 +1,14 @@
 ---
+
+
+- name: Does /etc/docker/daemon.json exist
+  stat: 
+    path: /etc/docker/daemon.json
+  register: file
+
+
 - name: Copy new driver file for Docker
+  when: not file.stat.exists
   copy:
     dest: /etc/docker/daemon.json
     content: |

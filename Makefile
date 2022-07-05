@@ -42,8 +42,7 @@ docs: $(DOC)
 
 whatever:
 	cp boot/user-data /Volumes/system-boot/user-data  && \
-	cp boot/network-config /Volumes/system-boot/network-config && \
-	diskutil unmountDisk /dev/disk2
+	cp boot/network-config /Volumes/system-boot/network-config 
 
 rasbian:
 	@diskutil unmountDisk /dev/disk2 && \

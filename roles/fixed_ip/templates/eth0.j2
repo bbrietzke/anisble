@@ -1,5 +1,6 @@
 network:
   ethernets:
     {{ backplane_ethernet_interface }}:
-      addresses: [ {{ backplane_fixed_ip }}/24 ]
+      dhcp4: true
+      # addresses: [ {{ backplane_fixed_ip }}/24 ]
   version: 2

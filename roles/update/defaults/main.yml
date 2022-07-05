@@ -6,3 +6,5 @@ packages:
   - avahi-utils 
   - libnss-mdns 
   - mdns-scan
+  - tlp
+  

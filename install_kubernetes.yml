@@ -28,9 +28,10 @@
   hosts: kubernetes_workers:kubernetes_master
   become: yes
   roles:
+    - docker
     - kubernetes
     
-- name: Configure Kubernetes
+- name: Configure Kubernetes Master
   hosts: kubernetes_master
   become: yes
   roles:
@@ -42,16 +43,16 @@
 
 # sudo sed -i '$ s/$/ cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt && sudo reboot now
 
-# sudo kubeadm init --kubernetes-version=v1.24.1 --pod-network-cidr=10.240.0.0/16 --service-cidr=10.250.0.0/16
+# sudo kubeadm init --kubernetes-version=v1.24.2 --pod-network-cidr=10.240.0.0/16 --service-cidr=10.250.0.0/16
 # sudo kubeadm init --config /opt/kubeadm-config.yml
 
 # https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart
 # kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml
-# kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
+# kubectl create -f /opt/calico/calico.yml
 
 # kubectl apply -f https://gist.githubusercontent.com/bbrietzke/c59b6132c37ea36f9b84f1fee701a642/raw/00e1683fbd7422fc297629128b08bded6ca3c90b/kubernetes-test.yaml
 #  curl http://localhost:30080
 
-
+# kubeadm join 10.0.0.147:6443 --token abcdef.0123456789abcdef --discovery-token-ca-cert-hash sha256:dfaa39e52562d8da5293dd5837b42a61a7d310730742c9331011a5b754e17cde
 
 #  && sleep 30 && sudo reboot
