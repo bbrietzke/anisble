@@ -1,6 +1,8 @@
 ---
 
-packages:
+postgres_state: present
+
+add_packages:
   - postgresql
+  - postgresql-client
   - postgresql-contrib
-  - pgbouncer

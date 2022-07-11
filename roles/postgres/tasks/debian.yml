@@ -2,7 +2,7 @@
 - name: Install required PGSql packages
   apt:
     name: "{{ packages }}"
-    state: present
+    state: "{{ postgres_state }}"
   vars:
-    packages: "{{ packages }}"
+    packages: "{{ add_packages }}"
 

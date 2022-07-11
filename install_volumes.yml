@@ -7,16 +7,9 @@
   vars:
     share_path: "/srv/nfs_shares"
     nfs_shares:
-      - { share_name: share_zero }
-      - { share_name: share_one }
-      - { share_name: share_two }
-      - { share_name: share_three }
-      - { share_name: share_four }
-      - { share_name: share_five }
-      - { share_name: share_six }
-      - { share_name: share_seven }
-      - { share_name: share_eight }
-      - { share_name: share_nine }
+      - { share_name: volatile_zero }
+      - { share_name: volatile_one }
+      - { share_name: volatile_two }
 
 - name: Mirrored Volumes on PONTOON
   hosts: mirrored_targets
@@ -30,7 +23,7 @@
       - { share_name: mirrored_one }
       - { share_name: mirrored_two }
 
-- name: Raid5 Volumes on Ganymede
+- name: Raid5 Volumes on GANYMEDE
   hosts: raid_five_targets
   become: yes
   roles:

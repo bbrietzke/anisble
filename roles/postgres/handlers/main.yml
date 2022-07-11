@@ -1,4 +1,5 @@
 ---
-- name: Update Debian based distros
-  include_tasks: debian.yml
-  when: ansible_facts['os_family'] == "Debian"
+- name: restart_postgres
+  systemd:
+    name: postgres
+    state: restarted
