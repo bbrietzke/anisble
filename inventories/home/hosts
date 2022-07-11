@@ -2,18 +2,20 @@ all:
   children:
     raspberry_pis:
       hosts:
-        callisto: #europa:
-        dione:
+        callisto:
+        ganymede:
         iapetus:
         mimas:
         octopi:
         phoebe:
         pontoon:
+        retropie:
         rhea:
         tethys:
     rasp_three:
       hosts:
-        callisto: #europa:
+        callisto: 
+        ganymede:
         retropie:
         pontoon:
     rasp_four:
@@ -31,7 +33,7 @@ all:
     octoprint:
       hosts:
         octopi:
-    volume_targets:
+    volatile_targets:
       hosts:
         callisto:
     kubernetes_master:

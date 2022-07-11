@@ -1,24 +1,5 @@
 ---
-- name: Volume Hosts
-  hosts: volume_targets
-  become: yes
-  roles:
-    - nfs_server
-  vars:
-    share_path: "/srv/nfs_shares"
-    nfs_shares:
-      - { share_name: share_zero }
-      - { share_name: share_one }
-      - { share_name: share_two }
-      - { share_name: share_three }
-      - { share_name: share_four }
-      - { share_name: share_five }
-      - { share_name: share_six }
-      - { share_name: share_seven }
-      - { share_name: share_eight }
-      - { share_name: share_nine }
-
-- name: FixingIps
+- name: Kubernetes Pre-Work
   hosts: kubernetes_workers:kubernetes_master:support_workers
   become: yes
   roles:

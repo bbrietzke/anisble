@@ -1,9 +1,7 @@
 ---
-
-- name: Volume Setup
-  hosts: volume_targets
+- name: Volatile Volumes on CALLISTO
+  hosts: volatile_targets
   become: yes
-  serial: 1
   roles:
     - nfs_server
   vars:
@@ -19,3 +17,27 @@
       - { share_name: share_seven }
       - { share_name: share_eight }
       - { share_name: share_nine }
+
+- name: Mirrored Volumes on PONTOON
+  hosts: mirrored_targets
+  become: yes
+  roles:
+    - nfs_server
+  vars:
+    share_path: "/srv/nfs_shares"
+    nfs_shares:
+      - { share_name: mirrored_zero }
+      - { share_name: mirrored_one }
+      - { share_name: mirrored_two }
+
+- name: Raid5 Volumes on Ganymede
+  hosts: raid_five_targets
+  become: yes
+  roles:
+    - nfs_server
+  vars:
+    share_path: "/srv/nfs_shares"
+    nfs_shares:
+      - { share_name: raid_five_zero }
+      - { share_name: raid_five_one }
+      - { share_name: raid_five_two }
