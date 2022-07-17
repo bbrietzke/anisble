@@ -16,3 +16,17 @@
     owner: consul
     group: consul
     mode: 0644
+
+- name: Does sites-available exist?
+  stat: 
+    path: /etc/nginx/sites-available
+  register: sites_avail
+
+- name: Create consul ui reverse-proxy config file.
+  when: not sites_avail.stat.exists and consul_ui
+  template:
+    src: nginx_ui.j2
+    dest: "/etc/nginx/sites-available/consului"
+    owner: root
+    group: root
+    mode: 0644
