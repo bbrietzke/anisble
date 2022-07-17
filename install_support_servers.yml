@@ -1,4 +1,9 @@
 ---
+- name: Install Reverse-Proxy
+  hosts: reverse_proxies
+  become: yes
+  roles:
+    - reverse_proxy
 
 - name: Consul Servers
   hosts: consul_servers
@@ -7,6 +12,15 @@
     - consul
   vars:
     consul_server: true
+    consul_ui: true
+    consul_datacenter: basement
+
+- name: Consul Agents
+  hosts: consul_agents
+  become: yes
+  roles:
+    - consul
+  vars:
     consul_datacenter: basement
 
 - name: PostgreSQL Servers
@@ -27,3 +41,9 @@
       - { share_name: share_one }
       - { share_name: share_two }
       - { share_name: share_three }
+
+- name: Install Vault Servers
+  hosts: vault_servers
+  become: yes
+  roles:
+    - vault_servers

@@ -1,0 +1,27 @@
+all:
+  children:
+    nfs_servers:
+      callisto:
+    consul_servers:
+      callisto:
+      ganymede:
+      europa:
+    consul_agents:
+      io:
+      catnip:
+      lavender:
+      mint:
+      thyme:
+      basil:
+    postgresql_servers:
+      dione:
+    vault_servers:
+      ganymede:
+    kubernetes_master:
+      basil:
+    kubernetes_workers:
+      catnip:
+      lavender:
+      mint:
+      thyme:
+    

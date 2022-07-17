@@ -7,4 +7,4 @@
 - name: restart_nginx
   service:
     name: nginx
-    state: reloaded 
+    state: restarted 

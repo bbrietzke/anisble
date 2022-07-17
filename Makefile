@@ -40,6 +40,12 @@ reboot:
 docs: $(DOC)
 	$(DOC) gh-deploy
 
+support:
+	$(EXE) $(EXE_OPTIONS) -i inventories/home/basement install_support_servers.yml
+
+kubex:
+	$(EXE) $(EXE_OPTIONS) -i inventories/home/basement install_kubernetes.yml
+
 whatever:
 	cp boot/user-data /Volumes/system-boot/user-data  && \
 	cp boot/network-config /Volumes/system-boot/network-config 

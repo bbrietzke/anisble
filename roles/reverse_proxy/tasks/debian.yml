@@ -1,0 +1,8 @@
+---
+- name: Install Consul packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ nginx_state }}"
+  vars:
+    packages: "{{ nginx_packages }}"
