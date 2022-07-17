@@ -1,3 +1,0 @@
----
-- name: reload netplan
-  command: 'netplan apply'

@@ -1,4 +1,0 @@
----
-- name: Update Debian based distros
-  include_tasks: install_debian.yml
-  when: ansible_facts['os_family'] == "Debian"

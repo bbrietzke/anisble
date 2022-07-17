@@ -1,6 +1,0 @@
----
-- name: update pip.conf
-  copy:
-    src: "files/pip.conf"
-    dest: "/etc/pip.conf"
-    force: yes

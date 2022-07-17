@@ -1,5 +1,0 @@
----
-- name: lets do some debugging
-  debug:
-    msg: my ipv4 is {{ ansible_facts.wlan0.ipv4.address }}
-  when: ansible_facts.wlan0.ipv4.address is defined

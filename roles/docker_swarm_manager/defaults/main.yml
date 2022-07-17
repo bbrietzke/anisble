@@ -1,6 +1,0 @@
----
-pip_executable: /usr/local/bin/pip3
-pip_extras:
-  
-pip_packages:
-  - docker

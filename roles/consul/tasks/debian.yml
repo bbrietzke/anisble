@@ -1,0 +1,19 @@
+---
+
+- name: Install Consul GPG key
+  apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: "{{ consul_state }}"
+
+- name: Install Consul APT Repository
+  apt_repository: 
+    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_version }} main"
+    state: "{{ consul_state }}"
+
+- name: Install Consul packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ consul_state }}"
+  vars:
+    packages: "{{ consul_packages }}"

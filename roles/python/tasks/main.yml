@@ -1,4 +1,0 @@
----
-#- include_tasks: remove_python.yml
-#- include_tasks: pip.yml
-- include_tasks: adjust_python3.yml
