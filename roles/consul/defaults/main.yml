@@ -2,9 +2,11 @@
 
 consul_state: present
 
+consul_encryption_key: r8joTsIluCHCxxoMwbDoetgJM19nKrR0vbtYBTB7MU0=
+consul_data_dir: /opt/data
+consul_ui: false
+consul_server: false
+consul_datacenter: datacenter_one
+
 consul_packages:
-  - consul=1.8.3
-
-
-consul_config_dir: /etc/consul.d
-consul_download_url: https://releases.hashicorp.com/consul/1.10.4/consul_1.10.4_linux_arm.zip
+  - consul

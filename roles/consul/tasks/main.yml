@@ -1,21 +1,9 @@
 ---
+- name: Update Debian based distros
+  include_tasks: debian.yml
+  when: ansible_facts['os_family'] == "Debian"
 
-- name: Unarchive a file that needs to be downloaded (added in 2.0)
-  ansible.builtin.unarchive:
-    src: "{{ consul_download_url }}"
-    dest: /usr/local/bin
-    remote_src: yes
-
-- name: check directory status
+- name: Does /etc/consul.d exist?
   stat: 
-    path: "{{ consul_config_dir }}"
-  register: directory_status
-
-- name: create directory
-  when: not directory_status.stat.exists
-  file:
-    path: "{{ consul_config_dir }}"
-    state: directory
-    mode: 0755
-    group: root
-    owner: root
+    path: /etc/consul.d
+  register: consul_d
