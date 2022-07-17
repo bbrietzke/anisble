@@ -5,7 +5,7 @@
 
 - name: Does /etc/consul.d exist?
   stat: 
-    path: /etc/consul.d
+    path: /etc/consul.d/config.hcl
   register: consul_d
 
 - name: Create consul config file.
@@ -30,3 +30,10 @@
     owner: root
     group: root
     mode: 0644
+
+- name: Enable UI site
+  file:
+    src: /etc/nginx/sites-available/consului
+    dest: /etc/nginx/sites-enabled/consului
+    state: link
+  notify: restart_nginx

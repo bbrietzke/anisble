@@ -1,0 +1,29 @@
+---
+
+- name: Consul Servers
+  hosts: consul_servers
+  become: yes
+  roles:
+    - consul
+  vars:
+    consul_server: true
+    consul_datacenter: basement
+
+- name: PostgreSQL Servers
+  hosts: postgresql_servers
+  become: yes
+  roles:
+    - postgresql
+  
+- name: Install NFS Servers
+  hosts: nfs_servers
+  become: yes
+  roles:
+    - nfs_server
+  vars:
+    share_path: "/srv/nfs_shares"
+    nfs_shares:
+      - { share_name: share_zero }
+      - { share_name: share_one }
+      - { share_name: share_two }
+      - { share_name: share_three }

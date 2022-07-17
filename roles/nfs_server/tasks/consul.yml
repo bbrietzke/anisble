@@ -1,0 +1,15 @@
+---
+- name: Does /etc/consul.d/nfs.hcl exist?
+  stat: 
+    path: /etc/consul.d/nfs.hcl
+  register: consul.d
+
+- name: Create consul service file.
+  when: not consul_d.stat.exists
+  notify: restart_consul
+  template:
+    src: config.j2
+    dest: "/etc/consul.d/nfs.hcl"
+    owner: consul
+    group: consul
+    mode: 0644

@@ -3,3 +3,8 @@
   systemd:
     name: postgres
     state: restarted
+    
+- name: restart_consul
+  systemd:
+    name: consul
+    state: restarted

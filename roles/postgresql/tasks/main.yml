@@ -3,6 +3,9 @@
   include_tasks: debian.yml
   when: ansible_facts['os_family'] == "Debian"
 
+- name: Update Consul
+  include_tasks: consul.yml
+
 - name: Does postgresql.conf exist?
   stat: 
     path: /etc/postgresql/14/main/postgresql.conf

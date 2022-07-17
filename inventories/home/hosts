@@ -4,6 +4,7 @@ all:
       hosts:
         callisto:
         ganymede:
+        dione:
         iapetus:
         mimas:
         octopi:

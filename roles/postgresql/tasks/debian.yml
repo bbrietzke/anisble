@@ -4,5 +4,5 @@
     name: "{{ packages }}"
     state: "{{ postgres_state }}"
   vars:
-    packages: "{{ add_packages }}"
+    packages: "{{ postgres_packages }}"
 
