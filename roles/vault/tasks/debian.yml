@@ -7,7 +7,7 @@
 
 - name: Install Vault APT Repository
   apt_repository: 
-    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_version }} main"
+    repo: "deb https://apt.releases.hashicorp.com {{ ubuntu_version }} main"
     state: "{{ vault_state }}"
 
 - name: Install Vault packages

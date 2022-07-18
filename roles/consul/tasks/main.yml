@@ -9,7 +9,7 @@
   register: consul_d
 
 - name: Create consul config file.
-  when: not consul_d.stat.exists
+  notify: restart_consul
   template:
     src: config.hcl
     dest: "/etc/consul.d/config.hcl"
@@ -32,6 +32,7 @@
     mode: 0644
 
 - name: Enable UI site
+  when: consul_ui and sites_avail.stat.exists
   file:
     src: /etc/nginx/sites-available/consului
     dest: /etc/nginx/sites-enabled/consului

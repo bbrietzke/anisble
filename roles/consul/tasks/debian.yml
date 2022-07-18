@@ -7,7 +7,7 @@
 
 - name: Install Consul APT Repository
   apt_repository: 
-    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_version }} main"
+    repo: "deb https://apt.releases.hashicorp.com {{ ubuntu_version }} main"
     state: "{{ consul_state }}"
 
 - name: Install Consul packages
@@ -17,3 +17,8 @@
     state: "{{ consul_state }}"
   vars:
     packages: "{{ consul_packages }}"
+
+# - name: Enable Consul
+#   service:
+#       name: consul
+#       enabled: yes

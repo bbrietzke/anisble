@@ -2,10 +2,10 @@
 - name: Does /etc/consul.d/pgsql.hcl exist?
   stat: 
     path: /etc/consul.d/pgsql.hcl
-  register: consul.d
+  register: consul_d
 
 - name: Create consul service file.
-  when: not consul_d.stat.exists
+  when: consul_d.stat.exists
   notify: restart_consul
   template:
     src: config.j2
