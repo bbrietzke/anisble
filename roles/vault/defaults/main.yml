@@ -1,0 +1,5 @@
+---
+
+vault_state: present
+vault_packages:
+  - vault

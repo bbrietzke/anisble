@@ -23,7 +23,7 @@
   register: sites_avail
 
 - name: Create consul ui reverse-proxy config file.
-  when: not sites_avail.stat.exists and consul_ui
+  when: consul_ui and sites_avail.stat.exists
   template:
     src: nginx_ui.j2
     dest: "/etc/nginx/sites-available/consului"

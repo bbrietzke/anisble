@@ -1,10 +1,4 @@
 ---
-- name: Install Reverse-Proxy
-  hosts: reverse_proxies
-  become: yes
-  roles:
-    - reverse_proxy
-
 - name: Consul Servers
   hosts: consul_servers
   become: yes
@@ -35,7 +29,7 @@
   roles:
     - nfs_server
   vars:
-    share_path: "/srv/nfs_shares"
+    share_path: "/opt/nfs_shares"
     nfs_shares:
       - { share_name: share_zero }
       - { share_name: share_one }
@@ -46,4 +40,4 @@
   hosts: vault_servers
   become: yes
   roles:
-    - vault_servers
+    - vault

@@ -1,0 +1,21 @@
+---
+
+- name: Install Vault GPG key
+  apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: "{{ vault_state }}"
+
+- name: Install Vault APT Repository
+  apt_repository: 
+    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_version }} main"
+    state: "{{ vault_state }}"
+
+- name: Install Vault packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ vault_state }}"
+  vars:
+    packages: "{{ vault_packages }}"
+
+

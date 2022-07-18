@@ -1,10 +1,10 @@
 ---
-- name: Kubernetes Pre-Work
-  hosts: kubernetes_workers:kubernetes_master:support_workers
+- name: Install Consul Agent
+  hosts: kubernetes_workers:kubernetes_master
   become: yes
   roles:
-    - fixed_ip
-    
+    - consul
+  
 - name: Install Kubernetes
   hosts: kubernetes_workers:kubernetes_master
   become: yes
