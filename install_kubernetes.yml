@@ -1,10 +1,4 @@
----
-- name: Install Consul Agent
-  hosts: kubernetes_workers:kubernetes_master
-  become: yes
-  roles:
-    - consul
-  
+---  
 - name: Install Kubernetes
   hosts: kubernetes_workers:kubernetes_master
   become: yes

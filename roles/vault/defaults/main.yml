@@ -3,3 +3,10 @@
 vault_state: present
 vault_packages:
   - vault
+
+vault_use_consul: false
+vault_use_http: false
+vault_consul_server: "127.0.0.1:8500"
+vault_consul_path: "vault"
+vault_data_path: "/opt"
+vault_ui: true

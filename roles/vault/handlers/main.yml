@@ -1,0 +1,10 @@
+---
+- name: restart_consul
+  systemd:
+    name: consul
+    state: restarted
+
+- name: restart_vault
+  systemd:
+    name: vault
+    state: restarted

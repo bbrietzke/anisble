@@ -18,7 +18,7 @@
   vars:
     packages: "{{ consul_packages }}"
 
-# - name: Enable Consul
-#   service:
-#       name: consul
-#       enabled: yes
+- name: Enable Consul
+  service:
+    name: consul
+    enabled: yes

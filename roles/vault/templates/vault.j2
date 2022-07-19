@@ -1,0 +1,38 @@
+# Full configuration options can be found at https://www.vaultproject.io/docs/configuration
+
+ui =  "{{ vault_ui | lower}}"
+
+{% if vault_use_consul == true %}
+storage "consul" {
+  address = "{{ vault_consul_server }}"
+  path    = "{{ vault_consul_path }}"
+}
+{% else %}
+storage "file" {
+  path = "{{ vault_data_path }}/vault/data"
+}
+{% endif %}
+
+{% if vault_use_http == true %}
+# HTTP listener
+listener "tcp" {
+  address = "0.0.0.0:8200"
+  tls_disable = 1
+}
+{% else %}
+# HTTPS listener
+listener "tcp" {
+  address       = "0.0.0.0:8200"
+  tls_cert_file = "/opt/vault/tls/tls.crt"
+  tls_key_file  = "/opt/vault/tls/tls.key"
+}
+{% endif %}
+
+# Example HSM auto unseal
+#seal "pkcs11" {
+#  lib            = "/usr/vault/lib/libCryptoki2_64.so"
+#  slot           = "0"
+#  pin            = "AAAA-BBBB-CCCC-DDDD"
+#  key_label      = "vault-hsm-key"
+#  hmac_key_label = "vault-hsm-hmac-key"
+#}

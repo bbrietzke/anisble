@@ -17,6 +17,15 @@
   vars:
     consul_datacenter: basement
 
+- name: Install Vault Servers
+  hosts: vault_servers
+  become: yes
+  roles:
+    - vault
+  vars:
+    vault_use_consul: true
+    vault_use_http: true
+
 - name: PostgreSQL Servers
   hosts: postgresql_servers
   become: yes
@@ -29,15 +38,10 @@
   roles:
     - nfs_server
   vars:
-    share_path: "/opt/nfs_shares"
+    share_path: "/srv/nfs_shares"
     nfs_shares:
       - { share_name: share_zero }
       - { share_name: share_one }
       - { share_name: share_two }
       - { share_name: share_three }
-
-- name: Install Vault Servers
-  hosts: vault_servers
-  become: yes
-  roles:
-    - vault
+      - { share_name: share_four }

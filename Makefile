@@ -44,7 +44,7 @@ support:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_support_servers.yml
 
 kubex:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_kubernetes.yml
+	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_kubernetes.yml
 
 whatever:
 	cp boot/user-data /Volumes/system-boot/user-data

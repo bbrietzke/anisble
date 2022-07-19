@@ -19,3 +19,7 @@
     packages: "{{ vault_packages }}"
 
 
+- name: Enable Vault
+  service:
+    name: vault
+    enabled: yes
