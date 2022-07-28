@@ -1,7 +1,7 @@
 ---
 - name: restart_postgres
   systemd:
-    name: postgres
+    name: postgresql
     state: restarted
     
 - name: restart_consul

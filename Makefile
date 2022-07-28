@@ -17,19 +17,16 @@ $(EXE):
 	brew install ansible
 
 updates:
-	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts updates.yml
+	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts updates.yml
 
 default:
 	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts default.yml
 
 docker:
-	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_docker.yml
+	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_docker.yml
 
 volumes:
 	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_volumes.yml
-
-buildServers:
-	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_jenkins.yml
 
 kube:  # sudo sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt
 	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_kubernetes.yml
@@ -48,6 +45,10 @@ kubex:
 
 whatever:
 	cp boot/user-data /Volumes/system-boot/user-data
+
+wifi:
+	cp boot/user-data /Volumes/system-boot/user-data && \
+	cp boot/network-config /Volumes/system-boot/network-config
 
 rasbian:
 	@diskutil unmountDisk /dev/disk2 && \

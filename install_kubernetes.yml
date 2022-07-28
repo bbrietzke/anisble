@@ -3,7 +3,6 @@
   hosts: kubernetes_workers:kubernetes_master
   become: yes
   roles:
-    - docker
     - kubernetes
     
 - name: Configure Kubernetes Master

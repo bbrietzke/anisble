@@ -1,13 +1,7 @@
 ---
 
 - name: Docker Hosts
-  hosts: kubernetes_master
-  become: yes
-  roles:
-    - docker
-
-- name: Docker Hosts
-  hosts: kubernetes_works
+  hosts: kubernetes_workers:kubernetes_master
   become: yes
   roles:
     - docker

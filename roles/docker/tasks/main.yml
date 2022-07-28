@@ -5,3 +5,10 @@
 
 - name: Remove swap files
   include_tasks: remove_swap.yml
+
+- name: fix ubuntu bug?
+  notify: restart_docker
+  lineinfile:
+    path: "/lib/systemd/system/docker.service"
+    regexp: "ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock"
+    line: "ExecStart=/usr/bin/dockerd --containerd=/run/containerd/containerd.sock"
