@@ -24,4 +24,5 @@ all:
       hosts:
         catnip:
         lavender:
+        sage:
     
