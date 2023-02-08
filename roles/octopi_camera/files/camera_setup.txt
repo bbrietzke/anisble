@@ -1,0 +1,2 @@
+camera="raspi"
+camera_usb_options="-r 1920x1080 -f 15"
