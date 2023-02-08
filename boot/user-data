@@ -12,7 +12,7 @@
 
 # On first boot, set the (default) ubuntu user's password to "ubuntu" and
 # expire user passwords
-hostname: callisto
+hostname: morgan
 
 chpasswd:
   expire: true
@@ -37,9 +37,7 @@ packages:
   - tlp
 
 ssh_authorized_keys:
-  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjYSxSL0aEXLLAPDebvWyXG1LO0Fgo5SPREEKkTnAd1pgHY6ImnMyGU10nyw3fiQFu9xGzJnqgTJHXFk3sLThNd+aa6fGA3JA3bBUnBdne4vZSuJobOl7SLSECNwqR9eQpIfSoJUqsntC+MBekvVIwoNd4vg5lIZmM0zdn+Oodz5pVVf6cJlAdLFjvcBNIi9i6Epc+1x02P8rQkhtdPelGut8tzjQzoaJVgZHcoLciLtnQCgJdpBeM+LYKf+YYbpwRKvwQoQLqyeiUvWCg95V4Ot1ehrQLchz15O8EyKva7rNlwG+4hDlEhQsCW2ZIqhUiw/DvGyZXTsKTnDSJW7MB8rXY6H71Yp9HYwIbzJhaQ3JE1AuaiV1eZCm/Lw4krgC7XRrqO0BLObfep4MVrmxPmCKtTIEnCtb5zdDyHGHkZkYOnJkNTKW+VRS6h46vT6H4OT/BhIRBZRlfXUSMAiNznx/jR8qccEcfqfsd6FYlhOMwq9UYlk1GiWDxRokZ7vE= bbrietzke@Mac-mini.attlocal.net
-
-
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9xAJQZdHLbW6E3mAK4f+d0j0G52GptXSkMPTCecWqUfyHlOE3iiRmbgpEFmqSeU+mMAeWlj4qAOlWDu9DnGG3UTAyA4aaJsRfEaaUxLC5Jn04VdNL/cn9/ZbPUFHF4UUoCVNtYIwY3CZ7ZJvb+P8UJExlDhAKGgvdl7Ml3gzPpRqQgiEYYyOV4ru8QeqS9Va/Bgd68EFTn0Jusu18rvyZYltNAZTC8WRKU1TC6teN+crOQX2TadtM/V4a1vMEg4/OmJj4YaxB5/fZOuLs5CbryTNF5HH9SXzIbHKOGNBqL1H2R1ZuWZL/njVun3uvS3TUmAPVYp5fLRtyIj2OKsxgCYV9ftRMjAIQlGQHqAkDBxFQbYJ5KAl3W2mX/0CUeItC5N41OJNKQYtYUeumuRGNrbFVYgOvHJ9rqDUC3q7NlS5aRkqxmOGbSNVJ2tVrGAE7bElaGhvs954xcnYrC7nFvZWaGheP7Z8gQESkhxmNQIt6WfD0TKXmadMk0B10Tjk= bbrietzke@zeus.local
 
 power_state:
   delay: now
