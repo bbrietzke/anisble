@@ -3,51 +3,17 @@ all:
   children:
     raspberry_pis:
       hosts:
-        callisto:
-        ganymede:
-        dione:
-        iapetus:
-        mimas:
         octopi:
-        phoebe:
-        pontoon:
         retropie:
-        rhea:
-        tethys:
     rasp_three:
       hosts:
-        callisto: 
-        ganymede:
         retropie:
-        pontoon:
     rasp_four:
       hosts:
-        dione:
-        iapetus:
-        mimas:
         octopi:
-        phoebe:
-        rhea:
-        tethys:
     retro:
       hosts:
         retropie:
     octoprint:
       hosts:
         octopi:
-    volatile_targets:
-      hosts:
-        callisto:
-    kubernetes_master:
-      hosts:
-        dione:
-    kubernetes_workers:
-      hosts:
-        tethys:
-        iapetus:
-        mimas:
-        phoebe:
-        rhea:
-    support_workers:
-      hosts:
-        callisto:
