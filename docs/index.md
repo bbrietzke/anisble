@@ -1,6 +1,6 @@
-# Setting up Raspberry Pi with Ansible
+# Setting up my network with Ansible
 
-A set of helpful commands and tools to make setting up a Raspberry Pi a little easier.
+A set of helpful commands and tools to make setting up my network a little easier.
 
 ## Setup
 Following [Ansible best practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html), the project is structured

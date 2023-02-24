@@ -20,19 +20,19 @@ updates:
 	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts updates.yml
 
 default:
-	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts default.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts default.yml
 
 docker:
 	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_docker.yml
 
 volumes:
-	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_volumes.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_volumes.yml
 
 kube:  # sudo sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt
-	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts install_kubernetes.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_kubernetes.yml
 	
 reboot:
-	$(EXE) $(EXE_OPTIONS) -i inventories/home/hosts reboot.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts reboot.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy

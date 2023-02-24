@@ -1,6 +1,6 @@
 ---
 - name: REBOOT!
-  hosts: raspberry_pis
+  hosts: all
   become: yes
   serial: 2
   tasks:

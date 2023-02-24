@@ -22,7 +22,6 @@ all:
         basil:
     kubernetes_workers:
       hosts:
-        catnip:
         lavender:
         sage:
     
