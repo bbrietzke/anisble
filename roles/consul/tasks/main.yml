@@ -26,15 +26,7 @@
   when: consul_ui and sites_avail.stat.exists
   template:
     src: nginx_ui.j2
-    dest: "/etc/nginx/sites-available/consului"
+    dest: "/etc/nginx/sites-available/default"
     owner: root
     group: root
     mode: 0644
-
-- name: Enable UI site
-  when: consul_ui and sites_avail.stat.exists
-  file:
-    src: /etc/nginx/sites-available/consului
-    dest: /etc/nginx/sites-enabled/consului
-    state: link
-  notify: restart_nginx

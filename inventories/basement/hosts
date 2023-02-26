@@ -11,6 +11,9 @@ all:
     consul_agents:
       hosts:
         callisto:
+        basil:
+        lavender:
+        sage:
     postgresql_servers:
       hosts:
         callisto:
