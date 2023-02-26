@@ -5,11 +5,11 @@
   register: consul_d
 
 - name: Create consul service file.
-  when: consul_d.stat.exists
+  when: not consul_d.stat.exists
   notify: restart_consul
   template:
-    src: config.j2
-    dest: "/etc/consul.d/pgsql.hcl"
+    src: consul.j2
+    dest: "/etc/consul.d/pgsql.json"
     owner: consul
     group: consul
     mode: 0644
