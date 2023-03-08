@@ -1,7 +1,7 @@
 ---
-- name: install node expoter
+- name: install node exporter
   apt:
-    name: "{{ packages }}"
+    name: "{{ package }}"
     state: "{{ package_state }}"
   vars:
-    packages: "{{ apt_packages }}"
+    package: "{{ monitoring_packages }}"

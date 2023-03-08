@@ -1,0 +1,11 @@
+---
+package_state: present
+
+monitoring_packages:
+  - prometheus-node-exporter
+
+redis_packages:
+  - prometheus-redis-exporter
+
+mqtt_packages:
+  - prometheus-mqtt-exporter

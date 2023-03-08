@@ -1,52 +1,59 @@
 ---
-- name: Consul Servers
-  hosts: consul_servers
-  become: yes
-  roles:
-    - consul
-  vars:
-    consul_server: true
-    consul_ui: true
-    consul_datacenter: basement
+# - name: Consul Servers
+#   hosts: consul_servers
+#   become: yes
+#   roles:
+#     - consul
+#   vars:
+#     consul_server: true
+#     consul_ui: true
+#     consul_datacenter: basement
 
-- name: Consul Agents
-  hosts: consul_agents
-  become: yes
-  roles:
-    - consul
-  vars:
-    consul_datacenter: basement
+# - name: Consul Agents
+#   hosts: consul_agents
+#   become: yes
+#   roles:
+#     - consul
+#   vars:
+#     consul_datacenter: basement
 
-- name: Install Vault Servers
-  hosts: vault_servers
-  become: yes
-  roles:
-    - vault
-  vars:
-    vault_use_consul: true
-    vault_use_http: true
+# - name: Install Vault Servers
+#   hosts: vault_servers
+#   become: yes
+#   roles:
+#     - vault
+#   vars:
+#     vault_use_consul: true
+#     vault_use_http: true
 
-- name: PostgreSQL Servers
-  hosts: postgresql_servers
-  become: yes
-  roles:
-    - postgresql
+# - name: PostgreSQL Servers
+#   hosts: postgresql_servers
+#   become: yes
+#   roles:
+#     - postgresql
   
-- name: Install NFS Servers
-  hosts: nfs_servers
-  become: yes
-  roles:
-    - nfs_server
-  vars:
-    share_path: "/srv/nfs_shares"
-    nfs_shares:
-      - { share_name: prometheus }
-      - { share_name: alertman }
-      - { share_name: kubernetes }
-      - { share_name: share_stls }
+# - name: Install NFS Servers
+#   hosts: nfs_servers
+#   become: yes
+#   roles:
+#     - nfs_server
+#   vars:
+#     share_path: "/srv/nfs_shares"
+#     nfs_shares:
+#       - { share_name: prometheus }
+#       - { share_name: alertman }
+#       - { share_name: kubernetes }
+#       - { share_name: share_stls }
 
 - name: Install Monitoring
   hosts: monitored
   become: yes
   roles:
-    - monitored
+    - node_exporter
+
+# - name: Peripheral Servers
+#   hosts: peripheral_server
+#   become: yes
+#   roles:
+#     - redis
+#     - mqtt

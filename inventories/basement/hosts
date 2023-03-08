@@ -29,10 +29,13 @@ all:
         sage:
     monitored:
       hosts:
-        io:
+        basil:
+        callisto:
         europa:
         ganymede:
-        callisto:
-        basil:
+        io:
         lavender:
         sage:
+    peripheral_server:
+      hosts:
+        ganymede:
