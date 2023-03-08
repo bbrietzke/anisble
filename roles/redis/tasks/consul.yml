@@ -1,15 +1,15 @@
 ---
-- name: Does /etc/consul.d/pgsql.hcl exist?
+- name: Does /etc/consul.d/redis.json exist?
   stat: 
-    path: /etc/consul.d/pgsql.json
+    path: /etc/consul.d/redis.json
   register: consul_d
 
 - name: Create consul service file.
   when: not consul_d.stat.exists
   notify: restart_consul
   template:
-    src: consul.j2
-    dest: "/etc/consul.d/pgsql.json"
+    src: consul.json.j2
+    dest: "/etc/consul.d/redis.json"
     owner: consul
     group: consul
     mode: 0644

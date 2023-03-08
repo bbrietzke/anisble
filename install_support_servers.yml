@@ -40,6 +40,7 @@
   vars:
     share_path: "/srv/nfs_shares"
     nfs_shares:
-      - { share_name: jenkins }
-      - { share_name: share_one }
+      - { share_name: prometheus }
+      - { share_name: alertman }
+      - { share_name: kubernetes }
       - { share_name: share_stls }

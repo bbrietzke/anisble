@@ -1,0 +1,8 @@
+---
+- name: Install Redis packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ redis_state }}"
+  vars:
+    packages: "{{ redis_packages }}"

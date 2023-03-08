@@ -1,0 +1,4 @@
+---
+redis_state: present
+redis_packages:
+  - redis
