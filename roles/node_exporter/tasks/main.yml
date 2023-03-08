@@ -5,3 +5,30 @@
     state: "{{ package_state }}"
   vars:
     package: "{{ monitoring_packages }}"
+
+# - name: Is Redis Installed?
+#   stat:
+#     path: /usr/bin/redis-server
+#   register: redis_installed
+
+# - name: install redis exporter
+#   apt:
+#     name: "{{ package }}"
+#     state: "{{ package_state }}"
+#   vars:
+#     package: "{{ redis_packages }}"
+#   when: redis_installed.stat.exists
+
+# - name: Is Mosquitto Installed?
+#   stat:
+#     path: /usr/sbin/mosquitto
+#   register: mosquitto_installed
+
+# - name: install Mosquitto exporter
+#   apt:
+#     name: "{{ package }}"
+#     state: "{{ package_state }}"
+#   vars:
+#     package: "{{ mqtt_packages }}"
+#   when: mosquitto_installed.stat.exists
+

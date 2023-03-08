@@ -4,8 +4,11 @@ package_state: present
 monitoring_packages:
   - prometheus-node-exporter
 
-redis_packages:
-  - prometheus-redis-exporter
+# redis_packages:
+#   - prometheus-redis-exporter
 
-mqtt_packages:
-  - prometheus-mqtt-exporter
+# mqtt_packages:
+#   - prometheus-mqtt-exporter
+
+# pqsl_packages:
+#   - prometheus-postgres-exporter
