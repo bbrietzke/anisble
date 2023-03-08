@@ -1,0 +1,5 @@
+---
+apt_packages:
+  - prometheus-node-exporter
+  
+package_state: present

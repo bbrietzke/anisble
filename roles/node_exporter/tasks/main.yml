@@ -1,0 +1,7 @@
+---
+- name: install node expoter
+  apt:
+    name: "{{ packages }}"
+    state: "{{ package_state }}"
+  vars:
+    packages: "{{ apt_packages }}"

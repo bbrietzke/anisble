@@ -27,4 +27,12 @@ all:
       hosts:
         lavender:
         sage:
-    
+    monitored:
+      hosts:
+        io:
+        europa:
+        ganymede:
+        callisto:
+        basil:
+        lavender:
+        sage:

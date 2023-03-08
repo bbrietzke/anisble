@@ -44,3 +44,9 @@
       - { share_name: alertman }
       - { share_name: kubernetes }
       - { share_name: share_stls }
+
+- name: Install Monitoring
+  hosts: monitored
+  become: yes
+  roles:
+    - monitored
