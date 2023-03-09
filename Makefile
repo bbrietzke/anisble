@@ -28,8 +28,8 @@ docker:
 volumes:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_volumes.yml
 
-kube:  # sudo sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_kubernetes.yml
+kube:
+	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_kubernetes.yml
 	
 reboot:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts reboot.yml

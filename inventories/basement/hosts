@@ -10,8 +10,9 @@ all:
         io:
     consul_agents:
       hosts:
-        callisto:
         basil:
+        callisto:
+        catnip:
         lavender:
         sage:
     postgresql_servers:
@@ -25,6 +26,7 @@ all:
         basil:
     kubernetes_workers:
       hosts:
+        catnip:
         lavender:
         sage:
     monitored:
