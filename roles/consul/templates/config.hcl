@@ -45,3 +45,6 @@ node_name = "{{ ansible_hostname | lower }}"
 {% if consul_server %}
 bootstrap_expect = 3
 {% endif %}
+
+
+retry_join = 10.0.0.102

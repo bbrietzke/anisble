@@ -1,4 +1,4 @@
 ---
 ansible_user: ubuntu
 ubuntu_version: jammy
-ansible_host: catnip.local
+ansible_host: octopi.local
