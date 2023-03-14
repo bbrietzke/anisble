@@ -45,6 +45,7 @@
       - { share_name: kubernetes }
       - { share_name: mastodon }
       - { share_name: share_stls }
+      - { share_name: youtrack }
 
 - name: Install Monitoring
   hosts: monitored

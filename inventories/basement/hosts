@@ -1,8 +1,8 @@
 all:
   children:
-    octopi:
+    octoprint:
       hosts:
-        octoprint:
+        octopi:
     nfs_servers:
       hosts:
         io:

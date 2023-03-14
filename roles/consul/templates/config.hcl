@@ -47,4 +47,4 @@ bootstrap_expect = 3
 {% endif %}
 
 
-retry_join = 10.0.0.102
+retry_join = ["10.0.0.102", "10.0.0.155", "10.0.0.205"]
