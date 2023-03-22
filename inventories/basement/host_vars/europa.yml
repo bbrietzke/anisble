@@ -1,6 +1,6 @@
 ---
 ansible_user: ubuntu
 ubuntu_version: jammy
-ansible_host: 10.0.0.205
+ansible_host: europa.local
 
 consul_ui: true

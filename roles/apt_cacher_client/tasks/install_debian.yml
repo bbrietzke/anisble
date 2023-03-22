@@ -1,0 +1,10 @@
+---
+- name: Install required Cacher-NG packages
+  apt:
+    name: "{{ packages }}"
+    state: "{{ cacher_state }}"
+  vars:
+    packages: "{{ cacher_packages }}"
+  tags:
+    - sw
+    - apt

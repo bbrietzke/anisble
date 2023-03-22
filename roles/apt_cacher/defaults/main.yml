@@ -1,0 +1,6 @@
+---
+cacher_state: present
+
+cacher_packages:
+  - apt-cacher-ng
+  - squid-deb-proxy-client

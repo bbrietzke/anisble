@@ -7,3 +7,5 @@
   service: 
     name: docker 
     state: restarted
+    enabled: true
+    masked: false

@@ -43,6 +43,9 @@ support:
 kubex:
 	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_kubernetes.yml
 
+cacher:
+	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_apt_cacher.yml
+
 whatever:
 	cp boot/user-data /Volumes/system-boot/user-data
 
