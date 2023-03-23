@@ -48,6 +48,8 @@ cacher:
 
 whatever:
 	cp boot/user-data /Volumes/system-boot/user-data
+	cp boot/meta-data /Volumes/system-boot/meta-data && \
+	touch /Volumes/system-boot/ssh
 
 wifi:
 	cp boot/user-data /Volumes/system-boot/user-data && \

@@ -1,4 +1,6 @@
 ---
 ansible_user: ubuntu
 ubuntu_version: jammy
-ansible_host: catnip.local
+ansible_host: 10.0.0.244
+
+is_laptop: true

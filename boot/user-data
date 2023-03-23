@@ -12,18 +12,18 @@
 
 # On first boot, set the (default) ubuntu user's password to "ubuntu" and
 # expire user passwords
-hostname: callisto
+hostname: io
 
 chpasswd:
   expire: true
-  list:
-  - ubuntu:ubuntu
+  users:
+    - name: ubuntu
+      password: ubuntu
+      type: text
 
 # Enable password authentication with the SSH daemon
 ssh_pwauth: true
 
-package_update: true
-package_upgrade: true
 package_reboot_if_required: true
 
 ## Install additional packages on first boot
@@ -34,7 +34,6 @@ packages:
   - libnss-mdns 
   - mdns-scan
   - screen
-  - tlp
 
 ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9xAJQZdHLbW6E3mAK4f+d0j0G52GptXSkMPTCecWqUfyHlOE3iiRmbgpEFmqSeU+mMAeWlj4qAOlWDu9DnGG3UTAyA4aaJsRfEaaUxLC5Jn04VdNL/cn9/ZbPUFHF4UUoCVNtYIwY3CZ7ZJvb+P8UJExlDhAKGgvdl7Ml3gzPpRqQgiEYYyOV4ru8QeqS9Va/Bgd68EFTn0Jusu18rvyZYltNAZTC8WRKU1TC6teN+crOQX2TadtM/V4a1vMEg4/OmJj4YaxB5/fZOuLs5CbryTNF5HH9SXzIbHKOGNBqL1H2R1ZuWZL/njVun3uvS3TUmAPVYp5fLRtyIj2OKsxgCYV9ftRMjAIQlGQHqAkDBxFQbYJ5KAl3W2mX/0CUeItC5N41OJNKQYtYUeumuRGNrbFVYgOvHJ9rqDUC3q7NlS5aRkqxmOGbSNVJ2tVrGAE7bElaGhvs954xcnYrC7nFvZWaGheP7Z8gQESkhxmNQIt6WfD0TKXmadMk0B10Tjk= bbrietzke@zeus.local
@@ -56,24 +55,9 @@ ssh_import_id:
 ## Add users and groups to the system, and import keys with the ssh-import-id
 ## utility
 #groups:
-#- robot: [robot]
-#- robotics: [robot]
-#- pi
-#
-#users:
-#- default
-#- name: robot
-#  gecos: Mr. Robot
-#  primary_group: robot
-#  groups: users
-#  ssh_import_id: foobar
-#  lock_passwd: false
-#  passwd: $5$hkui88$nvZgIle31cNpryjRfO9uArF7DYiBcWEnjqq7L1AQNN3
 
-## Update apt database and upgrade packages on first boot
-# package_update: true
-# package_upgrade: true
-
+users:
+  - default
 
 ## Write arbitrary files to the file-system (including binaries!)
 #write_files:
