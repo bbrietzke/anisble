@@ -1,0 +1,12 @@
+---
+- name: Update Debian based distros
+  include_tasks: install_debian.yml
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Update update apt-cache resolvers
+  include_tasks: install_resolvers.yml
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Update update laptop clam shell suspend mode
+  include_tasks: laptop_clamshell_updates.yml
+  when: is_laptop

@@ -13,15 +13,6 @@
   apt:
     autoclean: yes
     autoremove: yes
-  notify:
-    - restart_machine
   tags:
     - sw
     - apt
-
-- name: standard_packages
-  apt:
-    name: "{{ package }}"
-    state: present
-  vars:
-    package: "{{ packages }}"

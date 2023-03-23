@@ -4,12 +4,6 @@
   become: yes
   roles:
     - apt_cacher
-  
-- name: Update Everybody
-  hosts: all
-  become: yes
-  roles:
-    - apt_cacher_client
 
 - name: REBOOT!
   hosts: all

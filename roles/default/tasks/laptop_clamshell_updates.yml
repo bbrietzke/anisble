@@ -1,0 +1,6 @@
+---
+- name: update power policy file
+  lineinfile:
+    path: "/etc/systemd/logind.conf"
+    regexp: "#HandleLidSwitch=suspend"
+    line: "HandleLidSwitch=ignore"

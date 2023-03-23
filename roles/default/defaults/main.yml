@@ -1,0 +1,14 @@
+
+package_state: present
+
+requested_packages:
+  - avahi-daemon 
+  - avahi-discover 
+  - avahi-utils 
+  - libnss-mdns 
+  - mdns-scan
+  - screen
+  - squid-deb-proxy-client
+  - prometheus-node-exporter
+
+is_laptop: false

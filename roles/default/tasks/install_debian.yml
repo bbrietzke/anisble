@@ -1,0 +1,19 @@
+---
+- name: install default packages
+  apt:
+    name: "{{ package }}"
+    state: "{{ package_state }}"
+    update_cache: yes
+  vars:
+    package: "{{ requested_packages }}"
+  tags:
+    - sw
+    - apt
+
+- name: cleaning
+  apt:
+    autoclean: yes
+    autoremove: yes
+  tags:
+    - sw
+    - apt

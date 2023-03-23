@@ -20,13 +20,10 @@ updates:
 	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts updates.yml
 
 default:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts default.yml
+	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts default.yml
 
 docker:
 	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_docker.yml
-
-volumes:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_volumes.yml
 
 kube:
 	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_kubernetes.yml

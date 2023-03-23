@@ -1,0 +1,6 @@
+---
+- name: Do initial installation
+  hosts: all
+  become: yes
+  roles:
+    - default

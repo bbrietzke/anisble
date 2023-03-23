@@ -1,6 +1,4 @@
 ---
-ubuntu_version: focal
-
 docker_state: present
   
 remove_packages:
