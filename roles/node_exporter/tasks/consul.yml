@@ -1,5 +1,5 @@
 ---
-- name: Does /etc/consul.d/redis.json exist?
+- name: Does /etc/consul.d/ exist?
   stat: 
     path: /etc/consul.d/
   register: consul_d
@@ -9,7 +9,7 @@
   notify: restart_consul
   template:
     src: consul.json.j2
-    dest: "/etc/consul.d/redis.json"
+    dest: "/etc/consul.d/node-exporter.json"
     owner: consul
     group: consul
     mode: 0644
