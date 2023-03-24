@@ -35,7 +35,7 @@ docs: $(DOC)
 	$(DOC) gh-deploy
 
 support:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_support_servers.yml
+	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_support_servers.yml
 
 kubex:
 	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_kubernetes.yml
@@ -49,7 +49,6 @@ whatever:
 	touch /Volumes/system-boot/ssh
 
 wifi:
-	cp boot/user-data /Volumes/system-boot/user-data && \
 	cp boot/network-config /Volumes/system-boot/network-config
 
 rasbian:

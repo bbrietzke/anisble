@@ -2,3 +2,5 @@
 
 pod_subnet: 10.240.0.0/16
 service_subnet: 10.250.0.0/16
+
+kubernetes_version: 1.26.3
