@@ -6,3 +6,6 @@
   vars:
     packages: "{{ apt_packages }}"
   notify: restart_mqtt
+
+- name: Update Consul
+  include_tasks: consul.yml

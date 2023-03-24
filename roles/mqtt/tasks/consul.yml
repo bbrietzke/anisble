@@ -1,0 +1,15 @@
+---
+- name: Does /etc/consul.d/ exist?
+  stat: 
+    path: /etc/consul.d/
+  register: consul_d
+
+- name: Create consul service file.
+  when: not consul_d.stat.exists
+  notify: restart_consul
+  template:
+    src: consul.json.j2
+    dest: "/etc/consul.d/mqtt.json"
+    owner: consul
+    group: consul
+    mode: 0644
