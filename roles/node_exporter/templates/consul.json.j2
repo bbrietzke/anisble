@@ -1,0 +1,10 @@
+{
+  "service": {
+    "id": "node-exporter-{{ ansible_hostname | lower }}",
+    "name": "node-exporter",
+    "tags": [
+      "node-exporter"
+    ],
+    "port": 9100
+  }
+}
