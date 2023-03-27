@@ -45,11 +45,15 @@ cacher:
 
 whatever:
 	cp boot/user-data /Volumes/system-boot/user-data
-	cp boot/meta-data /Volumes/system-boot/meta-data && \
+	cp boot/meta-data /Volumes/system-boot/meta-data
 	touch /Volumes/system-boot/ssh
 
 wifi:
 	cp boot/network-config /Volumes/system-boot/network-config
+
+octopi:
+	cp boot/wpa_supplicant.conf /Volumes/boot/
+	touch /Volumes/boot/ssh
 
 rasbian:
 	@diskutil unmountDisk /dev/disk2 && \
