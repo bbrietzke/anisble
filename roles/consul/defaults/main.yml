@@ -10,3 +10,6 @@ consul_datacenter: datacenter_one
 
 consul_packages:
   - consul
+
+consul_hosts:
+  - "192.168.1.177"

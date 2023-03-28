@@ -38,8 +38,8 @@ server = {{ consul_server | lower }}
 
 # Bind addr
 # You may use IPv4 or IPv6 but if you have multiple interfaces you must be explicit.
-bind_addr = "[::]" # Listen on all IPv6
-bind_addr = "0.0.0.0" # Listen on all IPv4
+# bind_addr = {{ hostvars[inventory_hostname]['ansible_default_ipv6'] | quote }} # Listen on all IPv6
+bind_addr = "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}" # Listen on all IPv4
 
 node_name = "{{ ansible_hostname | lower }}"
 {% if consul_server %}
@@ -47,4 +47,4 @@ bootstrap_expect = 3
 {% endif %}
 
 
-retry_join = ["10.0.0.160", "10.0.0.109", "10.0.0.207"]
+retry_join = [ {{ consul_hosts | map("to_json") | join(', ') }} ]

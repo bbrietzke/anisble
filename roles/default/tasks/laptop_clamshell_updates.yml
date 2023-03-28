@@ -1,5 +1,7 @@
 ---
 - name: update power policy file
+  notify:
+    - restart_machine
   lineinfile:
     path: "/etc/systemd/logind.conf"
     regexp: "#HandleLidSwitch=suspend"
