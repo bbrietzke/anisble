@@ -4,11 +4,5 @@
   become: yes
   roles:
     - apt_cacher
-
-- name: REBOOT!
-  hosts: all
-  become: yes
-  serial: 2
-  tasks:
-    - name: reboot host
-      reboot:
+  vars:
+    - cacher_state: absent

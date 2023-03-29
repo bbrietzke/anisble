@@ -1,6 +1,0 @@
----
-- name: Add proxy info to the computer
-  copy:
-    dest: /etc/apt/apt.conf.d/30autoproxy
-    content: |
-      Acquire::http::ProxyAutoDetect "/usr/share/squid-deb-proxy-client/apt-avahi-discover";
