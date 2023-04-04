@@ -29,7 +29,7 @@ kube:
 	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_kubernetes.yml
 	
 reboot:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts reboot.yml
+	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts reboot.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy

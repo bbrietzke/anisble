@@ -4,5 +4,3 @@
   become: yes
   roles:
     - apt_cacher
-  vars:
-    - cacher_state: absent

@@ -49,10 +49,11 @@
     share_path: "/srv/nfs_shares"
     nfs_shares:
       - { share_name: prometheus }
-      - { share_name: prom_alertman }
       - { share_name: kubernetes_clients }
       - { share_name: mastodon }
       - { share_name: share_stls }
+      - { share_name: gitea }
+      - { share_name: grafana }
 
 - name: Peripheral Servers
   hosts: peripheral_server
