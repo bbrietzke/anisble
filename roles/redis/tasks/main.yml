@@ -5,3 +5,6 @@
 
 - name: Update Consul
   include_tasks: consul.yml
+
+- name: Update Role
+  include_tasks: role.yml

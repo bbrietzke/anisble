@@ -3,5 +3,6 @@ redis_state: present
 redis_packages:
   - redis
 
-
 redis_default_password: Y$aZbNo%Nq*pyj6sREknE64y2x*0h%JFWPZCYlePLMvdXb0D
+
+prometheus_role: redis

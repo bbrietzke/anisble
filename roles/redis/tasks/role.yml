@@ -1,0 +1,13 @@
+---
+- name: Is Prometheus' Node Exporter installed?
+  register: prometheus_exporter
+  stat:
+    path: /var/lib/prometheus/node-exporter
+
+- name: Create or Update the role definition file.
+  when: prometheus_exporter.stat.exists
+  lineinfile:
+    create: yes
+    path: /var/lib/prometheus/node-exporter/roles.prom
+    state: "{{ redis_state }}"
+    line: faultycloud_role{role="{{ prometheus_role }}"} 1
