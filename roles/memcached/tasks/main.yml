@@ -6,7 +6,6 @@
   vars:
     p:
       - memcached
-  notify: restart_mqtt
 
 - name: copy over memcached.conf
   template:
@@ -16,3 +15,9 @@
     group: root
     mode: 0644
   notify: restart_mqtt
+
+- name: Update Consul
+  include_tasks: consul.yml
+
+- name: Update Role
+  include_tasks: role.yml

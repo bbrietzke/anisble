@@ -1,0 +1,10 @@
+---
+- name: restart_memcache
+  systemd:
+    name: memcached
+    state: restarted
+    
+- name: restart_consul
+  systemd:
+    name: consul
+    state: restarted

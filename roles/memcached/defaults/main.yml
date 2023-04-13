@@ -7,3 +7,5 @@ memcached_packages:
   - memcached
 
 memcached_state: present
+
+prometheus_role: memcache
