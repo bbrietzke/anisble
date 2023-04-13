@@ -60,4 +60,5 @@
   become: yes
   roles:
     - redis
+    - memcached
     - mqtt

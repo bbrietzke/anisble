@@ -53,6 +53,7 @@ wifi:
 
 octopi:
 	cp boot/wpa_supplicant.conf /Volumes/boot/
+	cp boot/octopi.txt /Volumes/boot/octopi.txt
 	touch /Volumes/boot/ssh
 
 rasbian:
@@ -74,9 +75,6 @@ ubuntu:
 	vi /Volumes/system-boot/user-data && \
 	diskutil unmountDisk /dev/disk2
 
-imager:
-	cp boot/user-data /Volumes/system-boot/user-data
-	vi /Volumes/system-boot/user-data
 
 retropie:
 	touch /Volumes/boot/ssh && \
