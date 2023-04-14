@@ -8,8 +8,9 @@
   when: consul_d.stat.exists
   notify: restart_consul
   template:
-    src: consul.j2
-    dest: "/etc/consul.d/memcache.json"
+    src: consul.hcl.j2
+    dest: "/etc/consul.d/memcache.hcl"
     owner: consul
     group: consul
     mode: 0644
+    state: "{{ memcached_state }}"

@@ -10,8 +10,8 @@
     path: "{{ share_path }}/{{ item.share_name }}"
     state: directory
     mode: 0755
-    group: root
-    owner: root
+    group: ubuntu
+    owner: ubuntu
 
 - name: reset file permissions
   when: directory_status.stat.exists
@@ -19,6 +19,6 @@
     path: "{{ share_path }}/{{ item.share_name }}"
     state: directory
     mode: 0755
-    group: root
-    owner: root
+    group: ubuntu
+    owner: ubuntu
     recurse: yes
