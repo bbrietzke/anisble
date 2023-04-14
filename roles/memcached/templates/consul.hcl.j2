@@ -1,0 +1,17 @@
+service {
+    name    = "memcache"
+    id      = "memcache-{{ ansible_hostname | lower }}"
+    port    = "{{ memcached_network_port }}"
+    tags    = ["memcache", "static", "ansible"]
+
+    meta    = {
+        ansible_managed = "yes"
+    }
+
+    check {
+        name     = "memcached-check"
+        interval = "30s"
+        timeout  = "2s"
+        tcp      = "localhost:11211"
+    }
+}

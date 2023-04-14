@@ -1,0 +1,17 @@
+service {
+    name    = "pgsql"
+    id      = "pgsql-{{ ansible_hostname | lower }}"
+    port    = "6379"
+    tags    = ["pgsql", "static", "ansible"]
+
+    meta    = {
+        ansible_managed = "yes"
+    }
+
+    check {
+        name        = "pg_isready"
+        interval    = "30s"
+        timeout     = "2s"
+        args        = ["pg_isready", "-h", "localhost"]
+    }
+}

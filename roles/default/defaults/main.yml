@@ -8,6 +8,7 @@ requested_packages:
   - libnss-mdns 
   - mdns-scan
   - screen
+  - tmux
   - squid-deb-proxy-client
   - prometheus-node-exporter
 

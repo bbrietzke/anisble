@@ -1,0 +1,17 @@
+service {
+    name    = "redis"
+    id      = "redis-{{ ansible_hostname | lower }}"
+    port    = "6379"
+    tags    = ["redis", "static", "ansible"]
+
+    meta    = {
+        ansible_managed = "yes"
+    }
+
+    check {
+        name        = "redis-ping-check"
+        interval    = "30s"
+        timeout     = "2s"
+        args        = ["redis-cli", "ping"]
+    }
+}
