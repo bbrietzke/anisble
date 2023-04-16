@@ -1,4 +1,0 @@
----
-nginx_state: present
-nginx_packages:
-  - nginx
