@@ -1,0 +1,7 @@
+---
+- name: Install required packages
+  apt:
+    name: "{{ packages }}"
+    state: "{{ nginx_state }}"
+  vars:
+    packages: "{{ nginx_packages }}"

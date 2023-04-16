@@ -1,0 +1,10 @@
+---
+- name: restart_redis
+  systemd:
+    name: redis
+    state: restarted
+
+- name: restart_consul
+  systemd:
+    name: consul
+    state: restarted

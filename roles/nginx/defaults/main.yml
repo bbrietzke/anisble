@@ -1,0 +1,7 @@
+---
+nginx_state: present
+
+prometheus_role: nginx
+
+nginx_packages:
+  - nginx

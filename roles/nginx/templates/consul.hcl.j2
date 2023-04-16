@@ -1,0 +1,17 @@
+service {
+    name    = "nginx"
+    id      = "nginx-{{ ansible_hostname | lower }}"
+    port    = "80"
+    tags    = ["nginx", "static", "ansible"]
+
+    meta    = {
+        ansible_managed = "yes"
+    }
+
+    check {
+        name        = "http-check"
+        interval    = "30s"
+        timeout     = "2s"
+        http        = "http://localhost"
+    }
+}
