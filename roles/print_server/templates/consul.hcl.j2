@@ -1,0 +1,10 @@
+service {
+    name    = "printer"
+    id      = "printer-{{ ansible_hostname | lower }}"
+    port    = "80"
+    tags    = ["printer", "static", "ansible"]
+
+    meta    = {
+        ansible_managed = "yes"
+    }
+}

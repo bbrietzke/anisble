@@ -1,0 +1,7 @@
+---
+printer_state: present
+
+prometheus_role: print_server
+
+printer_packages:
+  - cups

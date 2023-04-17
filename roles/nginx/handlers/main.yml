@@ -1,7 +1,7 @@
 ---
-- name: restart_redis
+- name: restart_nginx
   systemd:
-    name: redis
+    name: nginx
     state: restarted
 
 - name: restart_consul
