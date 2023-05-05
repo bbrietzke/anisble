@@ -17,30 +17,22 @@ hostname: callisto
 chpasswd:
   expire: true
   users:
-    - name: ubuntu
-      password: ubuntu
+    - name: bbrietzke
+      password: bbrietzke
       type: text
-
-# Enable password authentication with the SSH daemon
-ssh_pwauth: true
 
 package_reboot_if_required: true
 
 ## Install additional packages on first boot
 packages:
-  - avahi-daemon 
-  - avahi-discover 
-  - avahi-utils 
-  - libnss-mdns 
-  - mdns-scan
   - screen
 
 ssh_authorized_keys:
-  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9xAJQZdHLbW6E3mAK4f+d0j0G52GptXSkMPTCecWqUfyHlOE3iiRmbgpEFmqSeU+mMAeWlj4qAOlWDu9DnGG3UTAyA4aaJsRfEaaUxLC5Jn04VdNL/cn9/ZbPUFHF4UUoCVNtYIwY3CZ7ZJvb+P8UJExlDhAKGgvdl7Ml3gzPpRqQgiEYYyOV4ru8QeqS9Va/Bgd68EFTn0Jusu18rvyZYltNAZTC8WRKU1TC6teN+crOQX2TadtM/V4a1vMEg4/OmJj4YaxB5/fZOuLs5CbryTNF5HH9SXzIbHKOGNBqL1H2R1ZuWZL/njVun3uvS3TUmAPVYp5fLRtyIj2OKsxgCYV9ftRMjAIQlGQHqAkDBxFQbYJ5KAl3W2mX/0CUeItC5N41OJNKQYtYUeumuRGNrbFVYgOvHJ9rqDUC3q7NlS5aRkqxmOGbSNVJ2tVrGAE7bElaGhvs954xcnYrC7nFvZWaGheP7Z8gQESkhxmNQIt6WfD0TKXmadMk0B10Tjk= bbrietzke@zeus.local
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDJCmIDVTvXpMAhGJnJZvB2ZVMV/3lBHqAWmzXLTugwx8l7b22N2fyL6Wunl2CMJ71evQD5JKfIeQp4u5HI3qirgzBWiTK7FUfX5jZ+RU4Uwarmkfv/I4KkyB8SfM9C1A+RPJRl7Ir2fUS2VzQqj6NGXo4OKraXxSSWKzSWMIDJQjdr1L0wZ/x4ExTdeWc3eXyFl3nUATvRGXBu9ikYsCvKl0+kpfmdWTSyO5rWdRaVtidZeqjo1LC4jqySzJagWJSF+G6z9mBIMwI+18jjZwM+6TAZNh44qdfkyGUzto0jA1Z3LF+Jrpsisr9XUCOUD7uli/pBTd6vv+VYMC9jNKpZXbEhLkmi34aDo7wuiIIeFj94+Xn2mNJw6/rlDfA8p9DEBeCsRNXajqpptvEUKAYDs3YXY4VrETFUnz6RZGn4WdfyrKNqg3Q+3OIcMS/EbqYt7pvAVUAR3rD9ZvHfyjR7E3xpF9TuvOxBznBjWf3rLtjBdrUVxmyjHRJdDiTMcPk= bbrietzke@jupiter.lan
 
 power_state:
   delay: now
-  timeout: 600
+  timeout: 60
   mode: reboot
   condition: true
 
@@ -56,8 +48,23 @@ ssh_import_id:
 ## utility
 #groups:
 
-# users:
-#   - default
+users:
+  - name: bbrietzke
+    gecos: Brian Brietzke
+    ssh_import_id: 
+      - gh:bbrietzke
+    plain_text_passwd: bbrietzke
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/zsh
+    groups: users,admin,wheel
+  - name: ansible
+    gecos: Ansible Remote Administrator
+    ssh_import_id:
+      - gh:bbrietzke
+    plain_text_passwd: HN8wOK3VzXSE37bfa7jZBikDFh5l19c4eou5qC0JAJ6YYuXQze
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    groups: users,admin,wheel
 
 ## Write arbitrary files to the file-system (including binaries!)
 #write_files:
