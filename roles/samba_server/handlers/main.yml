@@ -1,0 +1,10 @@
+---
+- name: restart_samba
+  systemd:
+    name: samba
+    state: restarted
+
+- name: restart_consul
+  systemd:
+    name: consul
+    state: restarted

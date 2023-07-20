@@ -1,0 +1,9 @@
+service {
+    name    = "fileserver"
+    id      = "fileserver-{{ ansible_hostname | lower }}"
+    tags    = ["fileserver", "static", "ansible"]
+
+    meta    = {
+        ansible_managed = "yes"
+    }
+}

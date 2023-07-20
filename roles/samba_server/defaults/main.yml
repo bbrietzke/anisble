@@ -1,0 +1,12 @@
+---
+
+smb_state: present
+smb_packages:
+  - samba
+
+workgroup: WORKGROUP
+server_comment: File Shares
+
+smb_path: /srv/samba
+smb_shares:
+  - { share_name: shared, comment: "common file repository" }
