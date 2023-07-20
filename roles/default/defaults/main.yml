@@ -9,7 +9,5 @@ requested_packages:
   - mdns-scan
   - screen
   - tmux
-  - squid-deb-proxy-client
-  - prometheus-node-exporter
 
 is_laptop: false
