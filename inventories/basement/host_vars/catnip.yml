@@ -1,4 +1,0 @@
----
-ansible_host: catnip
-
-is_laptop: true

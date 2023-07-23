@@ -15,7 +15,7 @@ all:
       hosts:
         basil:
         callisto:
-        catnip:
+        titan:
         lavender:
         sage:
     postgresql_servers:
@@ -29,7 +29,6 @@ all:
         basil:
     kubernetes_workers:
       hosts:
-        catnip:
         lavender:
         sage:
     monitored:

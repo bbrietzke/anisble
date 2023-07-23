@@ -1,0 +1,11 @@
+all:
+  children:
+    raspberry_threes:
+      hosts:
+        rpi300:
+        rpi301:
+        rpi302:
+    raspberry_fours:
+      hosts:
+        rpi400:
+        rpi401:

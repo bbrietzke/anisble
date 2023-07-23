@@ -1,0 +1,4 @@
+---
+ansible_host: titan
+
+is_laptop: true

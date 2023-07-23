@@ -12,7 +12,7 @@
 
 # On first boot, set the (default) ubuntu user's password to "ubuntu" and
 # expire user passwords
-hostname: io
+hostname: callisto
 
 chpasswd:
   expire: true
@@ -33,7 +33,7 @@ ssh_authorized_keys:
 
 power_state:
   delay: now
-  timeout: 60
+  timeout: 600
   mode: reboot
   condition: true
 
