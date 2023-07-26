@@ -1,0 +1,8 @@
+<Location /svn>
+    DAV svn
+    SVNParentPath {{ subversion_repository_storage }}
+    AuthType Basic
+    AuthName "Subversion Repository"
+    AuthUserFile /etc/apache2/subversion_auth.passwd
+    Require valid-user
+</Location>

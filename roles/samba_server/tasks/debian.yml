@@ -1,5 +1,5 @@
 ---
-- name: Install Redis packages
+- name: Install Samba packages
   apt:
     name: "{{ packages }}"
     update_cache: yes

@@ -1,0 +1,40 @@
+---
+- name: Update Debian based distros
+  include_tasks: debian.yml
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Enable DAV module for Apache2
+  notify: restart_apache2
+  community.general.apache2_module:
+    state: subversion_state
+    name: dav
+
+- name: Enable DAV_SVN module for Apache2
+  notify: restart_apache2
+  community.general.apache2_module:
+    state: subversion_state
+    name: dav_svn
+
+- name: check directory status
+  stat: 
+    path: "{{ subversion_repository_storage }}"
+  register: directory_status
+
+- name: create directory
+  when: not directory_status.stat.exists
+  file:
+    path: "{{ subversion_repository_storage }}"
+    state: directory
+    mode: 0755
+    group: www-data
+    owner: www-data
+
+- name: reset file permissions
+  when: directory_status.stat.exists
+  file:
+    path: "{{ subversion_repository_storage }}"
+    state: directory
+    mode: 0755
+    group: www-data
+    owner: www-data
+    recurse: yes

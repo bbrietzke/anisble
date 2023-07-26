@@ -1,0 +1,8 @@
+---
+- name: Install Subversion packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ subversion_state }}"
+  vars:
+    packages: "{{ subversion_packages }}"

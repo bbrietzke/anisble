@@ -1,0 +1,9 @@
+---
+subversion_state: present
+subversion_packages:
+  - apache2
+  - libapache2-mod-svn
+  - subversion 
+  - subversion-tools 
+
+subversion_repository_storage: /srv/svn
