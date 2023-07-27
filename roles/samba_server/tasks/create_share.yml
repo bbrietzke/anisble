@@ -1,13 +1,13 @@
 ---
 - name: check directory status
   stat: 
-    path: "{{ share_path }}/{{ item.share_name }}"
+    path: "{{ smb_path }}/{{ item.share_name }}"
   register: directory_status
 
 - name: create directory
   when: not directory_status.stat.exists
   file:
-    path: "{{ share_path }}/{{ item.share_name }}"
+    path: "{{ smb_path }}/{{ item.share_name }}"
     state: directory
     mode: 0755
     group: nogroup
@@ -16,7 +16,7 @@
 - name: reset file permissions
   when: directory_status.stat.exists
   file:
-    path: "{{ share_path }}/{{ item.share_name }}"
+    path: "{{ smb_path }}/{{ item.share_name }}"
     state: directory
     mode: 0755
     group: nogroup

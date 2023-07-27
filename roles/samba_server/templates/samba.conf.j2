@@ -115,7 +115,7 @@
    browsable = no
    writable = yes
 
-{% for item in smb_shares $}
+{% for item in smb_shares %}
 [{{ item.share_name }}]
     comment = {{ item.comment }}
     path = {{ smb_path }}/{{ item.share_name }}

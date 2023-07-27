@@ -6,13 +6,13 @@
 - name: Enable DAV module for Apache2
   notify: restart_apache2
   community.general.apache2_module:
-    state: subversion_state
+    state: "{{ subversion_state }}"
     name: dav
 
 - name: Enable DAV_SVN module for Apache2
   notify: restart_apache2
   community.general.apache2_module:
-    state: subversion_state
+    state:  "{{ subversion_state }}"
     name: dav_svn
 
 - name: check directory status

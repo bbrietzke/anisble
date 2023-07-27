@@ -1,7 +1,7 @@
 ---
 - name: restart_samba
   systemd:
-    name: samba
+    name: smbd
     state: restarted
 
 - name: restart_consul

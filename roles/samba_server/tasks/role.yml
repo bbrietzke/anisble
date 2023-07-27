@@ -9,5 +9,5 @@
   lineinfile:
     create: yes
     path: /var/lib/prometheus/node-exporter/roles.prom
-    state: "{{ nginx_state }}"
+    state: "{{ smb_state }}"
     line: faultycloud_role{role="{{ prometheus_role }}"} 1

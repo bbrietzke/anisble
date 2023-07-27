@@ -43,3 +43,9 @@ all:
     peripheral_server:
       hosts:
         ganymede:
+    subversion_servers:
+      hosts:
+        io:
+    samba_servers:
+      hosts:
+        io:

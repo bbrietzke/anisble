@@ -7,6 +7,21 @@
   include_tasks: create_share.yml
   loop: "{{ smb_shares }}"
 
+- name: Does /etc/samba exist?
+  stat: 
+    path: /etc/samba
+  register: samba_dir
+
+- name: Create samba configuration file.
+  when: samba_dir.stat.exists
+  notify: restart_samba
+  template:
+    src: samba.conf.j2
+    dest: "/etc/samba/smb.conf"
+    owner: root
+    group: root
+    mode: 0644
+
 - name: Update Consul
   include_tasks: consul.yml
 
