@@ -15,6 +15,21 @@
     state:  "{{ subversion_state }}"
     name: dav_svn
 
+- name: Does /etc/apache2/mods-enabled exist?
+  stat: 
+    path: /etc/apache2/mods-available
+  register: svn_dir
+
+- name: Create subversion configuration file.
+  when: svn_dir.stat.exists
+  notify: restart_apache2
+  template:
+    src: dav_svn.conf.j2
+    dest: "/etc/apache2/mods-available/dav_svn.conf"
+    owner: root
+    group: root
+    mode: 0644
+
 - name: check directory status
   stat: 
     path: "{{ subversion_repository_storage }}"
