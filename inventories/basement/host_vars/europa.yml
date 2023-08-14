@@ -1,4 +1,2 @@
 ---
 ansible_host: europa
-
-consul_ui: true

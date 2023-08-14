@@ -13,11 +13,11 @@ all:
         io:
     consul_agents:
       hosts:
-        basil:
+        triton:
         callisto:
         titan:
-        lavender:
-        sage:
+        proteus:
+        nereid:
     postgresql_servers:
       hosts:
         callisto:
@@ -26,20 +26,20 @@ all:
         europa:
     kubernetes_master:
       hosts:
-        basil:
+        triton:
     kubernetes_workers:
       hosts:
-        lavender:
-        sage:
+        proteus:
+        nereid:
     monitored:
       hosts:
-        basil:
+        triton:
         callisto:
         europa:
         ganymede:
         io:
-        lavender:
-        sage:
+        proteus:
+        nereid:
     peripheral_server:
       hosts:
         ganymede:
