@@ -2,7 +2,7 @@
 autoinstall:
   version: 1
   identity:
-    hostname: titan
+    hostname: nereid
     username: bbrietzke
     password: "$5$r3Kl6AKBqjA78VCX$4.Vuc56PR2faX3vLuqBxHxF796qiLhxuS4MacXtTt5C" 
   locale: en_US
@@ -65,7 +65,7 @@ autoinstall:
         size: 20G
         wipe: superblock
         preserve: false
-        path: /dev/ubuntu-vg/ubuntu-lv0
+        path: /dev/vg0/lv-root
         type: lvm_partition
         id: lvm_partition-0
       - fstype: ext4
@@ -85,12 +85,12 @@ autoinstall:
         device: format-0
         type: mount
         id: mount-0
-      - name: ubuntu-lv1
+      - name: ubuntu-lv-home
         volgroup: lvm_volgroup-0
-        size: 20G
+        size: 8G
         wipe: superblock
         preserve: false
-        path: /dev/ubuntu-vg/ubuntu-lv1
+        path: /dev/vg0/lv-home
         type: lvm_partition
         id: lvm_partition-1
       - fstype: ext4
@@ -101,20 +101,36 @@ autoinstall:
         device: format_partition_1
         type: mount
         id: mount_home
-      - name: ubuntu-lv2
+      - name: ubuntu-lv-var-lib
         volgroup: lvm_volgroup-0
-        size: -1
+        size: 20G
         wipe: superblock
         preserve: false
-        path: /dev/ubuntu-vg/ubuntu-lv2
+        path: /dev/vg0/lv-var-lib
         type: lvm_partition
         id: lvm_partition-2
       - fstype: ext4
         volume: lvm_partition-2
         type: format
         id: format_partition_2
-      - path: /srv
+      - path: /var/lib
         device: format_partition_2
+        type: mount
+        id: mount_var_lib
+      - name: ubuntu-lv-srv
+        volgroup: lvm_volgroup-0
+        size: -1
+        wipe: superblock
+        preserve: false
+        path: /dev/vg0/lv-srv
+        type: lvm_partition
+        id: lvm_partition-3
+      - fstype: ext4
+        volume: lvm_partition-3
+        type: format
+        id: format_partition_3
+      - path: /srv
+        device: format_partition_3
         type: mount
         id: mount_srv
   ssh:
