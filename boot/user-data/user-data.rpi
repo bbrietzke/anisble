@@ -67,9 +67,13 @@ users:
     shell: /bin/bash
     groups: users,admin,wheel
 
-## Write arbitrary files to the file-system (including binaries!)
+    #define DEFAULT_Kp 15.83
+    #define DEFAULT_Ki 3.09
+    #define DEFAULT_Kd 20.26
+
+## Write arbitrary files to the file-system (including binaries!)  M301 P15.83 I3.09 D20.26
 #write_files:
-#- path: /etc/default/keyboard
+#- path: /etc/default/keyboard  M303 E0 S215 C10
 #  content: |
 #    # KEYBOARD configuration file
 #    # Consult the keyboard(5) manual page.
