@@ -1,4 +1,20 @@
 ---
+- name: Install Kubernetes GPG key
+  apt_key:
+    url: https://packages.redis.io/gpg
+    state: "{{ redis_state }}"
+  tags:
+    - sw
+    - gpg
+
+- name: Install Kubernetes APT Repository
+  apt_repository: 
+    repo: deb https://packages.redis.io/deb jammy main
+    state: "{{ redis_state }}"
+  tags:
+    - sw
+    - apt
+
 - name: Install Redis packages
   apt:
     name: "{{ packages }}"

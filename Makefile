@@ -23,16 +23,19 @@ update_cluster:
 	$(EXE) $(EXE_OPTIONS) -i inventories/cluster/hosts updates.yml
 
 default:
-	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts default.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts default.yml
 
 docker:
-	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_docker.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_docker.yml
 
 kube:
-	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_kubernetes.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_kubernetes.yml
 	
 reboot:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts reboot.yml
+	
+reboot_cluster:
+	$(EXE) $(EXE_OPTIONS) -i inventories/cluster/hosts reboot.yml
 
 docs: $(DOC)
 	$(DOC) gh-deploy
@@ -44,7 +47,7 @@ kubex:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_kubernetes.yml
 
 cacher:
-	$(EXE) $(EXE_OPTIONS) --ask-become-pass -i inventories/basement/hosts install_apt_cacher.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_apt_cacher.yml
 
 whatever:
 	cp boot/user-data /Volumes/system-boot/user-data

@@ -2,7 +2,5 @@
 java_state: present
 
 java_packages:
-  - default-jdk
-  - default-jdk-doc
-  - openjdk-17-jdk
-  - openjdk-17-doc
+  - default-jdk-headless
+  - openjdk-17-jdk-headless

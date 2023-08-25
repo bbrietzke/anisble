@@ -1,0 +1,8 @@
+---
+- name: Install Java packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ java_state }}"
+  vars:
+    packages: "{{ java_packages }}"
