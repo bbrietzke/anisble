@@ -50,8 +50,8 @@ cacher:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_apt_cacher.yml
 
 whatever:
-	cp boot/user-data /Volumes/system-boot/user-data
-	cp boot/meta-data /Volumes/system-boot/meta-data
+	cp boot/user-data/user-data.rpi /Volumes/system-boot/user-data
+	touch /Volumes/system-boot/meta-data
 	touch /Volumes/system-boot/ssh
 
 wifi:

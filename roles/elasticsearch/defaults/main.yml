@@ -1,0 +1,6 @@
+---
+
+elastic_state: present
+
+elastic_packages:
+  - elasticsearch
