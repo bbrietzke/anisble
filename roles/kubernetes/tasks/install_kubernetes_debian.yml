@@ -11,7 +11,7 @@
 
 - name: Install Kubernetes GPG key
   apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    url: https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key
     state: "{{ kubernetes_state }}"
   tags:
     - sw
@@ -19,7 +19,7 @@
 
 - name: Install Kubernetes APT Repository
   apt_repository: 
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
     state: "{{ kubernetes_state }}"
   tags:
     - sw

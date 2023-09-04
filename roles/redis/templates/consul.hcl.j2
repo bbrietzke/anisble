@@ -5,7 +5,7 @@ service {
     tags    = ["redis", "static", "ansible"]
 
     meta    = {
-        ansible_managed = "yes"
+        managed_by="ansible"
     }
 
     check {

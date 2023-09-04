@@ -5,7 +5,7 @@ service {
     tags    = ["nginx", "static", "ansible"]
 
     meta    = {
-        ansible_managed = "yes"
+        managed_by="ansible"
     }
 
     check {

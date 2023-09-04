@@ -16,11 +16,11 @@ $(DOC):
 $(EXE):
 	brew install ansible
 
-update_basement:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts updates.yml
+docs: $(DOC)
+	$(DOC) gh-deploy
 
-update_cluster:
-	$(EXE) $(EXE_OPTIONS) -i inventories/cluster/hosts updates.yml
+update:
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts updates.yml
 
 default:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts default.yml
@@ -33,21 +33,12 @@ kube:
 	
 reboot:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts reboot.yml
-	
-reboot_cluster:
-	$(EXE) $(EXE_OPTIONS) -i inventories/cluster/hosts reboot.yml
-
-docs: $(DOC)
-	$(DOC) gh-deploy
 
 support:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_support_servers.yml
 
 kubex:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_kubernetes.yml
-
-cacher:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_apt_cacher.yml
 
 whatever:
 	cp boot/user-data/user-data.rpi /Volumes/system-boot/user-data

@@ -9,8 +9,8 @@
   notify: restart_consul
   template:
     src: consul.hcl.j2
-    dest: "/etc/consul.d/memcache_{{ memcached_network_port }}.hcl"
+    dest: "/etc/consul.d/elasticSearch.hcl"
     owner: consul
     group: consul
     mode: 0644
-    state: "{{ memcached_state }}"
+    state: "{{ elastic_state }}"

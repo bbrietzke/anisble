@@ -6,24 +6,23 @@ all:
     nfs_servers:
       hosts:
         io:
+    samba_servers:
+      hosts:
+        io:
     consul_servers:
       hosts:
-        europa:
-        ganymede:
         io:
+        himalia:
+        thebe:
     consul_agents:
       hosts:
-        triton:
+        amalthea:
         callisto:
-        titan:
-        proteus:
-        nereid:
+        europa:
+        ganymede:
     postgresql_servers:
       hosts:
         callisto:
-    vault_servers:
-      hosts:
-        europa:
     kubernetes_master:
       hosts:
         triton:
@@ -34,19 +33,30 @@ all:
         larissa:
     monitored:
       hosts:
-        triton:
+        amalthea:
         callisto:
         europa:
         ganymede:
+        himalia:
         io:
-        proteus:
-        nereid:
-    peripheral_server:
+        thebe:
+    search:
       hosts:
+        himalia:
+    resource:
+      hosts:
+        europa:
+    message_queues:
+      hosts:
+        thebe:
+    proxmox:
+      hosts:
+        titan:
+    nosql:
+      hosts:
+        europa:
+    reverse_proxy:
+      hosts:
+        callisto:
         ganymede:
-    subversion_servers:
-      hosts:
-        io:
-    samba_servers:
-      hosts:
-        io:
+        himalia:

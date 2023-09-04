@@ -5,7 +5,7 @@ service {
     tags    = ["pgsql", "static", "ansible"]
 
     meta    = {
-        ansible_managed = "yes"
+        managed_by="ansible"
         version         = "14.7"
     }
 

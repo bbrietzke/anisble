@@ -1,24 +1,24 @@
 ---
-- name: Install Redis GPG key
+- name: Install ElasticSearch GPG key
   apt_key:
     url: https://packages.redis.io/gpg
-    state: "{{ redis_state }}"
+    state: "{{ elastic_state }}"
   tags:
     - sw
     - gpg
 
-- name: Install Redis APT Repository
+- name: Install ElasticSearch APT Repository
   apt_repository: 
     repo: deb https://packages.redis.io/deb jammy main
-    state: "{{ redis_state }}"
+    state: "{{ elastic_state }}"
   tags:
     - sw
     - apt
 
-- name: Install Redis packages
+- name: Install ElasticSearch packages
   apt:
     name: "{{ packages }}"
     update_cache: yes
-    state: "{{ redis_state }}"
+    state: "{{ elastic_state }}"
   vars:
-    packages: "{{ redis_packages }}"
+    packages: "{{ elastic_packages }}"

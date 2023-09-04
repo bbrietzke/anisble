@@ -5,13 +5,13 @@ service {
     tags    = ["memcache", "static", "ansible"]
 
     meta    = {
-        ansible_managed = "yes"
+        managed_by="ansible"
     }
 
     check {
         name     = "memcached-check"
         interval = "30s"
         timeout  = "2s"
-        tcp      = "localhost:11211"
+        tcp      = "localhost:{{ memcached_network_port }}"
     }
 }

@@ -1,57 +1,57 @@
 ---
-
-- name: Install Subversion for Blender
-  hosts: subversion_servers
-  become: yes
-  roles:
-    - subversion
   
-- name: Install NFS Servers
-  hosts: nfs_servers
+# - name: Install NFS Servers
+#   hosts: nfs_servers
+#   become: yes
+#   roles:
+#     - nfs_server
+#   vars:
+#     subnet: "192.168.1.0/24"
+#     share_path: "/srv/nfs_shares"
+#     nfs_shares:
+#       - { share_name: flamenco }
+
+# - name: Install Samba for File Sharing
+#   hosts: samba_servers
+#   become: yes
+#   roles:
+#     - samba_server
+#   vars:
+#     workgroup: WORKGROUP
+#     smb_shares:
+#       - { share_name: 3dModels, comment: "STL Backup Directory" }
+#       - { share_name: wargames, comment: "A place to save Wargame PDFs" }
+
+- name: Consul Servers
+  hosts: consul_servers
   become: yes
   roles:
-    - nfs_server
+    - consul
   vars:
-    subnet: "192.168.1.0/24"
-    share_path: "/srv/nfs_shares"
-    nfs_shares:
-      - { share_name: flamenco }
+    consul_server: true
+    consul_ui: true
+    consul_datacenter: basement
 
-- name: Install Samba for File Sharing
-  hosts: samba_servers
+- name: Consul Agents
+  hosts: consul_agents
   become: yes
   roles:
-    - samba_server
+    - consul
   vars:
-    workgroup: WORKGROUP
-    smb_shares:
-      - { share_name: 3dModels, comment: "STL Backup Directory" }
-      - { share_name: wargames, comment: "A place to save Wargame PDFs" }
+    consul_datacenter: basement
+  
+- name: PostgreSQL Servers
+  hosts: postgresql_servers
+  become: yes
+  roles:
+    - postgresql
 
-# - name: Peripheral Servers
-#   hosts: peripheral_server
-#   become: yes
-#   roles:
-#     - redis
-#     - memcached
-
-# - name: Consul Servers
-#   hosts: consul_servers
-#   become: yes
-#   roles:
-#     - consul
-#   vars:
-#     consul_server: true
-#     consul_ui: true
-#     consul_datacenter: basement
-
-# - name: Consul Agents
-#   hosts: consul_agents
-#   become: yes
-#   roles:
-#     - consul
-#   vars:
-#     consul_datacenter: basement
+- name: NoSQL and Cache Servers
+  hosts: nosql
+  become: yes
+  roles:
+    - redis
+    - memcached
 
 # - name: Install Vault Servers
 #   hosts: vault_servers
@@ -67,9 +67,3 @@
 #   become: yes
 #   roles:
 #     - node_exporter
-  
-# - name: PostgreSQL Servers
-#   hosts: postgresql_servers
-#   become: yes
-#   roles:
-#     - postgresql

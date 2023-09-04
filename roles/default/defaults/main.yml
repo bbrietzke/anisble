@@ -9,5 +9,6 @@ requested_packages:
   - mdns-scan
   - screen
   - tmux
+  - zsh
 
 is_laptop: false
