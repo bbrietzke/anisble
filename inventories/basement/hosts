@@ -30,7 +30,6 @@ all:
       hosts:
         proteus:
         nereid:
-        larissa:
     monitored:
       hosts:
         amalthea:
