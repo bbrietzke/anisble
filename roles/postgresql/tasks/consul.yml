@@ -8,9 +8,8 @@
   when: consul_d.stat.exists
   notify: restart_consul
   template:
-    src: consul.j2
+    src: consul.hcl.j2
     dest: "/etc/consul.d/pgsql.hcl"
     owner: consul
     group: consul
     mode: 0644
-    state: "{{ postgres_state }}"

@@ -21,9 +21,15 @@ data_dir = "{{ consul_data_dir }}"
 # Enables the built-in web UI server and the required HTTP routes. This eliminates
 # the need to maintain the Consul web UI files separately from the binary.
 # Version 1.10 deprecated ui=true in favor of ui_config.enabled=true
+{% if consul_ui -%}
+ui_config {
+  enabled = true
+}
+{% else -%}
 #ui_config {
-#  enabled = {{ consul_ui | lower}}
+#  enabled = false
 #}
+{% endif -%}
 
 # server
 # This flag is used to control if an agent is in server or client mode. When provided,
@@ -48,3 +54,5 @@ bootstrap_expect = 3
 
 
 retry_join = [ {{ consul_hosts | map("to_json") | join(', ') }} ]
+
+enable_script_checks = true

@@ -1,11 +1,11 @@
 service {
     name    = "memcache"
     id      = "memcache-{{ ansible_hostname | lower }}"
-    port    = "{{ memcached_network_port }}"
+    port    = {{ memcached_network_port }}
     tags    = ["memcache", "static", "ansible"]
 
     meta    = {
-        managed_by="ansible"
+        managed_by  = "ansible"
     }
 
     check {

@@ -1,7 +1,7 @@
 service {
     name    = "redis"
     id      = "redis-{{ ansible_hostname | lower }}"
-    port    = "6379"
+    port    = 6379
     tags    = ["redis", "static", "ansible"]
 
     meta    = {

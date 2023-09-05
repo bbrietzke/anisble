@@ -1,4 +1,55 @@
 ---
+- name: Reverse Proxy for Services
+  hosts: reverse_proxy
+  become: yes
+  roles:
+    - nginx
+
+- name: Consul Servers
+  hosts: consul_servers
+  become: yes
+  roles:
+    - consul
+  vars:
+    consul_server: true
+    consul_ui: true
+    consul_datacenter: basement
+
+- name: Consul Agents
+  hosts: consul_agents
+  become: yes
+  roles:
+    - consul
+  vars:
+    consul_datacenter: basement
+
+- name: NoSQL and Cache Servers
+  hosts: nosql
+  become: yes
+  roles:
+    - redis
+    - memcached
+
+- name: PostgreSQL Servers
+  hosts: postgresql_servers
+  become: yes
+  roles:
+    - postgresql
+
+# - name: Install Vault Servers
+#   hosts: vault_servers
+#   become: yes
+#   roles:
+#     - vault
+#   vars:
+#     vault_use_consul: true
+#     vault_use_http: true
+
+# - name: Node Exporters
+#   hosts: all
+#   become: yes
+#   roles:
+#     - node_exporter
   
 # - name: Install NFS Servers
 #   hosts: nfs_servers
@@ -21,49 +72,3 @@
 #     smb_shares:
 #       - { share_name: 3dModels, comment: "STL Backup Directory" }
 #       - { share_name: wargames, comment: "A place to save Wargame PDFs" }
-
-- name: Consul Servers
-  hosts: consul_servers
-  become: yes
-  roles:
-    - consul
-  vars:
-    consul_server: true
-    consul_ui: true
-    consul_datacenter: basement
-
-- name: Consul Agents
-  hosts: consul_agents
-  become: yes
-  roles:
-    - consul
-  vars:
-    consul_datacenter: basement
-  
-- name: PostgreSQL Servers
-  hosts: postgresql_servers
-  become: yes
-  roles:
-    - postgresql
-
-- name: NoSQL and Cache Servers
-  hosts: nosql
-  become: yes
-  roles:
-    - redis
-    - memcached
-
-# - name: Install Vault Servers
-#   hosts: vault_servers
-#   become: yes
-#   roles:
-#     - vault
-#   vars:
-#     vault_use_consul: true
-#     vault_use_http: true
-
-# - name: Node Exporters
-#   hosts: all
-#   become: yes
-#   roles:
-#     - node_exporter

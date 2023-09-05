@@ -13,4 +13,3 @@
     owner: consul
     group: consul
     mode: 0644
-    state: "{{ redis_state }}"

@@ -1,7 +1,7 @@
 service {
     name    = "nginx"
     id      = "nginx-{{ ansible_hostname | lower }}"
-    port    = "80"
+    port    = 80
     tags    = ["nginx", "static", "ansible"]
 
     meta    = {

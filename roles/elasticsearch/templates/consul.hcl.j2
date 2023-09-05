@@ -1,11 +1,11 @@
 service {
     name    = "elasticsearch"
     id      = "elasticsearch-{{ ansible_hostname | lower }}"
-    port    = "9200"
+    port    = 9200
     tags    = ["elasticsearch", "static", "ansible"]
 
     meta    = {
-        managed_by="ansible"
+        managed_by  = "ansible"
     }
 
     check {

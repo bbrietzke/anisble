@@ -9,8 +9,7 @@
   notify: restart_consul
   template:
     src: consul.hcl.j2
-    dest: "/etc/consul.d/redis.hcl"
+    dest: "/etc/consul.d/nginx.hcl"
     owner: consul
     group: consul
     mode: 0644
-    state: "{{ redis_state }}"

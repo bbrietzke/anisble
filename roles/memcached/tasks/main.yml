@@ -10,8 +10,7 @@
     owner: root
     group: root
     mode: 0644
-    state: "{{ memcached_state }}"
-  notify: restart_mqtt
+  notify: restart_memcache
 
 - name: Update Consul
   include_tasks: consul.yml
