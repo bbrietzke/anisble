@@ -1,0 +1,9 @@
+---
+- name: Update All
+  dnf:
+    update_cache: true
+    autoremove: true
+    name: "*"
+    state: latest
+
+

@@ -1,8 +1,9 @@
 ---
-- name: update power policy file
+- name: Update Clamshell Policy
   notify:
     - restart_machine
-  lineinfile:
+  community.general.ini_file:
     path: "/etc/systemd/logind.conf"
-    regexp: "#HandleLidSwitch=suspend"
-    line: "HandleLidSwitch=ignore"
+    section:  "Login"
+    option: "HandleLidSwitch"
+    value: "ignore"

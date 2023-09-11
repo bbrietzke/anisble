@@ -2,3 +2,7 @@
 - name: Update Debian based distros
   include_tasks: update_debian.yml
   when: ansible_facts['os_family'] == "Debian"
+
+- name: Update DNF based distros
+  include_tasks: dnf.yml
+  when: ansible_facts['pkg_mgr'] == "dnf"

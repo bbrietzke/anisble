@@ -45,6 +45,11 @@ whatever:
 	touch /Volumes/system-boot/meta-data
 	touch /Volumes/system-boot/ssh
 
+alma:
+	cp boot/user-data/user-data.rpi /Volumes/CIDATA/user-data
+	touch /Volumes/CIDATA/meta-data
+	touch /Volumes/CIDATA/ssh
+
 wifi:
 	cp boot/network-config /Volumes/system-boot/network-config
 

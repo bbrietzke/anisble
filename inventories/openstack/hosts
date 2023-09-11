@@ -1,5 +1,8 @@
 all:
   children:
+    debug:
+      hosts:
+        amalthea:
     octoprint:
       hosts:
         octopi:
