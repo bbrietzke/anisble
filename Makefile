@@ -44,6 +44,7 @@ whatever:
 	cp boot/user-data/user-data.rpi /Volumes/system-boot/user-data
 	touch /Volumes/system-boot/meta-data
 	touch /Volumes/system-boot/ssh
+	diskutil eject /Volumes/system-boot
 
 wifi:
 	cp boot/network-config /Volumes/system-boot/network-config

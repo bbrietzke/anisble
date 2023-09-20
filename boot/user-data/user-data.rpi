@@ -12,7 +12,7 @@
 
 # On first boot, set the (default) ubuntu user's password to "ubuntu" and
 # expire user passwords
-hostname: amalthea
+hostname: callisto
 
 chpasswd:
   expire: true
