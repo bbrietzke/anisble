@@ -2,7 +2,7 @@
 autoinstall:
   version: 1
   identity:
-    hostname: titan
+    hostname: anake
     username: bbrietzke
     password: "$5$r3Kl6AKBqjA78VCX$4.Vuc56PR2faX3vLuqBxHxF796qiLhxuS4MacXtTt5C" 
   locale: en_US
