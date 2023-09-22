@@ -1,61 +1,27 @@
 all:
   children:
-    octoprint:
+    shutdown:
       hosts:
-        octopi:
-    nfs_servers:
-      hosts:
-        io:
-    samba_servers:
-      hosts:
-        io:
+        amalthea:
+        anake:
+        callisto:
+        carme:
+        elara:
+        europa:
+        ganymede:
+        himalia:
+        leda:
+        lysithea:
+        pasiphea:
     consul_servers:
       hosts:
-        io:
+        ganymede:
         himalia:
-        thebe:
+        elara:
     consul_agents:
       hosts:
         amalthea:
+        anake:
         callisto:
         europa:
-        ganymede:
-    postgresql_servers:
-      hosts:
-        callisto:
-    kubernetes_master:
-      hosts:
-        triton:
-    kubernetes_workers:
-      hosts:
-        proteus:
-        nereid:
-    monitored:
-      hosts:
-        amalthea:
-        callisto:
-        europa:
-        ganymede:
-        himalia:
-        io:
-        thebe:
-    search:
-      hosts:
-        himalia:
-    resource:
-      hosts:
-        europa:
-    message_queues:
-      hosts:
-        thebe:
-    proxmox:
-      hosts:
-        titan:
-    nosql:
-      hosts:
-        europa:
-    reverse_proxy:
-      hosts:
-        callisto:
-        ganymede:
-        himalia:
+        leda:

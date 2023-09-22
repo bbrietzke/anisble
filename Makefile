@@ -33,6 +33,9 @@ kube:
 	
 reboot:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts reboot.yml
+	
+shutdown:
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts shutdown.yml
 
 support:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts install_support_servers.yml
