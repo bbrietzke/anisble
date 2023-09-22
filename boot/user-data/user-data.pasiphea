@@ -2,7 +2,7 @@
 autoinstall:
   version: 1
   identity:
-    hostname: proteus
+    hostname: pasiphea
     username: bbrietzke
     password: "$5$r3Kl6AKBqjA78VCX$4.Vuc56PR2faX3vLuqBxHxF796qiLhxuS4MacXtTt5C" 
   locale: en_US
@@ -142,10 +142,10 @@ autoinstall:
   updates: all
   user-data:
     chpasswd:
-      expire: true
+      expire: false
       users:
         - name: bbrietzke
-          password: bbrietzke
+          password: x2M25GnHACvhS6ZrwmHwoozuXN2Ni05udy6bY4FFAY20oWQoqM
           type: text
     package_reboot_if_required: true
     ## Install additional packages on first boot
@@ -157,7 +157,7 @@ autoinstall:
         gecos: Brian Brietzke
         ssh_import_id: 
           - gh:bbrietzke
-        plain_text_passwd: bbrietzke
+        plain_text_passwd: x2M25GnHACvhS6ZrwmHwoozuXN2Ni05udy6bY4FFAY20oWQoqM
         sudo: ALL=(ALL) NOPASSWD:ALL
         shell: /bin/zsh
         groups: users,admin,wheel

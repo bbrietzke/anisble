@@ -1,6 +1,0 @@
----
-- name: Apt Caching
-  hosts: peripheral_server
-  become: yes
-  roles:
-    - apt_cacher

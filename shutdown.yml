@@ -1,9 +1,9 @@
 ---
-- name: REBOOT!
-  hosts: all
+- name: Shut down all the things!
+  hosts: shutdown
   become: yes
   serial: 2
   tasks:
-    - name: Power Off
+    - name: Shut Down Hosts
       community.general.shutdown:
 
