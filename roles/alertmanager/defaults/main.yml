@@ -1,0 +1,4 @@
+---
+alertmanager_state: present
+alertmanager_packages:
+  - prometheus-alertmanager

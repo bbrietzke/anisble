@@ -1,0 +1,9 @@
+---
+
+- name: Install Alert Manager packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ alertmanager_state }}"
+  vars:
+    packages: "{{ alertmanager_packages }}"

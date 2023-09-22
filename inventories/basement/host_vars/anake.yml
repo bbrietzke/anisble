@@ -1,5 +1,5 @@
 ---
-ansible_host: 192.168.1.124
+ansible_host: anake
 ansible_user: root
 
 is_laptop: true
