@@ -1,0 +1,9 @@
+---
+- name: REBOOT!
+  hosts: all
+  become: yes
+  serial: 2
+  tasks:
+    - name: Power Off
+      community.general.shutdown:
+
