@@ -2,7 +2,6 @@
 - name: Shut down all the things!
   hosts: shutdown
   become: yes
-  serial: 2
   tasks:
     - name: Shut Down Hosts
       community.general.shutdown:

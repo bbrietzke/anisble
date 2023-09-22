@@ -1,5 +1,2 @@
 ---
-ansible_host: anake
-ansible_user: root
-
-is_laptop: true
+ansible_host: 10.0.0.236

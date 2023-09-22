@@ -1,2 +1,3 @@
 ---
-ansible_host: ganymede
+ansible_host: 10.0.0.248
+is_laptop: true
