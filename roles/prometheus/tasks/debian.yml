@@ -1,0 +1,9 @@
+---
+
+- name: Install Prometheus packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ prometheus_state }}"
+  vars:
+    packages: "{{ prometheus_packages }}"

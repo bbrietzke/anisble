@@ -1,4 +1,0 @@
----
-ansible_user: pi
-ubuntu_version: jammy
-ansible_host: octopi.local
