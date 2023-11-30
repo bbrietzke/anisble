@@ -14,6 +14,9 @@ $(EXE):
 docs: $(DOC)
 	$(DOC) gh-deploy
 
+openstack: 
+	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts openstack.yml
+
 update:
 	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts updates.yml
 

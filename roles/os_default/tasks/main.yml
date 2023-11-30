@@ -1,0 +1,11 @@
+---
+- name: Add Antelope OpenStack Repository
+  command: "sudo add-apt-repository -y {{ os_default_repository }}"
+
+- name: Install Default OpenStack packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ os_default_state }}"
+  vars:
+    packages: "{{ os_default_packages }}"
