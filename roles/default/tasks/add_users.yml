@@ -1,0 +1,32 @@
+---
+
+- name: Create users
+  user:
+    name: "{{ item.username }}"
+    comment: "{{ item.name }}"
+    create_home: yes
+    state: "{{ item.state }}"
+    expires: -1
+    update_password: on_create
+    password: $6$320p1Jsp4NETURKv$fNXGXSIQy5IX.D4pWd4VFPOoNneZYflypE.uf9jAw1mOu9BlujYCCpNim5NfxG5mfWUSemyA3RCNsCnX8FHZG.
+  with_items: '{{ requested_users }}'
+
+- name: Install SSH keys
+  authorized_key: 
+    user: "{{ item.username }}"
+    key: "{{ item.github_url }}"
+    state: present
+    exclusive: true
+  with_items: '{{ requested_users }}'
+
+- name: Update Ansible accounts
+  user:
+    name: "ansible"
+    update_password: always
+    password: $6$hXo3ieOBB5Zx74cm$wbZMZwyfOAwyhizMlm6ywGdmMdAqqKbHzi29AMG7KYzfvh9s6ihvsuZ7ZmxWN7252jHGEdbYg6MIGOfs.feOD.
+
+- name: Install SSH keys for Ansible
+  authorized_key: 
+    user: "ansible"
+    state: present
+    key: "https://github.com/bbrietzke.keys"

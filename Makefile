@@ -4,6 +4,7 @@ EXE := $(shell which ansible-playbook)
 EXE_OPTIONS :=  						# make EXE_OPTIONS=--ask-become-pass updates
 DOC := $(shell which mkdocs)			# make EXE_OPTIONS="--ask-become-pass --limit octopi"
 UNAME_S := $(shell uname -s)
+DEFAULT_GROUP := apartment
 
 $(DOC):
 	python3 -m pip install mkdocs
@@ -15,19 +16,19 @@ docs: $(DOC)
 	$(DOC) gh-deploy
 
 openstack: 
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts openstack.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts openstack.yml
 
 update:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts updates.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts updates.yml
 
 default:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts default.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts default.yml
 	
 reboot:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts reboot.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts reboot.yml
 	
 shutdown:
-	$(EXE) $(EXE_OPTIONS) -i inventories/basement/hosts shutdown.yml
+	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts shutdown.yml
 
 whatever:
 	cp boot/user-data/user-data.rpi /Volumes/system-boot/user-data

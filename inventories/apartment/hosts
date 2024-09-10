@@ -1,0 +1,9 @@
+---
+all:
+    children:
+        qemu_hosts:
+            hosts:
+                dione:
+                janus:
+                calypso:
+

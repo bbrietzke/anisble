@@ -1,0 +1,5 @@
+---
+- name: restart_qemu
+  systemd:
+    name: qemu-guest-agent
+    state: restarted

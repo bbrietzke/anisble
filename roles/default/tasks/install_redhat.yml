@@ -1,0 +1,11 @@
+---
+- name: install default packages
+  yum:
+    name: "{{ package }}"
+    state: "{{ package_state }}"
+    update_cache: yes
+  vars:
+    package: "{{ requested_packages }}"
+  tags:
+    - sw
+    - apt

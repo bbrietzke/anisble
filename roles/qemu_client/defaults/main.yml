@@ -1,0 +1,5 @@
+qemu_packages:
+  - qemu-guest-agent
+
+qemu_state: present
+prometheus_role: qemu

@@ -4,6 +4,10 @@
   become: yes
   serial: 2
   tasks:
-    - name: reboot host
-      reboot:
-
+    # - name: reboot host
+    #   reboot:
+    - name: OS Name
+      debug:
+        var: host
+      vars:
+        host: "{{ ansible_play_hosts_all }}"
