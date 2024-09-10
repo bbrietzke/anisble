@@ -1,6 +1,4 @@
 ---
-ubuntu_version: xenial
-
 kubernetes_state: present
 
 add_packages:
