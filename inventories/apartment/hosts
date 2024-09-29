@@ -1,9 +1,14 @@
 ---
 all:
     children:
-        qemu_hosts:
+        qemu:
             hosts:
-                dione:
-                janus:
-                calypso:
-
+                hyperion:
+                pandora:
+                worker00:
+        controllers:
+            hosts:
+                pandora:
+        workers:
+            hosts:
+                worker00:

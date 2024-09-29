@@ -1,0 +1,23 @@
+---
+slurm_state: present
+
+slurm_debian_packages: 
+  - slurmd
+  - libpmix-bin
+  - libpmix-dev
+  - python3-pmix
+
+prometheus_role: slurm_worker
+
+primary_controller: pandora
+
+suspend_timeout: 600
+resume_timeout: 300
+resume_rate: 1
+
+partition_config:
+  - { name: "slicers", nodes: "worker0[0-1]", default: false, max_time: 600, disabled: true }
+
+node_config:
+  - { name: "worker0[0-1]", cpus: 1, real_memory: 512 }
+  - { name: "worker0a", cpus: 2, real_memory: 1024 }

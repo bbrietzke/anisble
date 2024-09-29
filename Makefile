@@ -48,3 +48,13 @@ retropie:
 	touch /Volumes/boot/ssh && \
 	cp boot/wpa_supplicant.conf /Volumes/boot/  && \
 	diskutil unmountDisk /dev/disk2
+
+
+
+
+
+
+
+# sudo kubeadm init --control-plane-endpoint=pandora --pod-network-cidr=192.168.0.0/16
+
+# kubeadm join pandora:6443 --token ehpx0v.bh4z146391qfbhim --discovery-token-ca-cert-hash sha256:912983c080fad53470ce8b833e770181cf6f87b6509763732fb8e34feebd4690

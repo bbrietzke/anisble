@@ -1,0 +1,8 @@
+---
+- name: Install Slurm packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+    state: "{{ slurm_state }}"
+  vars:
+    packages: "{{ slurm_debian_packages }}"

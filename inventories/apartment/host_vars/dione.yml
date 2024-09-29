@@ -1,4 +1,0 @@
----
-ansible_host: 10.0.0.238
-hostname: dione
-qemu_client: True

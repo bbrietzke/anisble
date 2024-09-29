@@ -15,4 +15,3 @@ is_laptop: false
 
 requested_users:
   - { name: "Brian Brietzke", username: "bbrietzke", as_sudoer: True, state: present, github_url: "https://github.com/bbrietzke.keys" }
-

@@ -1,8 +1,0 @@
----
-ansible_host: 10.0.0.78
-hostname: janus
-qemu_client: True
-
-
-
-

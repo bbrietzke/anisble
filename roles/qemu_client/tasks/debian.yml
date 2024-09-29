@@ -1,0 +1,7 @@
+---
+- name: Install required Qemu packages
+  apt:
+    name: "{{ packages }}"
+    state: "{{ qemu_state }}"
+  vars:
+    packages: "{{ qemu_packages }}"

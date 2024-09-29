@@ -4,4 +4,9 @@
   become: yes
   roles:
     - default
+
+- name: Update Qemu guest agent
+  hosts: qemu
+  become: yes
+  roles:
     - qemu_client
