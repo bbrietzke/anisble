@@ -12,3 +12,4 @@ all:
         workers:
             hosts:
                 worker00:
+                worker01:

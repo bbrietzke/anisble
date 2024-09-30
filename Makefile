@@ -29,6 +29,9 @@ reboot:
 	
 shutdown:
 	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts shutdown.yml
+	
+slurm:
+	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts slurm.yml
 
 whatever:
 	cp boot/user-data/user-data.rpi /Volumes/system-boot/user-data

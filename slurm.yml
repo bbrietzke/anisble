@@ -1,0 +1,14 @@
+---
+- name: Setup the SLURM controllers
+  hosts: controllers
+  become: yes
+  roles:
+    - slurmctrl
+    - slurm_conf
+
+- name: Setup the SLURM workers
+  hosts: workers
+  become: yes
+  roles:
+    - slurm
+    - slurm_conf

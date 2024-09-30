@@ -1,0 +1,19 @@
+---
+- name: Update Debian based distros
+  include_tasks: debian.yml
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Does /var/spool/slurmctld exist?
+  stat: 
+    path: /var/spool/slurmctld
+  register: spool_dir
+
+- name: Creating /var/spool/slurmctld
+  when: not spool_dir.stat.exists
+  notify: restart_slurm
+  file:
+    path: /var/spool/slurmctld 
+    state: directory
+    owner: slurm
+    group: slurm
+

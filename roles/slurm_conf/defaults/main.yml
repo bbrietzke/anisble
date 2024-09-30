@@ -1,0 +1,14 @@
+---
+primary_controller: pandora
+
+suspend_timeout: 600
+suspend_time: 300
+suspend_rate: 1
+resume_timeout: 300
+resume_rate: 1
+
+partition_config:
+  - { name: "slicers", nodes: "worker00", default: false, max_time: 600, disabled: true }
+
+node_config:
+  - { name: "worker0[0-1]", cpus: 2, real_memory: 512 }

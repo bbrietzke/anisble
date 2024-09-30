@@ -2,3 +2,18 @@
 - name: Update Debian based distros
   include_tasks: debian.yml
   when: ansible_facts['os_family'] == "Debian"
+
+# - name: Does /etc/slurm exist?
+#   stat: 
+#     path: /etc/slurm
+#   register: slurm_dir
+
+# - name: Create SLURM configuration file.
+#   when: slurm_dir.stat.exists
+#   notify: restart_slurm
+#   template:
+#     src: slurm.conf.j2
+#     dest: "/etc/slurm/slurm.conf"
+#     owner: slurm
+#     group: slurm
+#     mode: 0644

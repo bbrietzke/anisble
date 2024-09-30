@@ -1,0 +1,10 @@
+---
+slurm_state: present
+
+slurm_debian_packages: 
+  - slurmctld
+  - libpmix-bin
+  - libpmix-dev
+  - python3-pmix
+
+prometheus_role: slurm_controller
