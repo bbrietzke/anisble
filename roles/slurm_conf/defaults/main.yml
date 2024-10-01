@@ -8,7 +8,7 @@ resume_timeout: 300
 resume_rate: 1
 
 partition_config:
-  - { name: "slicers", nodes: "worker00", default: false, max_time: 600, disabled: true }
+  - { name: "slicers", nodes: "worker0[0-1]", default: false, max_time: 600, disabled: true }
 
 node_config:
   - { name: "worker0[0-1]", cpus: 2, real_memory: 512 }

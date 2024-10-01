@@ -6,5 +6,6 @@ slurm_debian_packages:
   - libpmix-bin
   - libpmix-dev
   - python3-pmix
+  - python3-proxmoxer
 
 prometheus_role: slurm_controller

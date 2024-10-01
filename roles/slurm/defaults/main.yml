@@ -3,6 +3,7 @@ slurm_state: present
 
 slurm_debian_packages: 
   - slurmd
+  - slurm-client
   - libpmix-bin
   - libpmix-dev
   - python3-pmix

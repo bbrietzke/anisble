@@ -10,7 +10,7 @@
 
 - name: Creating /var/spool/slurmctld
   when: not spool_dir.stat.exists
-  notify: restart_slurm
+  notify: restart_slurmctld
   file:
     path: /var/spool/slurmctld 
     state: directory
