@@ -8,8 +8,8 @@
   when: ansible_facts['os_family'] == "Debian"
 
 - name: enable QEMU agent
-  when: qemu_client is defined
   service:
     name: qemu-guest-agent
     enabled: yes
+    state: restarted
   notify: restart_qemu

@@ -12,3 +12,25 @@
     owner: slurm
     group: slurm
     mode: 0644
+
+- name: Does /usr/sbin/slurmctld exist?
+  stat: 
+    path: /usr/sbin/slurmctld
+  register: slurmctl_exe
+
+- name: Restart slurm controller
+  when: slurmctl_exe.stat.exists
+  service:
+    name: slurmctld
+    state: restarted
+
+- name: Does /usr/sbin/slurmd exist?
+  stat: 
+    path: /usr/sbin/slurmd
+  register: slurm_exe
+
+- name: Restart slurm worker
+  when: slurm_exe.stat.exists
+  service:
+    name: slurmd
+    state: restarted
