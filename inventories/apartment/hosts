@@ -4,13 +4,5 @@ all:
         qemu:
             hosts:
                 hyperion:
-                pandora:
-                worker00:
-                worker01:
-        controllers:
-            hosts:
-                pandora:
-        workers:
-            hosts:
-                worker00:
-                worker01:
+                delicateFlower:
+                purpleBrook:

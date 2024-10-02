@@ -1,3 +1,0 @@
----
-ansible_host: 10.0.0.37
-qemu_client: true
