@@ -7,8 +7,6 @@ all:
                 pandora:
                 worker00:
                 worker01:
-                worker02:
-                worker03:
         controllers:
             hosts:
                 pandora:
@@ -16,5 +14,3 @@ all:
             hosts:
                 worker00:
                 worker01:
-                worker02:
-                worker03:

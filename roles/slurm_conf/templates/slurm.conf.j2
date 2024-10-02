@@ -59,6 +59,7 @@ TaskPlugin=task/affinity,task/cgroup
 #TreeWidth=
 #UnkillableStepProgram=
 #UsePAM=0
+RebootProgram=/usr/local/bin/toggle_server.py
 #
 #
 # TIMERS
@@ -132,15 +133,15 @@ SlurmdLogFile=/var/log/slurm/slurmd.log
 #
 #
 # POWER SAVE SUPPORT FOR IDLE NODES (optional)
-#SuspendProgram=
-#ResumeProgram=
-#SuspendTimeout=
-#ResumeTimeout=
-#ResumeRate=
+SuspendProgram=/usr/local/bin/toggle_server.py
+ResumeProgram=/usr/local/bin/toggle_server.py
+SuspendTimeout=600
+ResumeTimeout=600
+ResumeRate=10
+SuspendRate=10
+SuspendTime=60
 #SuspendExcNodes=
 #SuspendExcParts=
-#SuspendRate=
-#SuspendTime=
 #
 #
 # COMPUTE NODES
