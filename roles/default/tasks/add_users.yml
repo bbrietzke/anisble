@@ -1,24 +1,27 @@
 ---
 
+# roles/default/tasks/add_users.yml
+
 - name: Create users
   user:
     name: "{{ item.username }}"
     comment: "{{ item.name }}"
     create_home: yes
-    state: "{{ item.state }}"
+    state: present
     expires: -1
     update_password: on_create
     password: $6$320p1Jsp4NETURKv$fNXGXSIQy5IX.D4pWd4VFPOoNneZYflypE.uf9jAw1mOu9BlujYCCpNim5NfxG5mfWUSemyA3RCNsCnX8FHZG.
-  with_items: '{{ requested_users }}'
+  loop: "{{ requested_users }}"
+
 
 
 - name: Install SSH keys
-  authorized_key: 
+  authorized_key:
     user: "{{ item.username }}"
     key: "{{ item.github_url }}"
     state: present
     exclusive: true
-  with_items: '{{ requested_users }}'
+  loop: "{{ requested_users }}"
 
 - name: Update Ansible accounts
   user:
@@ -27,23 +30,18 @@
     password: $6$hXo3ieOBB5Zx74cm$wbZMZwyfOAwyhizMlm6ywGdmMdAqqKbHzi29AMG7KYzfvh9s6ihvsuZ7ZmxWN7252jHGEdbYg6MIGOfs.feOD.
 
 - name: Update groups for Redhat
-  user: 
+  user:
     name: "{{ item.username }}"
-    groups: "wheel"
+    groups: ["wheel"]
     append: yes
   when: item.as_sudoer and ansible_facts['os_family'] == "RedHat"
   with_items: '{{ requested_users }}'
 
+
 - name: Update groups for Debian
   user:
     name: "{{ item.username }}"
-    groups: "sudo"
+    groups: ["sudo"]
     append: yes
   when: item.as_sudoer and ansible_facts['os_family'] == "Debian"
-  with_items: '{{ requested_users }}'
-
-# - name: Install SSH keys for Ansible
-#   authorized_key: 
-#     user: "ansible"
-#     state: present
-#     key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+  loop: '{{ requested_users }}'
