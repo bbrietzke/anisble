@@ -5,7 +5,7 @@
     state: "{{ package_state }}"
     update_cache: yes
   vars:
-    package: "{{ requested_packages }}"
+    package: "{{ requested_debian_packages }}"
   tags:
     - sw
     - apt

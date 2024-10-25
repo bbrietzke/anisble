@@ -1,7 +1,7 @@
 
 package_state: present
 
-requested_packages:
+requested_debian_packages:
   - avahi-daemon 
   - avahi-discover 
   - avahi-utils 
@@ -9,6 +9,12 @@ requested_packages:
   - mdns-scan
   - screen
   - tmux
+  - zsh
+
+requested_redhat_packages:
+  - avahi
+  - avahi-tools
+  - screen
   - zsh
 
 is_laptop: false

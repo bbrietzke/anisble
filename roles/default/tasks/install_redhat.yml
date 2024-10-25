@@ -5,7 +5,21 @@
     state: "{{ package_state }}"
     update_cache: yes
   vars:
-    package: "{{ requested_packages }}"
+    package: "{{ requested_redhat_packages }}"
   tags:
     - sw
     - apt
+
+- name: update Firewalld for outbound avahi ( UDP )
+  firewalld:
+    port: 5353/udp
+    permanent: true
+    zone: public
+    state: enabled
+
+- name: update Firewalld for outbound avahi ( TCP )
+  firewalld:
+    port: 5353/tcp
+    permanent: true
+    zone: public
+    state: enabled

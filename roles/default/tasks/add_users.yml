@@ -13,8 +13,6 @@
     password: $6$320p1Jsp4NETURKv$fNXGXSIQy5IX.D4pWd4VFPOoNneZYflypE.uf9jAw1mOu9BlujYCCpNim5NfxG5mfWUSemyA3RCNsCnX8FHZG.
   loop: "{{ requested_users }}"
 
-
-
 - name: Install SSH keys
   authorized_key:
     user: "{{ item.username }}"
