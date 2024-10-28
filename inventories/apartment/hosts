@@ -3,6 +3,5 @@ all:
     children:
         qemu:
             hosts:
-                hyperion:
-                delicateFlower:
-                purpleBrook:
+                emptybreeze:
+                silentThunder:

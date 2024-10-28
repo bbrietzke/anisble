@@ -14,12 +14,10 @@
   firewalld:
     port: 5353/udp
     permanent: true
-    zone: public
     state: enabled
 
 - name: update Firewalld for outbound avahi ( TCP )
   firewalld:
     port: 5353/tcp
     permanent: true
-    zone: public
     state: enabled

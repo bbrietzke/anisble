@@ -3,4 +3,4 @@ java_state: present
 
 java_packages:
   - default-jdk-headless
-  - openjdk-17-jdk-headless
+  - openjdk-21-jdk-headless
