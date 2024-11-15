@@ -21,3 +21,9 @@
     port: 5353/tcp
     permanent: true
     state: enabled
+
+- name: enable avahi
+  service:
+    name: avahi-daemon
+    enabled: yes
+  notify: restart_avahi

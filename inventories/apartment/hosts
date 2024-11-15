@@ -3,5 +3,9 @@ all:
     children:
         qemu:
             hosts:
-                emptybreeze:
-                silentThunder:
+                kcontroller:
+                khost01:
+        kubernetes:
+            hosts:
+                kcontroller:
+                khost01:

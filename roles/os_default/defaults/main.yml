@@ -1,6 +1,6 @@
 ---
 
 os_default_state: present
-os_default_repository: cloud-archive:antelope
+os_default_repository: cloud-archive:dalmation
 os_default_packages:
   - python3-openstackclient

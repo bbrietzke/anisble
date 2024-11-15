@@ -2,3 +2,8 @@
 - name: restart_machine
   reboot:
       reboot_timeout: 3600
+
+- name: restart_avahi
+  systemd:
+    name: avahi-daemon
+    state: restarted
