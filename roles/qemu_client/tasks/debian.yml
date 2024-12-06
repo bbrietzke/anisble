@@ -1,5 +1,6 @@
 ---
 - name: Install required Qemu packages
+  when: qemu_client
   apt:
     name: "{{ packages }}"
     state: "{{ qemu_state }}"

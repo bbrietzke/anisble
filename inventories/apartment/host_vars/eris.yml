@@ -1,0 +1,4 @@
+---
+ansible_host: 10.0.0.177
+qemu_client: false
+is_laptop: false

@@ -1,8 +1,8 @@
 ---
 - name: Install required yum packages
+  when: qemu_client
   yum:
     name: "{{ packages }}"
     state: "{{ qemu_state }}"
   vars:
     packages: "{{ qemu_packages }}"
-  when: qemu_client
