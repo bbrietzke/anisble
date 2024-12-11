@@ -4,4 +4,9 @@
   become: yes
   roles:
     - default
+
+- name: Do initial installation
+  hosts: qemu
+  become: yes
+  roles:
     - qemu_client

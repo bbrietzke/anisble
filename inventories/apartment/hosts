@@ -6,3 +6,6 @@ all:
                 pandora:
                 eris:
                 pluto:
+        qemu:
+            hosts:
+                pandora:

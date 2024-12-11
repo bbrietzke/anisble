@@ -1,6 +1,0 @@
----
-- name: Do Intial OpenStack Configuration
-  hosts: all
-  become: yes
-  roles:
-    - os_default
