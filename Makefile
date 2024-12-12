@@ -30,6 +30,9 @@ shutdown:
 slurm:
 	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts slurm.yml
 
+kube:
+	$(EXE) $(EXE_OPTIONS) -i inventories/$(DEFAULT_GROUP)/hosts local_kube.yml
+
 whatever:
 	cp boot/user-data/user-data.rpi /Volumes/system-boot/user-data
 	touch /Volumes/system-boot/meta-data

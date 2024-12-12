@@ -1,0 +1,30 @@
+---
+- name: Do initial installation
+  hosts: all
+  become: yes
+  roles:
+    - default
+
+- name: Do initial installation
+  hosts: qemu
+  become: yes
+  roles:
+    - qemu_client
+
+- name: setup NFS Servers
+  hosts: servers
+  become: yes
+  roles:
+   - nfs_server
+  vars:
+    nfs_shares:
+      - { share_name: shared }
+      - { share_name: data_redis }
+
+- name: setup NFS Clients
+  hosts: clients
+  become: yes
+  roles:
+    - nfs_client
+  vars:
+    nfs_mounts: []

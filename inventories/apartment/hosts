@@ -1,11 +1,19 @@
 ---
 all:
     children:
+        servers:
+            hosts:
+                eris:
+        clients:
+            hosts:
+                phoebe:
+                neptune:
         main:
             hosts:
-                pandora:
+                phoebe:
                 eris:
                 pluto:
+                neptune:
         qemu:
             hosts:
-                pandora:
+                phoebe:
