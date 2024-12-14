@@ -6,14 +6,10 @@ all:
                 eris:
         clients:
             hosts:
-                phoebe:
-                neptune:
+                uranus:
         main:
             hosts:
-                phoebe:
                 eris:
                 pluto:
-                neptune:
-        qemu:
-            hosts:
-                phoebe:
+                uranus:
+                retropie:

@@ -1,4 +1,4 @@
 ---
-ansible_host: 10.0.0.223
+ansible_host: 10.0.0.22
 qemu_client: false
 is_laptop: false

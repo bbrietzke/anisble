@@ -20,6 +20,7 @@
     nfs_shares:
       - { share_name: shared }
       - { share_name: data_redis }
+      - { share_name: data_jenkins }
 
 - name: setup NFS Clients
   hosts: clients
